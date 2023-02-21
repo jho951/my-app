@@ -1,32 +1,28 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Ignore Next.js build output
+.next/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Ignore serverless build output
+.serverless/
 
-# testing
-/coverage
+# Ignore static export output
+out/
 
-# next.js
-/.next/
-/out/
+# Ignore development server files
+node_modules/
+.next/
+/.cache/
+.next.js/
+*.log
 
-# production
-/build
+# Ignore environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# misc
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore macOS specific files
 .DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# local env files
-.env*.local
-
-# vercel
-.vercel

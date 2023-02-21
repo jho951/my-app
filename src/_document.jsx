@@ -17,7 +17,6 @@ export default class MyDocument extends Document {
         </Head>
         <Main />
         <NextScript />
-        <footer>푸터입니다.</footer>
       </Html>
     )
   }
