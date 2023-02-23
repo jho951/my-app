@@ -4,4 +4,4 @@ export const stylesImg = {
   blockSize: "auto",
   width: "300px",
   aspectRatio: 2 / 1,
-};
+}
