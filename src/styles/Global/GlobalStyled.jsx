@@ -1,60 +1,10 @@
-import {createGlobalStyle} from "styled-components"
+import React from "react"
+
+import {ThemeProvider as Provider, createGlobalStyle} from "styled-components"
+import {normalize} from "styled-normalize"
 
 const GlobalStyle = createGlobalStyle`
-   /* Reset CSS */
-   *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: sans-serif;
-    line-height: 1.5;
-  }
-
-  ul,
-  ol,
-  dl {
-    margin: 0;
-    padding: 0;
-  }
-
-  h1, h2, h3, h4, h5, h6,
-  p,
-  blockquote,
-  pre,
-  figure,
-  table {
-    margin: 0;
-    padding: 0;
-  }
-
-  img,
-  svg,
-  video,
-  canvas,
-  audio,
-  iframe,
-  embed,
-  object {
-    display: block;
-  }
-
-  svg {
-    overflow: hidden;
-    vertical-align: middle;
-  }
-
-  [hidden] {
-    display: none;
-  }
+ ${normalize}
   /* 가로 모드 상황 css 적용 */
 @media (orientation: landscape) {
 }
@@ -87,10 +37,28 @@ const GlobalStyle = createGlobalStyle`
   -moz-osx-font-smoothing: grayscale;
   font-size: clamp(1rem, 0.2rem + 1.5vw, 1.5rem);
 }
+
 `
+const ThemeProvider = ({children}) => {
+  const theme = {
+    background: "#ffffff",
+    primary: "#bc4742",
+    footer: "#131c2e",
+    button: "#195FAD",
+  }
+
+  return (
+    <Provider theme={theme}>
+      <GlobalStyle />
+
+      {children}
+    </Provider>
+  )
+}
+
 // 기준 점  1069px 에서 1440px 입니다.
 const smTestScreen = `@media (max-width: 734px) and (min-width: 0px)`
 const mdTestScreen = `@media (max-width: 1068px) and (min-width: 735px)`
 const lTestScreen = `@media (max-width: 1000000px) and (min-width: 1441px)`
 
-export {GlobalStyle, smTestScreen, mdTestScreen, lTestScreen}
+export {ThemeProvider, smTestScreen, mdTestScreen, lTestScreen}

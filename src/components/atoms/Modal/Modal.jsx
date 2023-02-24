@@ -30,5 +30,8 @@ function Modal({isOpen, onClose, children}) {
     </>
   )
 }
-
 export default Modal
+
+export function ModalHead() {
+  return <></>
+}
