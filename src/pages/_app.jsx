@@ -1,9 +1,8 @@
 import React from "react"
 import {QueryClient, QueryClientProvider, Hydrate} from "react-query"
 import {ThemeProvider} from "../styles/Global/GlobalStyled"
-import "../styles/Global/global.css"
 
-export default function MyApp({Component}) {
+export default function MyApp({Component, pageProps}) {
   const queryClient = new QueryClient()
   return (
     <React.Fragment>
@@ -11,7 +10,7 @@ export default function MyApp({Component}) {
         {/* <GlobalStyle /> */}
         <Hydrate>
           <ThemeProvider>
-            <Component />
+            <Component {...pageProps} />
           </ThemeProvider>
         </Hydrate>
       </QueryClientProvider>

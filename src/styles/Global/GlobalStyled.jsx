@@ -21,15 +21,6 @@ const GlobalStyle = createGlobalStyle`
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   grid-gap: 1em;
 }
-#seo {
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  position: absolute;
-  user-select: none;
-  white-space: nowrap;
-}
 :root {
   scroll-behavior: smooth;
   box-sizing: border-box;
@@ -50,7 +41,6 @@ const ThemeProvider = ({children}) => {
   return (
     <Provider theme={theme}>
       <GlobalStyle />
-
       {children}
     </Provider>
   )

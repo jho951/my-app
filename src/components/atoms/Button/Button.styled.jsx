@@ -1,5 +1,4 @@
 import styled, {keyframes} from "styled-components"
-import {ThemeProvider} from "styled-components"
 const shinyBtnAnimation = keyframes`
   0% {
     transform: scale(0) rotate(45deg);
@@ -39,7 +38,7 @@ export const CustomButton = styled.button`
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
   border: ${(props) => props.border || "none"};
-  /* overflow: hidden; */
+  overflow: hidden;
   background: ${(props) => props.background || "transparent"};
 
   ////////////////////////
@@ -49,7 +48,6 @@ export const CustomButton = styled.button`
   &.btn0 {
     background: ${(props) => props.background || props.theme.button};
     :hover {
-      background: rgb(0, 3, 255);
       background: linear-gradient(
         0deg,
         rgba(0, 3, 255, 1) 0%,
@@ -576,8 +574,8 @@ export const CustomButton = styled.button`
     width: 130px;
     height: 40px;
     line-height: 42px;
-    -webkit-perspective: 230px;
     perspective: 230px;
+    perspective-origin: 50% 50% -20px;
 
     & span {
       background: ${(props) =>
@@ -592,38 +590,72 @@ export const CustomButton = styled.button`
       border-radius: 5px;
       margin: 0;
       text-align: center;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
       box-sizing: border-box;
-      -webkit-transition: all 0.3s;
       transition: all 0.3s;
+      transform-origin: 50% 50% -20px;
+      transform-style: preserve-3d;
     }
 
     & span:nth-child(1) {
       box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
         7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
-      -webkit-transform: rotateX(90deg);
-      -moz-transform: rotateX(90deg);
       transform: rotateX(90deg);
-      -webkit-transform-origin: 50% 50% -20px;
-      -moz-transform-origin: 50% 50% -20px;
-      transform-origin: 50% 50% -20px;
     }
 
     &:hover span:nth-child(1) {
       box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
         7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-      -webkit-transform: rotateX(0deg);
-      -moz-transform: rotateX(0deg);
       transform: rotateX(0deg);
     }
+
+    & span:nth-child(2) {
+      transform: rotateX(0deg);
+    }
+
     &:hover span:nth-child(2) {
       box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
         7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
       color: transparent;
-      -webkit-transform: rotateX(-90deg);
-      -moz-transform: rotateX(-90deg);
       transform: rotateX(-90deg);
+    }
+  }
+
+  &.go_btn {
+    padding: 16px 32px;
+    border-radius: 24px;
+    display: block;
+    outline: none;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: #3d9ded;
+    box-shadow: inset 0 0 0 2px #3d9ded;
+    transition: box-shadow 0.5s ease, color 1s ease;
+    div {
+      display: flex;
+      overflow: hidden;
+      text-shadow: 0 20px 0 #f2b633;
+      span {
+        display: block;
+        backface-visibility: hidden;
+        font-style: normal;
+        transition: transform 0.25s ease;
+        transform: translateY(0) translateZ(0);
+        $i: 1;
+        @while $i < 5 {
+          &:nth-child(#{$i}) {
+            transition-delay: $i / 20 + s;
+          }
+          $i: $i + 1;
+        }
+      }
+    }
+    &:hover {
+      box-shadow: inset 0 0 0 2px #f2b633;
+      color: #f2b633;
+      span {
+        transform: translateY(-18px);
+      }
     }
   }
 `

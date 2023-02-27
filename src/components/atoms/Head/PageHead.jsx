@@ -5,7 +5,7 @@ export default function PageHead({title, description, keyword, data, seo}) {
   return (
     <React.Fragment>
       <Head>
-        <title>{data.category || title}</title>
+        <title>{data?.category || title}</title>
         <meta name='description' content={description || ""} />
         <meta name='Keywords' content={keyword || ""} />
 
@@ -25,7 +25,6 @@ export default function PageHead({title, description, keyword, data, seo}) {
           content={data?.images[0] || "/favicon.ico"}
         />
       </Head>
-      <h1 id='seo'>{seo || title}</h1>
     </React.Fragment>
   )
 }
