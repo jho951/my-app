@@ -1,7 +1,7 @@
-import {useState} from "react"
+import {useState, useRef} from "react"
 import {CustomButton} from "./Button.styled"
 
-const Button = ({children, onClick, className, background}) => {
+const Button = ({children, ...props}) => {
   // const [isHovered, setIsHovered] = useState(false)
   // function handleMouseEnter() {
   //   setIsHovered(true)
@@ -11,12 +11,11 @@ const Button = ({children, onClick, className, background}) => {
   // function handleMouseLeave() {
   //   setIsHovered(false)
   // }
-
+  const btnRef = useRef(null)
   return (
     <CustomButton
-      className={className}
-      onClick={onClick}
-      background={background}
+      {...props}
+      ref={btnRef}
       // onMouseEnter={handleMouseEnter}
       // onMouseLeave={handleMouseLeave}
     >

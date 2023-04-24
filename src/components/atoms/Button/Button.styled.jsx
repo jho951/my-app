@@ -39,7 +39,8 @@ export const CustomButton = styled.button`
   outline: none;
   border: ${(props) => props.border || "none"};
   overflow: hidden;
-  background: ${(props) => props.background || "transparent"};
+  background-color: ${(props) => props.theme.button};
+  /* background: ${(props) => props.background || "transparent"}; */
 
   ////////////////////////
   /////// 기본 버튼 ////////

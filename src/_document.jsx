@@ -1,6 +1,6 @@
 import {Main, NextScript, Head, Html} from "next/document"
 import DefaultHead from "./components/atoms/Head/Defaulthead"
-import {PageHead} from "./components/atoms/Head/pageHead"
+import PageHead from "./components/atoms/Head/PageHead"
 
 // _document.js 역할
 // 1. HTML 문서의 기본 레이아웃을 정의합니다.

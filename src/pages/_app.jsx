@@ -7,7 +7,6 @@ export default function MyApp({Component, pageProps}) {
   return (
     <React.Fragment>
       <QueryClientProvider client={queryClient}>
-        {/* <GlobalStyle /> */}
         <Hydrate>
           <ThemeProvider>
             <Component {...pageProps} />

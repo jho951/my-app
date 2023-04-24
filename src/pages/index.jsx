@@ -1,26 +1,33 @@
-"useclient"
-import React from "react"
 import PageHead from "../components/atoms/Head/PageHead"
-import {Input} from "../components/atoms/Input/Input.styled"
-
-// import ModalUtils from "../utils/Modal/ModalUtils"
+import {ModalUtils} from "../utils/Modal/ModalUtils"
+import Modal from "../components/molecules/Modal/Modal"
+import ToolTip from "../components/molecules/ToolTip/ToolTip"
+import {useEffect} from "react"
 
 export default function MyComponent() {
-  // const transition = document.querySelector(".transition")
-  // transition.addEventListener("click", handleClick)
-  // function handleClick() {
-  //   transition?.classList.toggle("close")
-  // }
-  // const {modalOpen, handleOpenModal, handleCloseModal} = ModalUtils()
+  const {handleOpenModal, handleCloseModal, modalOpen} = ModalUtils()
 
   return (
-    <React.Fragment>
+    <>
+      <div id='modal-root' />
+
       <PageHead
         title='헤더 테스트 중'
         description='테스트'
         keyword='테스트, next.js'
       />
-      <Input type='password' name='테스트' label={"테스트"} />
-    </React.Fragment>
+
+      <button onClick={handleOpenModal}>모달테스트</button>
+      <Modal isOpen={modalOpen} onClose={handleCloseModal}></Modal>
+
+      <ToolTip
+        content='tooltip-testㅁㄴㅇㄹ ㅁㄴㅇㄹ'
+        position='right'
+        link='http://www.naver.com'
+      >
+        테스트
+      </ToolTip>
+      <div id='tooltip-root' />
+    </>
   )
 }

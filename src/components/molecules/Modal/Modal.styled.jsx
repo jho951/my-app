@@ -9,13 +9,13 @@ const ModalOverLay = styled.div`
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.2);
-  z-index: 9999;
+  z-index: 100;
 `
 const ModalWrap = styled.div`
-  width: 600px;
+  width: 500px;
+  height: 500px;
   height: fit-content;
-  border-radius: 15px;
-  background-color: #fff;
+  background-color: #ffffff;
   position: absolute;
   top: 50%;
   left: 50%;

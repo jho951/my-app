@@ -2,6 +2,7 @@ import React from "react"
 
 import {ThemeProvider as Provider, createGlobalStyle} from "styled-components"
 import {normalize} from "styled-normalize"
+import Portal from "../../utils/Portal/Portal"
 
 const GlobalStyle = createGlobalStyle`
  ${normalize}
