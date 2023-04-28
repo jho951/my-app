@@ -10,8 +10,8 @@ const TooltipBox = styled.div`
   display: inline-block;
   padding: 0.5rem;
   font-size: 0.875rem;
-  background-color: #444;
-  color: #fff;
+  background-color: #ffffff;
+  color: #d9d9d9;
   border-radius: 3px;
 
   ${({position}) => {
