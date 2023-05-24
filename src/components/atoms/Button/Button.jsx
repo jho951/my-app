@@ -7,8 +7,9 @@ export const CustomButton = ({
   onClick = () => {
     console.warn("onClick event not provided.")
   },
-  disabled = false,
+  disable = false,
   loading = false,
+  className,
   ...props
 }) => {
   const [isHovered, setIsHovered] = useState(false)
@@ -23,25 +24,27 @@ export const CustomButton = ({
 
   const handleKeyDown = useCallback(
     (event) => {
-      if (!disabled && event.key === "Enter") {
+      if (!disable && event.key === "Enter") {
         onClick()
       }
     },
-    [disabled, onClick]
+    [disable, onClick]
   )
 
   return (
     <CustomBtn
+      className={className}
       {...props}
       loading={loading}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onKeyDown={handleKeyDown}
       isHovered={isHovered}
-      onClick={!disabled ? onClick : undefined}
-      disabled={disabled || loading}
+      onClick={!disable ? onClick : undefined}
+      disabled={disable || loading}
     >
-      {loading ? <Spinner /> : children}
+      {loading && <Spinner />}
+      {!loading && children}
     </CustomBtn>
   )
 }

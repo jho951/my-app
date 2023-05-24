@@ -8,14 +8,27 @@ export default function MyComponent() {
 
   return (
     <>
-      <div id='modal-root' />
+      {/* <div id='modal-root' />
+      <div id='tooltip-root' /> */}
       <PageHead
         title='헤더 테스트 중'
         description='테스트'
         keyword='테스트, next.js'
       />
-      <CustomButton>테스트</CustomButton>
-      <div id='tooltip-root' />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          height: "400px",
+          alignItems: "center",
+        }}
+      >
+        <CustomButton className='text-btn'>
+          <span>
+            <p>Button</p>
+          </span>
+        </CustomButton>
+      </div>
     </>
   )
 }

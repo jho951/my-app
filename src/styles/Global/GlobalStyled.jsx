@@ -1,7 +1,10 @@
-import React from "react"
-
 import {ThemeProvider as Provider, createGlobalStyle} from "styled-components"
 import {normalize} from "styled-normalize"
+
+// 기준 점  1069px 에서 1440px 입니다.
+const smTestScreen = `@media (max-width: 734px) and (min-width: 0px)`
+const mdTestScreen = `@media (max-width: 1068px) and (min-width: 735px)`
+const lTestScreen = `@media (max-width: 10000px) and (min-width: 1441px)`
 
 const GlobalStyle = createGlobalStyle`
  ${normalize}
@@ -33,13 +36,15 @@ const GlobalStyle = createGlobalStyle`
 const ThemeProvider = ({children}) => {
   const theme = {
     background: "#ffffff",
-    primary: "#bc4742",
+    primary: "#da17dd",
     footer: "#131c2e",
+    text: "#060606",
     button: {
-      default: "#195FAD",
-      active: "#0378ff",
-      disabled: "#676869",
-      progress: "#195FAD",
+      text: "#ffffff",
+      default: "rgba(19, 100, 193, 0.8)",
+      active: "rgba(19, 100, 193,1)",
+      disabled: "rgba(19, 100, 193, 0.45)",
+      progress: "rgba(19, 100, 193,0.7)",
     },
   }
 
@@ -50,10 +55,5 @@ const ThemeProvider = ({children}) => {
     </Provider>
   )
 }
-
-// 기준 점  1069px 에서 1440px 입니다.
-const smTestScreen = `@media (max-width: 734px) and (min-width: 0px)`
-const mdTestScreen = `@media (max-width: 1068px) and (min-width: 735px)`
-const lTestScreen = `@media (max-width: 1000000px) and (min-width: 1441px)`
 
 export {ThemeProvider, smTestScreen, mdTestScreen, lTestScreen}
