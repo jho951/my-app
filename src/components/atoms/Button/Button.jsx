@@ -7,7 +7,7 @@ export const CustomButton = ({
   onClick = () => {
     console.warn("onClick event not provided.")
   },
-  disabled = true,
+  disabled = false,
   loading = false,
   ...props
 }) => {

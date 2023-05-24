@@ -1,25 +1,7 @@
-import styled, {keyframes, css} from "styled-components"
-const shinyBtnAnimation = keyframes`
-  0% {
-    transform: scale(0) rotate(45deg);
-    opacity: 0;
-  }
-  80% {
-    transform: scale(0) rotate(45deg);
-    opacity: 0.5;
-  }
-  81% {
-    transform: scale(4) rotate(45deg);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(50) rotate(45deg);
-    opacity: 0;
-  }
-`
+import styled, {keyframes} from "styled-components"
 
-export const CustomBtn = styled.button`
-  /* Button styling */
+const commonButtonStyles = `
+  /* Common button styling */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,16 +15,16 @@ export const CustomBtn = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
-  border: ${(props) => props.border || "none"};
+  border: none;
   overflow: hidden;
-  /* Button color */
+`
+
+export const CustomBtn = styled.button`
+  ${commonButtonStyles}
   background: ${(props) =>
     props.loading ? props.theme.button.progress : props.theme.button.default};
 
-  /* Disabled state */
   &:disabled {
     opacity: 0.7;
     cursor: not-allowed;
@@ -53,7 +35,6 @@ export const CustomBtn = styled.button`
     transform: ${(props) => (props.loading ? "scale(0.95)" : "scale(1)")};
   }
 
-  /* Hover state */
   &:hover {
     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
       7px 7px 20px 0px rgba(41, 41, 41, 0.3),
@@ -84,6 +65,25 @@ export const OutlineButton = styled(CustomBtn)`
     color: ${(props) => props.color || "#fff"};
   }
 `
+
+// const shinyBtnAnimation = keyframes`
+//   0% {
+//     transform: scale(0) rotate(45deg);
+//     opacity: 0;
+//   }
+//   80% {
+//     transform: scale(0) rotate(45deg);
+//     opacity: 0.5;
+//   }
+//   81% {
+//     transform: scale(4) rotate(45deg);
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: scale(50) rotate(45deg);
+//     opacity: 0;
+//   }
+// `
 
 ////////////////////////
 /////// 기본 버튼 ////////
