@@ -1,12 +1,11 @@
 import styled, {keyframes} from "styled-components"
 
-const commonButtonStyles = `
-  /* Common button styling */
+const CommonButtonStyles = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${(props) => props.width || "100px"};
-  height: ${(props) => props.height || "45px"};
+  width: ${(props) => props.width || "80px"};
+  height: ${(props) => props.height || "40px"};
   color: ${(props) => props.color || "#fff"};
   border-radius: ${(props) => props.borderRadius || "5px"};
   font-weight: ${(props) => props.fontWeight || "500"};
@@ -20,8 +19,7 @@ const commonButtonStyles = `
   overflow: hidden;
 `
 
-export const CustomBtn = styled.button`
-  ${commonButtonStyles}
+export const CustomBtn = styled(CommonButtonStyles)`
   background: ${(props) =>
     props.loading ? props.theme.button.progress : props.theme.button.default};
 
@@ -40,29 +38,10 @@ export const CustomBtn = styled.button`
       7px 7px 20px 0px rgba(41, 41, 41, 0.3),
       4px 4px 5px 0px rgba(39, 38, 38, 0.3);
   }
-  /* Active state */
+
   &:not(:disabled):active {
     transform: scale(0.95);
     background: ${(props) => props.theme.button.active};
-  }
-`
-
-export const OutlineButton = styled(CustomBtn)`
-  /* Outline button styles */
-  background: transparent;
-  border: 2px solid ${(props) => props.theme.button.default};
-  color: ${(props) => props.theme.button.default};
-
-  /* Override hover state */
-  &:hover {
-    background: ${(props) => props.theme.button.default};
-    color: ${(props) => props.color || "#fff"};
-  }
-
-  /* Override active state */
-  &:active {
-    background: ${(props) => props.theme.button.active};
-    color: ${(props) => props.color || "#fff"};
   }
 `
 
