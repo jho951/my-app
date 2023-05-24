@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const TooltipContainer = styled.span`
+const TooltipContainer = styled.div`
   position: relative;
   display: inline-block;
 `
@@ -48,7 +48,7 @@ const TooltipBox = styled.div`
   }}
 `
 
-const TooltipText = styled.span`
+const TooltipText = styled.div`
   display: block;
   margin-bottom: 0.25rem;
   white-space: nowrap;

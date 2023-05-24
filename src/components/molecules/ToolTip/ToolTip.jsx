@@ -8,21 +8,26 @@ import {
 } from "./ToolTip.styled"
 import Link from "next/link"
 
+// EX)
+/* <ToolTip content='tooltip-test' position='right' link='http://www.naver.com'>테스트</ToolTip> */
+
 const ToolTip = ({children, content, position, link}) => {
   const [show, setShow] = useState(false)
   const [tooltipWidth, setTooltipWidth] = useState(null)
 
   const handleRef = useCallback((node) => {
     if (node !== null) {
-      const width = node.getBoundingClientRect().width
+      const width = node.getBoundingClientRect()?.width
       setTooltipWidth(width)
     }
   }, [])
   useEffect(() => {
-    const tooltipRoot = document.createElement("div")
-    tooltipRoot.id = "tooltip-root"
-    document.body.appendChild(tooltipRoot)
-    return () => document.body.removeChild(tooltipRoot)
+    const tooltipRoot = document?.getElementById("tooltip-root")
+    if (!tooltipRoot) {
+      const newTooltipRoot = document.createElement("div")
+      newTooltipRoot.id = "tooltip-root"
+      document.body.appendChild(newTooltipRoot)
+    }
   }, [])
 
   useEffect(() => {
@@ -39,12 +44,6 @@ const ToolTip = ({children, content, position, link}) => {
   const handleMouseLeave = () => {
     setShow(false)
   }
-
-  useEffect(() => {
-    document
-      ?.getElementById("tooltip-root")
-      ?.appendChild(document.createElement("div"))
-  }, [])
 
   return (
     <Portal selector='#tooltip-root'>

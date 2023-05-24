@@ -2,7 +2,6 @@ import React from "react"
 
 import {ThemeProvider as Provider, createGlobalStyle} from "styled-components"
 import {normalize} from "styled-normalize"
-import Portal from "../../utils/Portal/Portal"
 
 const GlobalStyle = createGlobalStyle`
  ${normalize}
@@ -36,7 +35,12 @@ const ThemeProvider = ({children}) => {
     background: "#ffffff",
     primary: "#bc4742",
     footer: "#131c2e",
-    button: "#195FAD",
+    button: {
+      default: "#195FAD",
+      active: "#0378ff",
+      disabled: "#676869",
+      progress: "#195FAD",
+    },
   }
 
   return (

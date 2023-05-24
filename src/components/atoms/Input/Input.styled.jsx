@@ -12,9 +12,9 @@ const fadeIn = keyframes`
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
   width: 100%;
 `
+
 const InputWrap = styled.div`
   position: relative;
 `
@@ -27,16 +27,18 @@ const Input = styled.input`
   padding: 1rem;
   outline: none;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  animation: ${fadeIn} 0.3s ease-in-out;
-  animation-fill-mode: both;
-  :focus {
+  animation: ${fadeIn} 0.3s ease-in-out both;
+
+  &:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.2rem rgba(23, 112, 207, 0.25);
   }
-  input[disabled] {
+
+  &[disabled] {
     opacity: 0.5;
   }
 `
+
 const Icon = styled.i`
   position: absolute;
   top: 50%;

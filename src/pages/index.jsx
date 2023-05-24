@@ -1,7 +1,7 @@
 import PageHead from "../components/atoms/Head/PageHead"
 import {ModalUtils} from "../utils/Modal/ModalUtils"
 import Modal from "../components/molecules/Modal/Modal"
-import ToolTip from "../components/molecules/ToolTip/ToolTip"
+import {CustomButton} from "../components/atoms/Button/Button"
 
 export default function MyComponent() {
   const {handleOpenModal, handleCloseModal, modalOpen} = ModalUtils()
@@ -14,16 +14,8 @@ export default function MyComponent() {
         description='테스트'
         keyword='테스트, next.js'
       />
-      <button onClick={handleOpenModal}>모달테스트</button>
-      <Modal isOpen={modalOpen} onClose={handleCloseModal}></Modal>
+      <CustomButton>테스트</CustomButton>
       <div id='tooltip-root' />
-      <ToolTip
-        content='tooltip-testㅁㄴㅇㄹ ㅁㄴㅇㄹ'
-        position='right'
-        link='http://www.naver.com'
-      >
-        테스트
-      </ToolTip>
     </>
   )
 }

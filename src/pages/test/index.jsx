@@ -1,12 +1,10 @@
 "useclient"
-import React from "react"
 import Image from "next/image"
 import PageHead from "../../components/atoms/Head/PageHead"
-import Button from "../../components/atoms/button/button"
 
 export default function Test() {
   return (
-    <React.Fragment>
+    <>
       {/* head 추가 */}
       <PageHead
         title='이미지'
@@ -50,6 +48,6 @@ export default function Test() {
 
         {/* fixed */}
       </div>
-    </React.Fragment>
+    </>
   )
 }

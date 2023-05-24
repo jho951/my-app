@@ -1,5 +1,5 @@
-import moment from "moment"
 import {getCookie, setCookie, removeCookie} from "../helpers/cookies"
+import moment from "moment"
 
 /**
  * API 호출 URL
@@ -11,7 +11,7 @@ export const API_URL = "https://api.jangheungdawon.site"
  */
 export const APP_PREFIX = "Templete"
 
-export const IMG_PATH = "/img"
+export const IMG_PATH = "/public/img"
 export const S3_BUCKET = process.env.NEXT_PUBLIC_AWS_USER_S3
 export const BASE_IMG_URL = `https://s3.ap-northeast-2.amazonaws.com/${S3_BUCKET}/`
 
@@ -201,7 +201,6 @@ export const diffToText = (date) => {
 
 export const textSilce = (title, silce) => {
   if (!title) return
-
   return title?.length > silce ? `${title.slice(0, silce)}...` : title
 }
 

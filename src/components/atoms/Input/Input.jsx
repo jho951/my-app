@@ -7,7 +7,7 @@ import {
   setIsFocused,
 } from "../../../utils/Redux/CounterSlice"
 
-export const Input = forwardRef(
+export const CustomInput = forwardRef(
   ({label, name, placeholder, type, disabled}, ref) => {
     const dispatch = useDispatch()
     const {value, isFocused, errorMessage} = useSelector(inputSelector)
@@ -37,6 +37,7 @@ export const Input = forwardRef(
             onBlur={handleBlur}
             value={value}
             disabled={disabled}
+            ref={ref}
           />
           {isFocused && errorMessage && <div>{errorMessage}</div>}
         </InputWrap>
