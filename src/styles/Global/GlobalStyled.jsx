@@ -1,5 +1,6 @@
 import {ThemeProvider as Provider, createGlobalStyle} from "styled-components"
 import {normalize} from "styled-normalize"
+import GNB from "../../components/Organism/GNB/GNB"
 
 // 기준 점  1069px 에서 1440px 입니다.
 const smTestScreen = `@media (max-width: 734px) and (min-width: 0px)`
@@ -33,27 +34,27 @@ const GlobalStyle = createGlobalStyle`
 }
 
 `
+const theme = {
+  background: "#ffffff",
+  primary: "#da17dd",
+  footer: "#131c2e",
+  text: "#060606",
+  button: {
+    text: "#ffffff",
+    default: "rgba(19, 100, 193, 0.8)",
+    active: "rgba(19, 100, 193,1)",
+    disabled: "rgba(19, 100, 193, 0.45)",
+    progress: "rgba(19, 100, 193,0.7)",
+  },
+}
 const ThemeProvider = ({children}) => {
-  const theme = {
-    background: "#ffffff",
-    primary: "#da17dd",
-    footer: "#131c2e",
-    text: "#060606",
-    button: {
-      text: "#ffffff",
-      default: "rgba(19, 100, 193, 0.8)",
-      active: "rgba(19, 100, 193,1)",
-      disabled: "rgba(19, 100, 193, 0.45)",
-      progress: "rgba(19, 100, 193,0.7)",
-    },
-  }
-
   return (
     <Provider theme={theme}>
       <GlobalStyle />
+      <GNB />
       {children}
     </Provider>
   )
 }
 
-export {ThemeProvider, smTestScreen, mdTestScreen, lTestScreen}
+export {GlobalStyle, Theme, smTestScreen, mdTestScreen, lTestScreen}

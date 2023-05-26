@@ -1,23 +1,16 @@
 import {getCookie, setCookie, removeCookie} from "../helpers/cookies"
 import moment from "moment"
 
-/**
- * API 호출 URL
- */
+// API 호출 URL
 export const API_URL = "https://api.jangheungdawon.site"
 
-/**
- * 프로젝트 이름
- */
+// 프로젝트 이름
 export const APP_PREFIX = "Templete"
-
 export const IMG_PATH = "/public/img"
 export const S3_BUCKET = process.env.NEXT_PUBLIC_AWS_USER_S3
 export const BASE_IMG_URL = `https://s3.ap-northeast-2.amazonaws.com/${S3_BUCKET}/`
 
-/**
- * 쿠키 도메인 IP
- */
+// 쿠키 도메인 IP
 export const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN_IP
   ? process.env.NEXT_PUBLIC_DOMAIN_IP
   : ".127.0.0.1"
@@ -229,4 +222,20 @@ export const regExp = (type) => {
     default:
       return /^$/
   }
+}
+export const calcHeight = (width, aspectRatio) => {
+  return ""
+}
+export const theme = {
+  background: "#ffffff",
+  primary: "#da17dd",
+  footer: "#131c2e",
+  text: "#060606",
+  button: {
+    text: "#ffffff",
+    default: "rgba(19, 100, 193, 0.8)",
+    active: "rgba(19, 100, 193,1)",
+    disabled: "rgba(19, 100, 193, 0.45)",
+    progress: "rgba(19, 100, 193,0.7)",
+  },
 }

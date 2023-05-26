@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
-const HeaderWrap = styled.div`
+const GNBWrap = styled.div`
   border: 2px solid blue;
 `
 
-export {HeaderWrap}
+export {GNBWrap}

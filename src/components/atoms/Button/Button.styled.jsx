@@ -2,10 +2,11 @@ import styled, {css} from "styled-components"
 
 // 공통 적용 버튼 스타일
 const CommonButtonStyles = css`
-  align-items: center;
+  display: flex;
   justify-content: center;
-  width: ${(props) => props.width || "80px"};
-  height: ${(props) => props.height || "40px"};
+  align-items: center;
+  gap: 5px;
+  padding: ${(props) => props.paaidng || "10px 15px"};
   color: ${(props) => props.color || props.theme.button.text};
   border-radius: ${(props) => props.borderRadius || "3px"};
   font-weight: ${(props) => props.fontWeight || "400"};
@@ -17,17 +18,14 @@ const CommonButtonStyles = css`
   outline: none;
   border: none;
   &:active {
-    transform: scale(0.96);
+    transform: scale(1);
   }
   &:disabled {
     cursor: not-allowed;
     transform: ${(props) => (props.loading ? "scale(0.96)" : "scale(1)")};
   }
-  span {
-    display: flex;
-    p {
-      margin: 0;
-    }
+  p {
+    margin: 0;
   }
 `
 
@@ -51,6 +49,10 @@ export const CustomBtn = styled.button`
       &:active {
         background: ${(props) => props.theme.button.active};
       }
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
     }
   }
   //외곽선 버튼
@@ -81,7 +83,13 @@ export const CustomBtn = styled.button`
         }
       }
     }
+    &:focus {
+      outline: none;
+      border: 2px solid ${(props) => props.theme.button.active};
+      font-weight: 600;
+    }
   }
+  // text 버튼
   &.text-btn {
     display: inline-block;
     border-radius: 0;
@@ -96,13 +104,17 @@ export const CustomBtn = styled.button`
 
     &:not(:disabled) {
       &:hover {
-        border-bottom: 0.5px solid ${(props) => props.theme.text};
+        border-bottom: 1px solid ${(props) => props.theme.text};
       }
       &:active {
-        transform: scale(1);
+        transform: none;
         font-weight: 600;
         border-bottom: 1px solid ${(props) => props.theme.text};
       }
+    }
+    &:focus {
+      border-bottom: 1px solid ${(props) => props.theme.text};
+      font-weight: 600;
     }
   }
 `
