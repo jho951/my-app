@@ -1,7 +1,7 @@
-import React, {forwardRef} from "react"
-import {SCustomInput} from "./Input.styled"
+import React, { forwardRef } from "react";
+import { SCustomInput } from "./Input.styled";
 
-const CustomInput = forwardRef((props, ref) => {
+const CustomInput = forwardRef(function CustomInput(props, ref) {
   const {
     label,
     point,
@@ -19,11 +19,14 @@ const CustomInput = forwardRef((props, ref) => {
     fontSize,
     onChange,
     onKeyDown,
-  } = props
+    setType,
+  } = props;
 
   const handlePasswordType = () => {
-    props.setType(type === "password" ? "text" : "password")
-  }
+    if (setType) {
+      setType(type === "password" ? "text" : "password");
+    }
+  };
 
   return (
     <SCustomInput
@@ -35,15 +38,15 @@ const CustomInput = forwardRef((props, ref) => {
       disabled={disabled}
     >
       {label && (
-        <label className='custom-input-label'>
+        <label className="custom-input-label">
           {label}
-          {point && <i className='custom-input-label-point'>*</i>}
+          {point && <i className="custom-input-label-point">*</i>}
         </label>
       )}
 
       <div className={`custom-input-container ${err ? "error" : ""}`}>
         <input
-          className='custom-input'
+          className="custom-input"
           type={type}
           value={value}
           disabled={disabled}
@@ -55,19 +58,20 @@ const CustomInput = forwardRef((props, ref) => {
         />
 
         {type === "password" && (
-          <span className='password-icon' onClick={handlePasswordType}>
+          <span className="password-icon" onClick={handlePasswordType}>
             {type === "password" ? "눈" : "눈뜸"}
           </span>
         )}
       </div>
 
       {helpText && err && (
-        <div className='help-text' style={{display: "flex"}}>
+        <div className="help-text" style={{ display: "flex" }}>
           {helpText}
         </div>
       )}
     </SCustomInput>
-  )
-})
+  );
+});
 
-export default CustomInput
+CustomInput.displayName = "CustomInput";
+export default CustomInput;

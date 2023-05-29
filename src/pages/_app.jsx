@@ -1,16 +1,15 @@
-import {QueryClient, QueryClientProvider, Hydrate} from "react-query"
-import {ThemeProvider} from "../styles/Global/GlobalStyled"
-import {AppProps} from "next/app"
+import { QueryClient, QueryClientProvider, Hydrate } from "react-query";
+import { Layout } from "../components/Templates/Layout";
 
-export default function MyApp({Component, pageProps}) {
-  const queryClient = new QueryClient()
+export default function MyApp({ Component, pageProps }) {
+  const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate>
-        <ThemeProvider>
+        <Layout>
           <Component {...pageProps} />
-        </ThemeProvider>
+        </Layout>
       </Hydrate>
     </QueryClientProvider>
-  )
+  );
 }
