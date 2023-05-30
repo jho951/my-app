@@ -1,49 +1,49 @@
-import moment from "moment";
+import moment from "moment"
 
 ////////////////////////////////////////////////
 //// 천 단위마다 콤마를 추가 해주는 utils 함수입니다.////
 //////////////////////////////////////////////
 
 const addComma = (num) => {
-  return num.toLocaleString();
-};
+  return num.toLocaleString()
+}
 
 //////////////////////////////////////////////////////////////
 ////문자(title)를 지정된 길이(length)만큼 잘라주는 utils 함수입니다.////
 ////////////////////////////////////////////////////////////
 
 const textSlice = (title, length) => {
-  if (!title) return "";
+  if (!title) return ""
   if (title.length > length) {
-    return title.slice(0, length) + "...";
+    return title.slice(0, length) + "..."
   }
-  return title;
-};
+  return title
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //현재 시간과 제공하는 날짜(date)와의 차이를 계산해 밀리세컨즈 형태를 날짜 형태로 바꿔주는 utils 함수입니다.//
 //////////////////////////////////////////////////////////////////////////////////////
 
 const diffToText = (date) => {
-  const now = moment();
-  const targetDate = moment(Number(date));
-  const diff = now.diff(targetDate, "seconds");
+  const now = moment()
+  const targetDate = moment(Number(date))
+  const diff = now.diff(targetDate, "seconds")
 
   if (diff < 60) {
-    return `${diff}초 전`;
+    return `${diff}초 전`
   } else if (diff < 3600) {
-    const minutes = Math.floor(diff / 60);
-    return `${minutes}분 전`;
+    const minutes = Math.floor(diff / 60)
+    return `${minutes}분 전`
   } else if (diff < 86400) {
-    const hours = Math.floor(diff / 3600);
-    return `${hours}시간 전`;
+    const hours = Math.floor(diff / 3600)
+    return `${hours}시간 전`
   } else if (diff < 31536000) {
-    const days = Math.floor(diff / 86400);
-    return `${days}일 전`;
+    const days = Math.floor(diff / 86400)
+    return `${days}일 전`
   } else {
-    return targetDate.format("YYYY-MM-DD");
+    return targetDate.format("YYYY-MM-DD")
   }
-};
+}
 
 //////////////////////////////////////////////////////////////
 ///주어진 초(seconds)를 "시:분:초" 형식으로 변환하는 utils 함수입니다.///
@@ -51,26 +51,26 @@ const diffToText = (date) => {
 
 const timeFormat = (seconds) => {
   if (isNaN(seconds)) {
-    return "0:00";
+    return "0:00"
   }
-  const hours = Math.floor(seconds / 3600);
-  const minutes = Math.floor((seconds % 3600) / 60);
-  const remainingSeconds = seconds % 60;
+  const hours = Math.floor(seconds / 3600)
+  const minutes = Math.floor((seconds % 3600) / 60)
+  const remainingSeconds = seconds % 60
   const formattedHours =
-    hours > 0 ? `${hours.toString().padStart(2, "0")}:` : "";
-  const formattedMinutes = `${minutes.toString().padStart(2, "0")}:`;
-  const formattedSeconds = remainingSeconds.toString().padStart(2, "0");
-  return formattedHours + formattedMinutes + formattedSeconds;
-};
+    hours > 0 ? `${hours.toString().padStart(2, "0")}:` : ""
+  const formattedMinutes = `${minutes.toString().padStart(2, "0")}:`
+  const formattedSeconds = remainingSeconds.toString().padStart(2, "0")
+  return formattedHours + formattedMinutes + formattedSeconds
+}
 
 ///////////////////////////////////////////////////////////////////////
 ///생성 일자(createdAt)를 지정된 형식(format)에 맞게 변환하는 utils 함수입니다.///
 ////////////////////////////////////////////////////////////////////
 
 const setCreatedAt = (createdAt, format) => {
-  if (!(createdAt > 0)) return "-";
+  if (!(createdAt > 0)) return "-"
 
-  const dt = new Date(Number(createdAt));
+  const dt = new Date(Number(createdAt))
   const addDt =
     dt.getFullYear() +
     format +
@@ -79,18 +79,18 @@ const setCreatedAt = (createdAt, format) => {
     `00${dt.getDate().toString()}`.slice(-2) +
     format +
     `00${dt.getHours().toString()}`.slice(-2) +
-    { format } +
-    `00${dt.getMinutes().toString()}`.slice(-2);
+    {format} +
+    `00${dt.getMinutes().toString()}`.slice(-2)
 
-  return addDt.slice(0, 10);
-};
+  return addDt.slice(0, 10)
+}
 
 /////////////////////////////////////////////////////
 ///주어진 배열(array)에서 중복을 제거하는 utils 함수입니다.///
 //////////////////////////////////////////////////
 const removeDuplicates = (array) => {
-  return [...new Set(array)];
-};
+  return [...new Set(array)]
+}
 
 export {
   addComma,
@@ -99,4 +99,4 @@ export {
   timeFormat,
   setCreatedAt,
   removeDuplicates,
-};
+}

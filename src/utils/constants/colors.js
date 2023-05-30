@@ -11,6 +11,6 @@ const theme = {
     disabled: "rgba(19, 100, 193, 0.45)",
     progress: "rgba(19, 100, 193,0.7)",
   },
-};
+}
 
-export { theme };
+export {theme}

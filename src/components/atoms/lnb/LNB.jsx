@@ -1,12 +1,16 @@
-import { LNBWrap } from "./LNB.styled";
-
 const LNB = () => {
   return (
-    <LNBWrap>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-    </LNBWrap>
-  );
-};
-export default LNB;
+    <ul>
+      <li className='lnb-item'>
+        <a href='#'>서브메뉴1</a>
+      </li>
+      <li className='lnb-item'>
+        <a href='#'>서브메뉴2</a>
+      </li>
+      <li className='lnb-item'>
+        <a href='#'>서브메뉴3</a>
+      </li>
+    </ul>
+  )
+}
+export default LNB

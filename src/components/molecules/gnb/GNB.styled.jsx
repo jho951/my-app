@@ -1,13 +1,9 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-const GNBWrap = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+const GnbWrap = styled.nav`
+  position: relative;
   background-color: ${(props) => props.theme.primary};
-  ul {
-    font-size: 1rem;
-  }
-`;
+  font-size: 0.8rem;
+`
 
-export { GNBWrap };
+export {GnbWrap}

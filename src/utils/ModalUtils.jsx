@@ -1,15 +1,17 @@
-import { useState } from "react";
+import {useState} from "react"
 
 // 모달 열리고 닫힘을 관장합니다.
-export const ModalUtils = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+const ModalUtils = () => {
+  const [modalOpen, setModalOpen] = useState(false)
 
   function handleOpenModal() {
-    setModalOpen(true);
+    setModalOpen(true)
   }
 
   function handleCloseModal() {
-    setModalOpen(false);
+    setModalOpen(false)
   }
-  return { modalOpen, handleOpenModal, handleCloseModal };
-};
+  return {modalOpen, handleOpenModal, handleCloseModal}
+}
+
+export {ModalUtils}

@@ -1,9 +1,24 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-const LNBWrap = styled.ul`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-`;
+const LnbWrap = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: ${({showLnb}) => (showLnb ? "block" : "none")};
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 
-export { LNBWrap };
+    .lnb-item {
+      padding: 10px;
+    }
+
+    .lnb-item a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+`
+
+export {LnbWrap}

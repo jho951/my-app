@@ -1,6 +1,5 @@
-import { Main, NextScript, Head, Html } from "next/document";
-import HeadComponents from "../components/atoms/Head/HtmlHead";
-import { ServerStyleSheet } from "styled-components";
+import {Main, NextScript, Head, Html} from "next/document"
+import HeadComponents from "../components/atoms/htmlHead/HtmlHead"
 
 // _document.js 역할
 // 1. HTML 문서의 기본 레이아웃을 정의합니다.
@@ -9,7 +8,7 @@ import { ServerStyleSheet } from "styled-components";
 
 export default function Document() {
   return (
-    <Html lang="ko">
+    <Html lang='ko'>
       <Head>
         <HeadComponents.DefaultHead />
         <HeadComponents.PageHead />
@@ -17,5 +16,5 @@ export default function Document() {
       <Main />
       <NextScript />
     </Html>
-  );
+  )
 }

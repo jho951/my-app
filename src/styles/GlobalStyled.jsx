@@ -1,12 +1,12 @@
-import { createGlobalStyle } from "styled-components";
-import { normalize } from "styled-normalize";
+import {createGlobalStyle} from "styled-components"
+import {normalize} from "styled-normalize"
 
 // 모바일 스크린 입니다.
-const MobileScreen = `@media (max-width: 480px)`;
+const MobileScreen = `@media (max-width: 480px)`
 // 태블릿 스크린 입니다.
-const TabletScreen = `@media (max-width: 1024px) and (min-width: 768px)`;
+const TabletScreen = `@media (max-width: 1024px) and (min-width: 768px)`
 // pc 스크린 입니다.
-const WebScreen = `@media @media (min-width: 1024px)`;
+const WebScreen = `@media @media (min-width: 1024px)`
 
 const GlobalStyle = createGlobalStyle`
  ${normalize}
@@ -21,11 +21,22 @@ const GlobalStyle = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: clamp(1rem, 0.2rem + 1.5vw, 1.5rem);
+
 }
-ul{
+body {
+  margin: 0;
+  padding: 0;
+  overflow: overlay;
+  ol, ul{
     list-style-type: none;
 }
+a{
+  text-decoration: none;
+   color: inherit;
+}
+}
 
-`;
 
-export { GlobalStyle, MobileScreen, TabletScreen, WebScreen };
+`
+
+export {GlobalStyle, MobileScreen, TabletScreen, WebScreen}
