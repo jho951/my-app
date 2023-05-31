@@ -1,7 +1,8 @@
 import {useRouter} from "next/router"
 import {LinkTextWrap} from "./LinkText.styled"
+import {CustomButton} from "../../atoms/button/Button"
 
-export const LinkText = ({link}) => {
+export const LinkText = ({link, className, props}) => {
   const router = useRouter()
 
   // 라우터 이동 함수입니다.
@@ -18,12 +19,14 @@ export const LinkText = ({link}) => {
     <LinkTextWrap>
       {link &&
         link.map((destination) => (
-          <li
+          <CustomButton
+            className={className}
+            fontSize={"10px"}
             key={destination?.id}
             onClick={(e) => handleClick(e, destination?.href)}
           >
             {destination.label}
-          </li>
+          </CustomButton>
         ))}
     </LinkTextWrap>
   )

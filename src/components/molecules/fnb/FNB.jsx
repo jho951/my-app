@@ -1,7 +1,7 @@
 import React from "react"
 import {FnbWrap} from "./FNB.styled"
 import {FNB_MENU} from "../../../utils/constants/project"
-import {LinkText} from "../../atoms/link/text/LinkText"
+import {LinkText} from "../link/LinkText"
 
 const FNB = () => {
   return (

@@ -1,7 +1,7 @@
 import {S3_BUCKET} from "./api"
 
 // 프로젝트 이름
-const PROJECT_NAME = "project"
+const PROJECT_NAME = `happy-medion`
 
 // public 이미지 경로
 const IMG_PATH = "/images"
@@ -11,11 +11,11 @@ const PUBLIC_IMG_URL = `https://s3.ap-northeast-2.amazonaws.com/${S3_BUCKET}/`
 
 // gnb 메누 리스트
 const GNB_MENU = [
-  {id: 1, label: "회사소개", href: "/info"},
-  {id: 2, label: "병원카테고리", href: "/category"},
-  {id: 3, label: "제품서비스", href: "/service"},
-  {id: 4, label: "뉴스앤칼럼", href: "/column"},
-  {id: 5, label: "마이페이지", href: "/mypage"},
+  {id: "info", label: "회사소개", href: "/info"},
+  {id: "category", label: "병원카테고리", href: "/category"},
+  {id: "service", label: "제품서비스", href: "/service"},
+  {id: "news", label: "뉴스앤칼럼", href: "/news"},
+  {id: "mypage", label: "마이페이지", href: "/mypage"},
 ]
 
 // fnb 리스트

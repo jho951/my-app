@@ -1,30 +1,40 @@
-import styled, {keyframes} from "styled-components"
-
-const fillAnimation = keyframes`
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-`
+import styled from "styled-components"
 
 const BannerItemsWrap = styled.figure`
   display: flex;
-  width: 100%;
+  position: relative;
+  width: 200px;
+  height: 200px;
+`
 
-  .progress-bar {
-    width: 100px;
-    height: 15px;
-    background-color: #d9d9d9;
-    border-radius: 10px;
-    overflow: hidden;
+const ControllWrap = styled.section`
+  display: flex;
+  align-items: center;
+  width: 360px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+  .index-pointer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .current-number {
+      font-size: ${(props) => props.theme.fontSize.text};
+      width: 10px;
+    }
+    .total-number {
+      font-size: ${(props) => props.theme.fontSize.text};
+      width: 10px;
+    }
+    .progress-bar {
+      display: block;
+      width: ${(props) => props.width}%;
+      border: 1px solid black;
+      height: 1px;
+      background-color: #a04caf;
+      transition: width 0.3s;
+    }
   }
 `
-const ProgressBarFill = styled.div`
-  height: 100%;
-  background-color: #a04caf;
-  animation: ${fillAnimation} 5s linear forwards;
-`
 
-export {BannerItemsWrap, ProgressBarFill}
+export {BannerItemsWrap, ControllWrap}

@@ -1,7 +1,18 @@
-import React from "react"
+import {CustomInput} from "../../components/atoms/input/Input"
+import IconsInput from "../../components/molecules/iconsInput/IconsInput"
+import {AiOutlineSearch} from "react-icons/ai"
 
 const Index = () => {
-  return <div style={{backgroundColor: "blue", color: "white"}}> 로그인</div>
+  return (
+    <>
+      <IconsInput
+        className={"search"}
+        icons={<AiOutlineSearch />}
+        type={"password"}
+      />
+      <CustomInput type={"text"} />
+    </>
+  )
 }
 
 export default Index

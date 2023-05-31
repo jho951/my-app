@@ -2,39 +2,33 @@ import {useState} from "react"
 import {GNB_MENU} from "../../../utils/constants/project"
 import {GnbWrap} from "./GNB.styled"
 import {LnbWrap} from "../../atoms/lnb/LNB.styled"
-
 import LNB from "../../atoms/lnb/LNB"
+import Link from "next/link"
+import {useRouter} from "next/router"
 
 const GNB = () => {
+  const router = useRouter()
   const [showLnb, setShowLnb] = useState(false)
-  const [activeMenuId, setActiveMenuId] = useState(null)
 
-  const handleMouseEnter = () => {
-    setShowLnb(true)
-  }
-
-  const handleMouseLeave = () => {
-    setShowLnb(false)
-  }
-
-  const handleMenuClick = (menuId) => {
-    setActiveMenuId(menuId)
-  }
+  const handleMouseEnter = () => setShowLnb(true)
+  const handleMouseLeave = () => setShowLnb(false)
 
   return (
-    <GnbWrap onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <ul>
+    <GnbWrap>
+      <div className='gnb-element'>
         {GNB_MENU?.map((menu) => (
-          <li
-            key={menu.id}
-            className={menu.id === activeMenuId ? "active" : ""}
-            onClick={() => handleMenuClick(menu.id)}
-          >
-            <a href={menu.href}>{menu.label}</a>
-          </li>
+          <Link href={menu.href} key={menu.id} passHref>
+            <p
+              className={router.pathname === menu.href ? "active" : ""}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              {menu.label}
+            </p>
+          </Link>
         ))}
-      </ul>
-      <LnbWrap show={showLnb}>{showLnb && <LNB />}</LnbWrap>
+      </div>
+      <LnbWrap showLnb={showLnb}>{showLnb && <LNB />}</LnbWrap>
     </GnbWrap>
   )
 }

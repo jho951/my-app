@@ -5,8 +5,7 @@ const CommonButtonStyles = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-  padding: ${(props) => props.paaidng || "10px 15px"};
+  padding: ${(props) => props.paaidng || "10px"};
   color: ${(props) => props.color || props.theme.button.text};
   border-radius: ${(props) => props.borderRadius || "3px"};
   font-weight: ${(props) => props.fontWeight || "400"};
@@ -23,9 +22,6 @@ const CommonButtonStyles = css`
   &:disabled {
     cursor: not-allowed;
     transform: ${(props) => (props.loading ? "scale(0.96)" : "scale(1)")};
-  }
-  p {
-    margin: 0;
   }
 `
 
@@ -116,5 +112,9 @@ export const CustomBtn = styled.button`
       border-bottom: 1px solid ${(props) => props.theme.text};
       font-weight: 600;
     }
+  }
+  &.icon-btn {
+    border-radius: 0;
+    background: transparent;
   }
 `

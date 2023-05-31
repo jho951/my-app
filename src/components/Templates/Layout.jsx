@@ -1,6 +1,5 @@
 import {ThemeProvider} from "styled-components"
-import {theme} from "../../utils/constants/colors"
-import {GlobalStyle} from "../../styles/GlobalStyled"
+import {GlobalStyle, theme} from "../../styles/GlobalStyled"
 import Header from "../Organism/header/Header"
 import Footer from "../Organism/footer/Footer"
 

@@ -1,8 +1,9 @@
-import {useRouter} from "next/router"
-import {PROJECT_NAME} from "../../../utils/constants/project"
-import {LinkText} from "../../atoms/link/text/LinkText"
+import Link from "next/link"
+import {IMG_PATH} from "../../../utils/constants/project"
 import GNB from "../../molecules/gnb/GNB"
 import {HeaderWrap} from "./Header.styled"
+import {CustomImage} from "../../atoms/Image/Image"
+import {LinkText} from "../../molecules/link/LinkText"
 
 const AccountLink = [
   {id: "login", label: "로그인", href: "/login"},
@@ -10,14 +11,21 @@ const AccountLink = [
 ]
 
 const Header = () => {
-  const router = useRouter()
   return (
     <HeaderWrap>
-      <h1 className='header-title' onClick={() => router.push("/")}>
-        {PROJECT_NAME}
-      </h1>
-      <LinkText link={AccountLink} />
+      <Link className='header-image' href={"/"}>
+        <CustomImage
+          image={`${IMG_PATH}/happyMedion.png`}
+          alt={"project-logo"}
+        />
+      </Link>
       <GNB />
+
+      <LinkText
+        link={AccountLink}
+        className={"text-btn"}
+        fontSize={`${(props) => props.theme.fontSize.gnb}`}
+      />
     </HeaderWrap>
   )
 }
