@@ -1,8 +1,8 @@
-import {forwardRef} from "react"
-import {InputContainer, InputWrap, Icon} from "./Input.styled"
-import {Input} from "../../atoms/Input/Input.styled"
+import { forwardRef } from "react";
+import { InputContainer, InputWrap, Icon } from "./Input.styled";
+import { Input } from "../../atoms/Input/Input.styled";
 
-export const Input = forwardRef(
+export const PasswordInput = forwardRef(
   (
     {
       label,
@@ -39,6 +39,6 @@ export const Input = forwardRef(
           )}
         </InputWrap>
       </InputContainer>
-    )
+    );
   }
-)
+);
