@@ -1,6 +1,5 @@
 import {useEffect, useRef, useState} from "react"
 import {atom, useAtom} from "jotai"
-
 import {IMG_PATH} from "../../../utils/constants/project"
 import {BannerItemsWrap, ControllWrap} from "./BannerItems.styled"
 import {CustomButton} from "../../atoms/button/Button"

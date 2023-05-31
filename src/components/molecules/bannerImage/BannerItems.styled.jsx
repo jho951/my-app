@@ -1,9 +1,8 @@
 import styled from "styled-components"
 
 const BannerItemsWrap = styled.figure`
-  display: flex;
   position: relative;
-  width: 200px;
+  width: 400px;
   height: 200px;
 `
 
