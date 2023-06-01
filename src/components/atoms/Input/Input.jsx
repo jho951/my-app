@@ -9,6 +9,7 @@ export const CustomInput = ({
 }) => {
   return (
     <InputElement
+      role='input'
       type={type}
       value={value}
       onChange={onChange}

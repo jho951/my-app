@@ -1,30 +1,24 @@
-import Banner from "../components/Organism/banner/Banner";
-import { PageHead } from "../components/atoms/htmlHead/HtmlHead";
+import Banner from "../components/Organism/banner/Banner"
+import {CustomButton} from "../components/atoms/button/Button"
+import {PageHead} from "../components/atoms/htmlHead/HtmlHead"
+import {skipNavigation} from "../utils/utils"
 
 export default function MyComponent() {
   return (
     <>
-      {/* <div id='modal-root' /> */}
-      {/* <div id='tooltip-root' /> */}
+      <CustomButton
+        className={"skipLink"}
+        tabIndex={1}
+        onClick={() => skipNavigation("main")}
+      >
+        <p>병원</p>
+      </CustomButton>
       <PageHead
-        title="헤더 테스트 중"
-        description="테스트"
-        keyword="테스트, next.js"
+        title='헤더 테스트 중'
+        description='테스트'
+        keyword='테스트, next.js'
       />
-
       <Banner />
-      <p>여백 공간</p>
-      <p>여백 공간</p>
-      <p>여백 공간</p>
-      <p>여백 공간</p>
     </>
-  );
-}
-
-{
-  /* <CustomButton className='text-btn' onClick={() => alert("안녕")}>
-<span>
-  <p>Button</p>
-</span>
-</CustomButton> */
+  )
 }

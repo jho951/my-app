@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components"
+import styled, {createGlobalStyle, keyframes} from "styled-components"
 import {normalize} from "styled-normalize"
 
 // 모바일 스크린 입니다.
@@ -15,17 +15,21 @@ const GlobalStyle = createGlobalStyle`
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   grid-gap: 1em;
 }
-:root {
-  scroll-behavior: smooth;
+* {
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: clamp(18px, 0.8vw, 24px);
-
-
 }
+
+:root{
+  font-size: clamp(1.8rem, 0.8vw, 2.4rem);
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  font-size: 62.5%;
+}
+html,
 body {
   font-family: Inter;
+  overflow: hidden;
   margin: 0;
   padding: 0;
   overflow: overlay;
@@ -37,24 +41,29 @@ a{
   text-decoration: none;
    color: inherit;
 }
-p{
-  margin: 0; 
-}
+
 }
 `
 
-// project 에서 사용되는 color 입니다.
+// 프로젝트에서 사용되는 color 입니다.
 const theme = {
   background: "#ffffff",
   primary: "#da17dd",
+  subColor: "#6bc7f1",
   textColor: "#000000",
-  fontSize: {
-    title: "24px",
-    subTitle: "20px",
-    text: "14px",
-    gnb: "14px",
+  header: {
+    padding: "3% 14% 0.4% 13%",
+    text: "#FDFDFD",
+    background: "rgb(0, 0, 0 ,0.2)",
   },
-  footer: {text: "#FFFFFF", background: "#131c2e"},
+  footer: {text: "#191919", background: "#FDFDFD"},
+  fontSize: {
+    title: "2.4rem",
+    subTitle: "2rem",
+    text: "1.4rem",
+    gnb: "1.8rem",
+  },
+
   button: {
     text: "#060606",
     default: "rgba(19, 100, 193, 0.8)",
@@ -64,4 +73,24 @@ const theme = {
   },
 }
 
-export {GlobalStyle, MobileScreen, TabletScreen, WebScreen, theme}
+//loading spin jsx 파일입니다.
+const spin = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`
+const Spinner = styled.div`
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid ${(props) => props.theme.button.progress};
+  border-radius: 50%;
+  width: ${(props) => props.width || "20px"};
+  height: ${(props) => props.height || "20px"};
+  position: relative;
+  transform: translateX(-50%);
+  animation: ${spin} 1s linear infinite;
+`
+
+export {GlobalStyle, MobileScreen, TabletScreen, WebScreen, theme, Spinner}

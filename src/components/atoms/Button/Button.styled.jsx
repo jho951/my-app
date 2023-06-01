@@ -5,12 +5,12 @@ const CommonButtonStyles = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: ${(props) => props.paaidng || "10px"};
+  padding: ${(props) => props.paaidng || "1rem"};
   color: ${(props) => props.color || props.theme.button.text};
   border-radius: ${(props) => props.borderRadius || "3px"};
   font-weight: ${(props) => props.fontWeight || "400"};
   white-space: ${(props) => props.whiteSpace || "nowrap"};
-  font-size: ${(props) => props.fontSize || "16px"};
+  font-size: ${(props) => props.fontSize || "1.6rem"};
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -116,5 +116,24 @@ export const CustomBtn = styled.button`
   &.icon-btn {
     border-radius: 0;
     background: transparent;
+  }
+  &.skipLink {
+    position: absolute;
+    width: 100%;
+    top: -10px;
+    left: 0;
+    padding: 0;
+    background-color: ${(props) => props.theme.subColor};
+    color: ${(props) => props.theme.header.text};
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    &:focus,
+    &:focus p {
+      font-size: ${(props) => props.theme.fontSize.gnb};
+      top: 0;
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 `

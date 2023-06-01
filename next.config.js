@@ -1,28 +1,40 @@
-/** @type {import('next').NextConfig} */
-const {i18n} = require("./next-i18next.config")
-
 const nextConfig = {
-  i18n,
-  reactStrictMode: false,
+  //다국어 설정
+  i18n: {
+    locales: ["en", "ko", "zh-CN", "ar"],
+    defaultLocale: "ko",
+    domains: [
+      {
+        defaultLocale: "en",
+      },
+      {
+        defaultLocale: "ko",
+      },
+      {
+        defaultLocale: "zh-CN",
+      },
+      {
+        defaultLocale: "ar",
+      },
+    ],
+  },
+  reactStrictMode: true,
+
   images: {
     domains: ["s3.ap-northeast-2.amazonaws.com", "image.tmdb.org"],
-    images: {
-      sizes: "250px",
-    },
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     deviceSizes: [640, 828, 1080, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    loader: "default",
   },
-  env: {
-    BASE_URL: process.env.BASE_URL,
-  },
+
   webpack: (config, {isServer}) => {
     if (!isServer) {
       config.resolve.fallback = {
         fs: false,
       }
     }
-
     return config
   },
 }
+
 module.exports = nextConfig

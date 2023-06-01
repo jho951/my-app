@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const FooterWrap = styled.div`
   width: 100%;
-  border: 1px solid red;
-  height: 300px;
+  height: 176px;
   background-color: ${(props) => props.theme.footer.background};
   color: ${(props) => props.theme.footer.text};
-`;
+  padding: ${(props) => props.theme.padding};
+`
 
-export { FooterWrap };
+export {FooterWrap}

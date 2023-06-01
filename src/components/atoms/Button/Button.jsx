@@ -1,6 +1,6 @@
 import {useState, useCallback} from "react"
 import {CustomBtn} from "./Button.styled"
-import {Spinner} from "../../../utils/Loading/Spinner/Spinner"
+import {Spinner} from "../../../styles/GlobalStyled"
 
 export const CustomButton = ({
   children,

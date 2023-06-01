@@ -6,13 +6,15 @@ const GnbWrap = styled.nav`
   align-items: end;
   position: relative;
   font-size: ${(props) => props.theme.fontSize.gnb};
+  font-weight: 700;
   .gnb-element {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 30px;
+    gap: 70px;
   }
   .active {
-    font-weight: 700;
+    color: ${(props) => props.theme.subColor};
   }
 `
 

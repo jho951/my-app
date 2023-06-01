@@ -1,9 +1,11 @@
 import styled from "styled-components"
 
-const BannerImageWrap = styled.div`
-  width: 200px;
-  height: 200px;
+const ImageWrap = styled.div`
   position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: ${({currentImage}) => (currentImage === 0 ? 1 : 0)};
+  transition: opacity 0.5s ease-in-out;
 `
 
-export {BannerImageWrap}
+export {ImageWrap}

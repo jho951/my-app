@@ -3,23 +3,28 @@ import {MobileScreen, WebScreen} from "../../../styles/GlobalStyled"
 
 const HeaderWrap = styled.div`
   width: 100%;
-  display: grid;
+  display: flex;
+  padding: ${(props) => props.theme.header.padding};
+  text-align: center;
   ${WebScreen} {
-    grid-template-columns: 1fr 2.5fr 1fr;
-    gap: 10px;
-    border: 1px solid green;
+    position: fixed;
+    top: 0%;
+    z-index: 100;
+    justify-content: space-around;
+    align-items: center;
+    background-color: ${(props) => props.theme.header.background};
+    color: ${(props) => props.theme.header.text};
+    z-index: 100;
+    .header-image {
+      cursor: pointer;
+    }
+    .header-account {
+      color: ${(props) => props.theme.header.text};
+      font-size: 1.6rem;
+    }
   }
   ${MobileScreen} {
     display: none;
-  }
-
-  .header-image {
-    border: 1px solid green;
-    cursor: pointer;
-    width: 150px;
-    height: 50px;
-    position: relative;
-    align-items: baseline;
   }
 `
 

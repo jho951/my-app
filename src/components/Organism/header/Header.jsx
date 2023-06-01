@@ -15,17 +15,14 @@ const Header = () => {
     <HeaderWrap>
       <Link className='header-image' href={"/"}>
         <CustomImage
-          image={`${IMG_PATH}/happyMedion.png`}
+          image={`${IMG_PATH}/headerLogo.png`}
           alt={"project-logo"}
+          width={200}
+          aspectRatio={"5:1"}
         />
       </Link>
       <GNB />
-
-      <LinkText
-        link={AccountLink}
-        className={"text-btn"}
-        fontSize={`${(props) => props.theme.fontSize.gnb}`}
-      />
+      <LinkText link={AccountLink} className={"text-btn header-account"} />
     </HeaderWrap>
   )
 }

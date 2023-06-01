@@ -1,16 +1,12 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-const BannerItemsWrap = styled.figure`
-  position: relative;
-  width: 400px;
-  height: 200px;
-`;
+const BannerItemsWrap = styled.figure``
 
 const ControllWrap = styled.section`
   display: flex;
   position: absolute;
-  top: 80%;
-  left: 2%;
+  bottom: 0%;
+  right: 10%;
   align-items: center;
   width: 360px;
   height: 50px;
@@ -38,6 +34,6 @@ const ControllWrap = styled.section`
       transition: width 0.3s;
     }
   }
-`;
+`
 
-export { BannerItemsWrap, ControllWrap };
+export {BannerItemsWrap, ControllWrap}

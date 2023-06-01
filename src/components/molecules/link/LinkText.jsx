@@ -2,7 +2,7 @@ import {useRouter} from "next/router"
 import {LinkTextWrap} from "./LinkText.styled"
 import {CustomButton} from "../../atoms/button/Button"
 
-export const LinkText = ({link, className, props}) => {
+export const LinkText = ({link, className}) => {
   const router = useRouter()
 
   // 라우터 이동 함수입니다.
@@ -21,7 +21,7 @@ export const LinkText = ({link, className, props}) => {
         link.map((destination) => (
           <CustomButton
             className={className}
-            fontSize={"10px"}
+            fontSize={"1rem"}
             key={destination?.id}
             onClick={(e) => handleClick(e, destination?.href)}
           >
