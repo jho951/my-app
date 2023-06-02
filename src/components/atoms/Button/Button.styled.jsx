@@ -1,6 +1,7 @@
 import styled, {css} from "styled-components"
 
 // 공통 적용 버튼 스타일
+const defaultButtonColor = `${(props) => props.theme.button.default}`
 const CommonButtonStyles = css`
   display: flex;
   justify-content: center;
@@ -11,7 +12,6 @@ const CommonButtonStyles = css`
   font-weight: ${(props) => props.fontWeight || "400"};
   white-space: ${(props) => props.whiteSpace || "nowrap"};
   font-size: ${(props) => props.fontSize || "1.6rem"};
-  cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   outline: none;
@@ -23,13 +23,15 @@ const CommonButtonStyles = css`
     cursor: not-allowed;
     transform: ${(props) => (props.loading ? "scale(0.96)" : "scale(1)")};
   }
+  cursor: pointer;
 `
 
 export const CustomBtn = styled.button`
   ${CommonButtonStyles}
+
   // 기본 버튼 
   &.solid-btn {
-    background: ${(props) => props.theme.button.default};
+    background: ${defaultButtonColor};
     &:disabled {
       background: ${(props) =>
         props.loading
@@ -54,8 +56,8 @@ export const CustomBtn = styled.button`
   //외곽선 버튼
   &.outline-btn {
     background: transparent;
-    border: 1.5px solid ${(props) => props.theme.button.default};
-    color: ${(props) => props.theme.button.default};
+    border: 1.5px solid ${defaultButtonColor};
+    color: ${defaultButtonColor};
     &:disabled {
       border: 1.5px solid
         ${(props) =>
@@ -69,7 +71,7 @@ export const CustomBtn = styled.button`
     }
     &:not(:disabled) {
       &:hover {
-        border: 1.8px solid ${(props) => props.theme.button.default};
+        border: 1.8px solid ${defaultButtonColor};
         transition: border 0.3s ease-in-out;
         font-weight: 600;
         &:active {
@@ -97,7 +99,6 @@ export const CustomBtn = styled.button`
           ? props.theme.button.progress
           : props.theme.button.disabled};
     }
-
     &:not(:disabled) {
       &:hover {
         border-bottom: 1px solid ${(props) => props.theme.text};
@@ -113,19 +114,22 @@ export const CustomBtn = styled.button`
       font-weight: 600;
     }
   }
+
   &.icon-btn {
     border-radius: 0;
     background: transparent;
   }
+
+  // skip navigation 역할 버튼입니다.
   &.skipLink {
     position: absolute;
     width: 100%;
-    top: -10px;
+    top: -30px;
     left: 0;
     padding: 0;
     background-color: ${(props) => props.theme.subColor};
-    color: ${(props) => props.theme.header.text};
-    z-index: 200;
+    color: ${(props) => props.theme.textColor};
+    z-index: 120;
     opacity: 0;
     pointer-events: none;
     &:focus,

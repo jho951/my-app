@@ -55,7 +55,12 @@ const ToolTip = ({children, content, position, link}) => {
         {show && (
           <TooltipBox position={position}>
             <TooltipText ref={handleRef}>{content}</TooltipText>
-            <Link href={link} target='/blank' rel='noopener noreferrer'>
+            <Link
+              role='link'
+              href={link}
+              target='/blank'
+              rel='noopener noreferrer'
+            >
               <small>더 알아보기</small>
             </Link>
             <TooltipArrow position={position} />

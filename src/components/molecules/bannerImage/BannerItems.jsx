@@ -64,11 +64,11 @@ export const BannerItems = ({image, imageAtom}) => {
           {<GrFormNext />}
         </CustomButton>
         <div className='index-pointer'>
-          <h3 className='current-number'>{currentImage + 1}</h3>
+          <p className='current-number'>{currentImage + 1}</p>
           <div style={{width: "200px"}}>
             <span className='progress-bar' ref={progressRef} />
           </div>
-          <h3 className='total-number'>{image.length}</h3>
+          <p className='total-number'>{image.length}</p>
         </div>
       </ControllWrap>
     </>

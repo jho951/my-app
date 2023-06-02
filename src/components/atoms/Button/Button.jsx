@@ -8,12 +8,11 @@ export const CustomButton = ({
   disable = false,
   loading = false,
   className,
+  role,
   ...props
 }) => {
-  // JS 기능을 위한 State 입니다.
   const [isHovered, setIsHovered] = useState(false)
 
-  // hover 시 JS로 제공할 기능을 넣을 함수입니다.
   const handleMouseEnter = useCallback(() => {
     setIsHovered(true)
   }, [])
@@ -21,7 +20,6 @@ export const CustomButton = ({
     setIsHovered(false)
   }, [])
 
-  // 웹 접근성 향상을 위한 Enter를 통해 click 이벤트 적용 함수입니다.
   const handleKeyDown = useCallback(
     (event) => {
       if (!disable && !loading && event.key === "Enter") {
@@ -34,7 +32,7 @@ export const CustomButton = ({
   )
   return (
     <CustomBtn
-      role='button'
+      role={role}
       className={className}
       {...props}
       loading={loading}
@@ -44,8 +42,10 @@ export const CustomButton = ({
       isHovered={isHovered}
       onClick={!disable ? onClick : undefined}
       disabled={disable || loading}
+      aria-label={disable || loading ? "Button disabled" : "Button"}
+      aria-disabled={disable || loading ? true : undefined}
     >
-      {loading && <Spinner />}
+      {loading && <Spinner aria-hidden='true' />}
       {!loading && children}
     </CustomBtn>
   )

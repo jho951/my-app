@@ -8,54 +8,12 @@ const TabletScreen = `@media (max-width: 1024px) and (min-width: 768px)`
 // pc 스크린 입니다.
 const WebScreen = `@media (min-width: 1024px)`
 
-const GlobalStyle = createGlobalStyle`
- ${normalize}
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  grid-gap: 1em;
-}
-* {
-  box-sizing: border-box;
-}
-
-:root{
-  font-size: clamp(1.8rem, 0.8vw, 2.4rem);
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  font-size: 62.5%;
-}
-html,
-body {
-  font-family: Inter;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  overflow: overlay;
-  color:#000000;
-  ol, ul{
-    list-style-type: none;
-}
-a{
-  text-decoration: none;
-   color: inherit;
-}
-
-}
-`
-
 // 프로젝트에서 사용되는 color 입니다.
 const theme = {
+  primary: "#6bc7f1",
+  subColor: "#FDFDFD",
+  textColor: "#474747",
   background: "#ffffff",
-  primary: "#da17dd",
-  subColor: "#6bc7f1",
-  textColor: "#000000",
-  header: {
-    padding: "3% 14% 0.4% 13%",
-    text: "#FDFDFD",
-    background: "rgb(0, 0, 0 ,0.2)",
-  },
   footer: {text: "#191919", background: "#FDFDFD"},
   fontSize: {
     title: "2.4rem",
@@ -73,6 +31,59 @@ const theme = {
   },
 }
 
+const GlobalStyle = createGlobalStyle`
+  ${normalize}
+  @font-face {
+  font-family: 'Pretendard';
+  src: url('../fonts/Pretendard-Regular.ttf') format('truetype');
+}
+
+  * {
+    box-sizing: border-box;
+    font-family: Pretendard;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    font-size: 62.5%;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  html,
+  body {
+    overflow: hidden;
+    overflow: overlay;
+    color: #000000;
+  }
+  h1{
+    font-size: 2.4rem;
+  }
+
+  ol,
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }  
+  .visuallyhidden {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+    clip-path: inset(0px 0px 99.9% 99.9%);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    border: 0;
+  }
+
+`
+
 //loading spin jsx 파일입니다.
 const spin = keyframes`
   0% {
@@ -83,8 +94,8 @@ const spin = keyframes`
   }
 `
 const Spinner = styled.div`
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid ${(props) => props.theme.button.progress};
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid ${(props) => props.theme.button.progress};
   border-radius: 50%;
   width: ${(props) => props.width || "20px"};
   height: ${(props) => props.height || "20px"};
@@ -94,3 +105,9 @@ const Spinner = styled.div`
 `
 
 export {GlobalStyle, MobileScreen, TabletScreen, WebScreen, theme, Spinner}
+
+// .cards {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+//   grid-gap: 1em;
+// }

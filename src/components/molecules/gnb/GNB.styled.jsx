@@ -7,12 +7,8 @@ const GnbWrap = styled.nav`
   position: relative;
   font-size: ${(props) => props.theme.fontSize.gnb};
   font-weight: 700;
-  .gnb-element {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 70px;
-  }
+  gap: 8.4rem;
+  flex: 0 0 auto;
   .active {
     color: ${(props) => props.theme.subColor};
   }

@@ -1,31 +1,40 @@
-import styled from "styled-components"
-import {MobileScreen, WebScreen} from "../../../styles/GlobalStyled"
+import styled, {css} from "styled-components"
+import {TabletScreen, WebScreen} from "../../../styles/GlobalStyled"
 
-const HeaderWrap = styled.div`
+const CommonHeaderStyles = css`
   width: 100%;
+  height: 120px;
   display: flex;
-  padding: ${(props) => props.theme.header.padding};
-  text-align: center;
-  ${WebScreen} {
-    position: fixed;
-    top: 0%;
-    z-index: 100;
-    justify-content: space-around;
-    align-items: center;
-    background-color: ${(props) => props.theme.header.background};
-    color: ${(props) => props.theme.header.text};
-    z-index: 100;
-    .header-image {
-      cursor: pointer;
-    }
-    .header-account {
-      color: ${(props) => props.theme.header.text};
-      font-size: 1.6rem;
-    }
+  position: fixed;
+  align-items: flex-end;
+  top: 0%;
+  background-color: rgba(25, 25, 25, 0.1);
+  color: #fdfdfd;
+
+  z-index: 100;
+  .header-image {
   }
-  ${MobileScreen} {
-    display: none;
+  .header-account {
+    color: #fdfdfd;
+    font-size: 1.6rem;
   }
 `
 
-export {HeaderWrap}
+const HeaderContainer = styled.div`
+  ${CommonHeaderStyles}
+  ${WebScreen} {
+    .heder-wrap {
+      width: calc(100% - 64px);
+      max-width: 1408px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+  ${TabletScreen} {
+    padding: 0 2vw;
+  }
+`
+
+export {HeaderContainer}

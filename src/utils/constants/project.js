@@ -12,10 +12,10 @@ const PUBLIC_IMG_URL = `https://s3.ap-northeast-2.amazonaws.com/${S3_BUCKET}/`
 // gnb 메누 리스트
 const GNB_MENU = [
   {id: "info", label: "회사소개", href: "/info"},
-  {id: "category", label: "병원카테고리", href: "/category"},
-  {id: "service", label: "제품서비스", href: "/service"},
-  {id: "news", label: "뉴스앤칼럼", href: "/news"},
-  {id: "mypage", label: "마이페이지", href: "/mypage"},
+  {id: "category", label: "병원", href: "/category"},
+  {id: "service", label: "의료서비스", href: "/service"},
+  {id: "mypage", label: "공지사항", href: "/mypage"},
+  {id: "news", label: "자주묻는질문", href: "/news"},
 ]
 
 // fnb 리스트

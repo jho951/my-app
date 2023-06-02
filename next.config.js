@@ -5,15 +5,19 @@ const nextConfig = {
     defaultLocale: "ko",
     domains: [
       {
+        domain: "example.com",
         defaultLocale: "en",
       },
       {
+        domain: "example.co.kr",
         defaultLocale: "ko",
       },
       {
+        domain: "example.co.cn",
         defaultLocale: "zh-CN",
       },
       {
+        domain: "example.co.ar",
         defaultLocale: "ar",
       },
     ],

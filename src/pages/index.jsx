@@ -6,6 +6,14 @@ import {skipNavigation} from "../utils/utils"
 export default function MyComponent() {
   return (
     <>
+      <h1 className='visuallyhidden' role='title'>
+        happy-medion
+      </h1>
+      <PageHead
+        title='해피매디온'
+        desrciption='메인페이지'
+        keyword='homepage'
+      />
       <CustomButton
         className={"skipLink"}
         tabIndex={1}
@@ -13,11 +21,6 @@ export default function MyComponent() {
       >
         <p>병원</p>
       </CustomButton>
-      <PageHead
-        title='헤더 테스트 중'
-        description='테스트'
-        keyword='테스트, next.js'
-      />
       <Banner />
     </>
   )
