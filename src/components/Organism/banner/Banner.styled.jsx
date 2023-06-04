@@ -1,8 +1,18 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const BannerWrap = styled.div`
+const CommonBannerStyles = css`
   width: 100%;
-  height: 250px;
   position: relative;
+  display: flex;
+  justify-content: center;
+
+  .banner-images {
+    display: flex;
+    justify-content: center;
+    max-width: 1408px;
+  }
+`;
+const BannerWrap = styled.div`
+  ${CommonBannerStyles}
 `;
 export { BannerWrap };

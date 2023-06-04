@@ -1,12 +1,15 @@
-import styled, {createGlobalStyle, keyframes} from "styled-components"
-import {normalize} from "styled-normalize"
+import styled, { createGlobalStyle, keyframes } from "styled-components";
+import { normalize } from "styled-normalize";
 
 // 모바일 스크린 입니다.
-const MobileScreen = `@media (max-width: 768px)`
+const MOBILE_SIZE = "768px";
+const MobileScreen = `@media (max-width: ${MOBILE_SIZE})`;
+
 // 태블릿 스크린 입니다.
-const TabletScreen = `@media (max-width: 1024px) and (min-width: 768px)`
+const TabletScreen = `@media (max-width: 1024px) and (min-width: 768px)`;
+
 // pc 스크린 입니다.
-const WebScreen = `@media (min-width: 1024px)`
+const WebScreen = `@media (min-width: 1024px)`;
 
 // 프로젝트에서 사용되는 color 입니다.
 const theme = {
@@ -14,14 +17,13 @@ const theme = {
   subColor: "#FDFDFD",
   textColor: "#474747",
   background: "#ffffff",
-  footer: {text: "#191919", background: "#FDFDFD"},
+  footer: { text: "#191919", background: "#FDFDFD" },
   fontSize: {
     title: "2.4rem",
     subTitle: "2rem",
     text: "1.4rem",
     gnb: "1.8rem",
   },
-
   button: {
     text: "#060606",
     default: "rgba(19, 100, 193, 0.8)",
@@ -29,7 +31,7 @@ const theme = {
     disabled: "rgba(19, 100, 193, 0.45)",
     progress: "rgba(19, 100, 193,0.7)",
   },
-}
+};
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -82,7 +84,7 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
   }
 
-`
+`;
 
 //loading spin jsx 파일입니다.
 const spin = keyframes`
@@ -92,7 +94,7 @@ const spin = keyframes`
   100% {
     transform: rotate(360deg);
   }
-`
+`;
 const Spinner = styled.div`
   border: 3px solid #f3f3f3;
   border-top: 3px solid ${(props) => props.theme.button.progress};
@@ -102,9 +104,17 @@ const Spinner = styled.div`
   position: relative;
   transform: translateX(-50%);
   animation: ${spin} 1s linear infinite;
-`
+`;
 
-export {GlobalStyle, MobileScreen, TabletScreen, WebScreen, theme, Spinner}
+export {
+  GlobalStyle,
+  MOBILE_SIZE,
+  MobileScreen,
+  TabletScreen,
+  WebScreen,
+  theme,
+  Spinner,
+};
 
 // .cards {
 //   display: grid;
