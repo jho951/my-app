@@ -3,7 +3,6 @@ import {calculateHeight} from "../../../utils/utils"
 
 export const CustomImage = ({image, currentImage, alt, width, aspectRatio}) => {
   const height = calculateHeight(width, aspectRatio)
-
   const imageSrc = currentImage >= 0 ? image[currentImage]?.src : image
   return (
     <Image

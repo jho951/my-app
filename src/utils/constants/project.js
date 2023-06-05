@@ -17,6 +17,7 @@ const GNB_MENU = [
   {id: "mypage", label: "공지사항", href: "/notice"},
   {id: "news", label: "자주묻는질문", href: "/faq"},
 ]
+// 다국어 국가 이미지
 const LanguageCountryImage = [
   {id: "ko", src: `${IMG_PATH}/country/southKorea.png`},
   {id: "en", src: `${IMG_PATH}/country/unitedStates.png`},

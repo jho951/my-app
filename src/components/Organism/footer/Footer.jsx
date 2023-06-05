@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <FooterWrap>
       <FNB />
-      <p id='main'>safdfasdf</p>
+      <p id='main'></p>
     </FooterWrap>
   )
 }

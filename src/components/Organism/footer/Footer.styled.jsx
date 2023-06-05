@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import {TabletScreen, WebScreen} from "../../../styles/GlobalStyled"
 
 const FooterWrap = styled.div`
   width: 100%;

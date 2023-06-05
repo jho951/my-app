@@ -14,28 +14,23 @@ const GNB = () => {
 
   return (
     <GnbWrap>
-      {GNB_MENU?.map(
-        (menu) => (
-          console.log(router.pathname === menu.href),
-          (
-            <Link
-              className='gnb-menu'
-              role='tab'
-              href={menu.href}
-              key={menu.id}
-              passHref
-            >
-              <p
-                className={router.pathname === menu.href ? "active" : ""}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                {menu.label}
-              </p>
-            </Link>
-          )
-        )
-      )}
+      {GNB_MENU?.map((menu) => (
+        <Link
+          className='gnb-menu'
+          role='tab'
+          href={menu.href}
+          key={menu.id}
+          passHref
+        >
+          <p
+            className={router.pathname === menu.href ? "active" : ""}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {menu.label}
+          </p>
+        </Link>
+      ))}
       {/* <LnbWrap showLnb={showLnb}>{showLnb && <LNB />}</LnbWrap> */}
     </GnbWrap>
   )

@@ -1,6 +1,7 @@
 import Banner from "../components/Organism/banner/Banner"
 import {CustomButton} from "../components/atoms/button/Button"
 import {PageHead} from "../components/atoms/htmlHead/HtmlHead"
+import SideBar from "../components/organism/sideBar/SideBar"
 import {skipNavigation} from "../utils/utils"
 
 export default function MyComponent() {
@@ -22,6 +23,7 @@ export default function MyComponent() {
         <p>병원</p>
       </CustomButton>
       <Banner />
+      <SideBar />
     </>
   )
 }
