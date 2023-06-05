@@ -1,26 +1,8 @@
 const nextConfig = {
   //다국어 설정
   i18n: {
-    locales: ["en", "ko", "zh-CN", "ar"],
+    locales: ["ko", "en", "zh-CN", "ar"],
     defaultLocale: "ko",
-    domains: [
-      {
-        domain: "example.com",
-        defaultLocale: "en",
-      },
-      {
-        domain: "example.co.kr",
-        defaultLocale: "ko",
-      },
-      {
-        domain: "example.co.cn",
-        defaultLocale: "zh-CN",
-      },
-      {
-        domain: "example.co.ar",
-        defaultLocale: "ar",
-      },
-    ],
   },
   reactStrictMode: true,
 

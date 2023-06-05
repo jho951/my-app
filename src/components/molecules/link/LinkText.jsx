@@ -1,5 +1,4 @@
 import {useRouter} from "next/router"
-import {LinkTextWrap} from "./LinkText.styled"
 import {CustomButton} from "../../atoms/button/Button"
 
 export const LinkText = ({link, className}) => {
@@ -16,18 +15,15 @@ export const LinkText = ({link, className}) => {
     }
   }
   return (
-    <LinkTextWrap>
-      {link &&
-        link.map((destination) => (
-          <CustomButton
-            className={className}
-            fontSize={"1rem"}
-            key={destination?.id}
-            onClick={(e) => handleClick(e, destination?.href)}
-          >
-            {destination.label}
-          </CustomButton>
-        ))}
-    </LinkTextWrap>
+    link &&
+    link?.map((destination) => (
+      <CustomButton
+        className={className}
+        key={destination?.id}
+        onClick={(e) => handleClick(e, destination?.href)}
+      >
+        {destination.label}
+      </CustomButton>
+    ))
   )
 }

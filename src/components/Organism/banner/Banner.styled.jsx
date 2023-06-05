@@ -1,18 +1,27 @@
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components"
+import {TabletScreen, WebScreen} from "../../../styles/GlobalStyled"
 
 const CommonBannerStyles = css`
   width: 100%;
-  position: relative;
   display: flex;
   justify-content: center;
-
-  .banner-images {
-    display: flex;
-    justify-content: center;
-    max-width: 1408px;
+  position: relative;
+  img {
+    width: 100%;
   }
-`;
+`
 const BannerWrap = styled.div`
   ${CommonBannerStyles}
-`;
-export { BannerWrap };
+
+  .banner-images {
+    ${WebScreen} {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      max-width: 1920px;
+    }
+    ${TabletScreen} {
+    }
+  }
+`
+export {BannerWrap}

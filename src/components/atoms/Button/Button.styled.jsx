@@ -93,6 +93,7 @@ export const CustomBtn = styled.button`
     border-radius: 0;
     color: ${(props) => props.theme.text};
     background: transparent;
+    padding: 0;
     &:disabled {
       color: ${(props) =>
         props.loading
@@ -118,6 +119,7 @@ export const CustomBtn = styled.button`
   &.icon-btn {
     border-radius: 0;
     background: transparent;
+    padding: 0;
   }
 
   // skip navigation 역할 버튼입니다.

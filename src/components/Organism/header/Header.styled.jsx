@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { TabletScreen, WebScreen } from "../../../styles/GlobalStyled";
+import styled, {css} from "styled-components"
+import {TabletScreen, WebScreen} from "../../../styles/GlobalStyled"
 
 const CommonHeaderStyles = css`
   width: 100%;
@@ -11,12 +11,11 @@ const CommonHeaderStyles = css`
   background-color: rgba(25, 25, 25, 0.1);
   color: #fdfdfd;
   z-index: 100;
-
   .header-account {
     color: #fdfdfd;
     font-size: 1.6rem;
   }
-`;
+`
 
 const HeaderContainer = styled.div`
   ${CommonHeaderStyles}
@@ -29,10 +28,18 @@ const HeaderContainer = styled.div`
       width: calc(100% - 64px);
       max-width: 1408px;
     }
+    .header-account {
+      display: flex;
+      justify-content: space-between;
+      width: 225px;
+      button {
+        color: ${(props) => props.theme.subColor};
+      }
+    }
   }
   ${TabletScreen} {
     padding: 0 2vw;
   }
-`;
+`
 
-export { HeaderContainer };
+export {HeaderContainer}
