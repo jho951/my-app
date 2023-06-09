@@ -6,11 +6,11 @@ const Index = () => {
   return (
     <>
       <IconsInput
-        className={"search"}
+        className='search'
         icons={<AiOutlineSearch />}
-        type={"password"}
+        type='password'
       />
-      <CustomInput type={"text"} />
+      <CustomInput type='text' />
     </>
   )
 }

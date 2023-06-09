@@ -1,4 +1,6 @@
 import moment from "moment"
+import {useEffect} from "react"
+import {useState} from "react"
 
 ////////////////////////////////////////////////
 //// 천 단위마다 콤마를 추가 해주는 utils 함수입니다.////
@@ -111,6 +113,35 @@ const skipNavigation = (id) => {
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////
+/// 이미지의 natural width, height를 리턴하는 custom hook입니다.///
+///////////////////////////////////////////////////////////////////////////////
+const useImageSize = (imagePath) => {
+  const [dimensions, setDimensions] = useState({
+    width: 0,
+    height: 0,
+    aspectRatio: 0,
+    isLoaded: false,
+  })
+
+  useEffect(() => {
+    const img = new Image()
+    img.src = imagePath
+    img.onload = () => {
+      const {width, height} = img
+      const aspectRatio = `${width}:${height}`
+
+      setDimensions({width, height, aspectRatio, isLoaded: true})
+    }
+
+    return () => {
+      img.onload = null
+    }
+  }, [imagePath])
+
+  return dimensions
+}
+
 export {
   addComma,
   textSlice,
@@ -120,4 +151,5 @@ export {
   removeDuplicates,
   calculateHeight,
   skipNavigation,
+  useImageSize,
 }

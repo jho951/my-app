@@ -1,22 +1,14 @@
 import styled from "styled-components"
 
 const LnbWrap = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: ${({showLnb}) => (showLnb ? "block" : "none")};
-  background-color: black;
+  width: 100%;
+  display: block;
+  /* display: ${({showLnb}) => (showLnb ? "block" : "none")}; */
   ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    background-color: white;
 
-    .lnb-item {
-      padding: 10px;
-    }
-
-    .lnb-item a {
-      color: blue;
+    a {
+      color: #000000;
       text-decoration: none;
     }
   }

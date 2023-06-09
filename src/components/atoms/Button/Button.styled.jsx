@@ -28,15 +28,12 @@ const CommonButtonStyles = css`
 
 export const CustomBtn = styled.button`
   ${CommonButtonStyles}
-
   // 기본 버튼 
   &.solid-btn {
     background: ${defaultButtonColor};
     &:disabled {
       background: ${(props) =>
-        props.loading
-          ? props.theme.button.progress
-          : props.theme.button.disabled};
+        props.loading ? props.theme.button.progress : props.theme.disabled};
     }
     &:not(:disabled) {
       &:hover {
@@ -61,13 +58,9 @@ export const CustomBtn = styled.button`
     &:disabled {
       border: 1.5px solid
         ${(props) =>
-          props.loading
-            ? props.theme.button.progress
-            : props.theme.button.disabled};
+          props.loading ? props.theme.button.progress : props.theme.disabled};
       color: ${(props) =>
-        props.loading
-          ? props.theme.button.progress
-          : props.theme.button.disabled};
+        props.loading ? props.theme.button.progress : props.theme.sabled};
     }
     &:not(:disabled) {
       &:hover {
@@ -96,9 +89,7 @@ export const CustomBtn = styled.button`
     padding: 0;
     &:disabled {
       color: ${(props) =>
-        props.loading
-          ? props.theme.button.progress
-          : props.theme.button.disabled};
+        props.loading ? props.theme.button.progress : props.theme.disabled};
     }
     &:not(:disabled) {
       &:hover {
@@ -136,7 +127,7 @@ export const CustomBtn = styled.button`
     pointer-events: none;
     &:focus,
     &:focus p {
-      font-size: ${(props) => props.theme.fontSize.gnb};
+      font-size: ${(props) => props.theme.fontSize.m};
       top: 0;
       opacity: 1;
       pointer-events: auto;

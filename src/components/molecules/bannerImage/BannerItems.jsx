@@ -1,7 +1,6 @@
 import {useEffect, useRef, useState} from "react"
 
 import {ControllWrap} from "./BannerItems.styled"
-import {CustomButton} from "../../atoms/button/Button"
 
 import {FiPause, FiPlay} from "react-icons/fi"
 import {GrFormPrevious, GrFormNext} from "react-icons/gr"
@@ -19,14 +18,14 @@ export const BannerItems = ({image, currentImage, setCurrentImage}) => {
     return () => {
       clearInterval(timer)
     }
-  }, [isPlaying])
+  }, [isPlaying, setCurrentImage, image.length])
 
   useEffect(() => {
     const progressBar = progressRef.current
     const totalImages = image.length
     const width = ((currentImage + 1) / totalImages) * 100
     progressBar.style.width = `${width}%`
-  }, [currentImage])
+  }, [currentImage, image.length])
 
   const handlePrevSlide = () => {
     setCurrentImage(
@@ -37,31 +36,34 @@ export const BannerItems = ({image, currentImage, setCurrentImage}) => {
   const handleNextSlide = () => {
     setCurrentImage((prevImage) => (prevImage + 1) % image.length)
   }
+
   const handleTogglePlay = () => {
     setIsPlaying((prevIsPlaying) => !prevIsPlaying)
   }
 
   return (
     <ControllWrap>
-      <div className='play-elem'>
-        <CustomButton className={"icon-btn"} onClick={handleTogglePlay}>
-          {isPlaying ? <FiPause /> : <FiPlay />}
-        </CustomButton>
-        <div className='next-prev-btn'>
-          <CustomButton className={"icon-btn"} onClick={handlePrevSlide}>
+      <div className='control-elem'>
+        <ul className='change-banner-elem'>
+          <li onClick={handleTogglePlay}>
+            {isPlaying ? <FiPause /> : <FiPlay />}
+          </li>
+          <li onClick={handlePrevSlide}>
             <GrFormPrevious />
-          </CustomButton>
-          <CustomButton className={"icon-btn"} onClick={handleNextSlide}>
-            {<GrFormNext />}
-          </CustomButton>
+          </li>
+          <li className='icon-btn' onClick={handleNextSlide}>
+            <GrFormNext />
+          </li>
+        </ul>
+        <div className='progress-elem'>
+          <span>
+            <b>{currentImage + 1}</b>
+          </span>
+          <div className='progress'>
+            <span className='progress-bar' ref={progressRef} />
+          </div>
+          <span>{image.length}</span>
         </div>
-      </div>
-      <div className='index-pointer'>
-        <p className='current-number'>{currentImage + 1}</p>
-        <div className='progress'>
-          <span className='progress-bar' ref={progressRef} />
-        </div>
-        <p className='total-number'>{image.length}</p>
       </div>
     </ControllWrap>
   )

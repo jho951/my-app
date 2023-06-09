@@ -17,15 +17,13 @@ const Banner = () => {
   ]
   return (
     <BannerWrap>
-      <div className='banner-images'>
+      <figure className='banner-images'>
         <CustomImage
           image={image}
           currentImage={currentImage}
-          width={1920}
-          aspectRatio={"16:7"}
-          alt={"banner-image"}
+          alt='banner-image'
         />
-      </div>
+      </figure>
       <BannerItems
         image={image}
         currentImage={currentImage}

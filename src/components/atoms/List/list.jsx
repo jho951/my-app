@@ -6,7 +6,7 @@ export function List({menus, children}) {
     <ListWrap>
       <ListContainer>
         {menus?.map((menu) => (
-          <li>{menu}</li>
+          <li key={menu?.id}>{menu}</li>
         ))}
         {children}
       </ListContainer>

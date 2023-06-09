@@ -8,6 +8,14 @@ const CommonBannerStyles = css`
   position: relative;
   img {
     width: 100%;
+    height: auto;
+  }
+  .banner-images {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    aspect-ratio: 16 / 7;
+    overflow: hidden;
   }
 `
 const BannerWrap = styled.div`
@@ -15,9 +23,6 @@ const BannerWrap = styled.div`
 
   .banner-images {
     ${WebScreen} {
-      width: 100%;
-      display: flex;
-      justify-content: center;
       max-width: 1920px;
     }
     ${TabletScreen} {

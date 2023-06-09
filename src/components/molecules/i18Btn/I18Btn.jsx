@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react"
+import React, {useState} from "react"
 import Link from "next/link"
 import {useTranslation} from "react-i18next"
 import {useRouter} from "next/router"
@@ -21,6 +21,7 @@ const I18Btn = () => {
   }
   const getCurrentLanguageImage = () => {
     const currentLanguageId = router.locale
+    console.log(currentLanguageId)
     const selectedImage = LanguageCountryImage.find(
       (item) => item.id === currentLanguageId
     )
@@ -33,16 +34,13 @@ const I18Btn = () => {
         className={`locale-btn ${open ? "active" : ""} icon-btn`}
         onClick={onOpen}
       >
-        <CustomImage
-          image={getCurrentLanguageImage()}
-          width={24}
-          aspectRatio={"1:1"}
-        />
+        <CustomImage image={getCurrentLanguageImage()} alt='current-country' />
         <p className='arrow' />
       </CustomButton>
       <div
         className={`locale-bg ${open ? "open" : "close"}`}
         onMouseOver={onClose}
+        onFocus={onClose}
       />
       <div className={`locale-bg-block ${open ? "open" : "close"}`} />
       <div className={`locale-select-box ${open ? "open" : "close"}`}>
@@ -55,8 +53,7 @@ const I18Btn = () => {
             <CustomImage
               className={t("id") === locale?.id ? "active-btn" : ""}
               image={locale?.src}
-              width={24}
-              aspectRatio={"1:1"}
+              alt='language-country'
             />
           </Link>
         ))}

@@ -5,8 +5,8 @@ import {Spinner} from "../../../styles/GlobalStyled"
 export const CustomButton = ({
   children,
   onClick,
-  disable = false,
-  loading = false,
+  disable,
+  loading,
   className,
   role,
   ...props

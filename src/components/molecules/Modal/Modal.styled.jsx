@@ -17,15 +17,6 @@ const fadeOut = keyframes`
   }
 `
 
-const SlideOut = keyframes`
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-`
-
 const ModalOverLay = styled.div`
   position: fixed;
   width: 100%;

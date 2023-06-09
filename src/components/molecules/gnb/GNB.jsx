@@ -22,16 +22,16 @@ const GNB = () => {
           key={menu.id}
           passHref
         >
-          <p
+          <li
             className={router.pathname === menu.href ? "active" : ""}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             {menu.label}
-          </p>
+          </li>
         </Link>
       ))}
-      {/* <LnbWrap showLnb={showLnb}>{showLnb && <LNB />}</LnbWrap> */}
+      <LnbWrap showLnb={showLnb}>{showLnb && <LNB />}</LnbWrap>
     </GnbWrap>
   )
 }

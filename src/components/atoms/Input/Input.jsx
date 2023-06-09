@@ -6,10 +6,11 @@ export const CustomInput = ({
   placeholder,
   className,
   type,
+  role,
 }) => {
   return (
     <InputElement
-      role='input'
+      role={role}
       type={type}
       value={value}
       onChange={onChange}

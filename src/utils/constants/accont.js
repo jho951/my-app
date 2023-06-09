@@ -134,6 +134,3 @@ export const regExp = (type) => {
       return /^$/
   }
 }
-export const calcHeight = (width, aspectRatio) => {
-  return ""
-}

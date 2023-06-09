@@ -1,58 +1,58 @@
-import styled from "styled-components"
+import styled, {css} from "styled-components"
 
-const BannerItemsWrap = styled.figure``
-
-const ControllWrap = styled.section`
+const CommonControlStyles = css`
   width: 100%;
+  max-width: 448px;
+  height: 50px;
   display: flex;
+  padding-left: 16px;
   position: absolute;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
   right: 13%;
   bottom: 0%;
-  align-items: center;
-  max-width: 360px;
-  height: 50px;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
   background-color: white;
-  .play-elem {
+`
+
+const ControllWrap = styled.section`
+  ${CommonControlStyles}
+  .control-elem {
     width: 100%;
-    max-width: 103px;
     display: flex;
+    max-width: 336px;
+    font-size: ${(props) => props.theme.fontSize.m};
     justify-content: space-between;
-    .next-prev-btn {
+    .change-banner-elem {
+      width: 100%;
+      max-width: 120px;
       display: flex;
       justify-content: space-between;
+      li {
+        cursor: pointer;
+      }
+    }
+    .progress-elem {
       width: 100%;
-      max-width: 60px;
-    }
-  }
-  .index-pointer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 200px;
-    .current-number {
-      font-size: ${(props) => props.theme.fontSize.text};
-      width: 12px;
-      font-weight: bold;
-    }
-    .total-number {
-      font-size: ${(props) => props.theme.fontSize.text};
-      width: 10px;
-    }
-    .progress {
-      width: 140px;
-      padding: 0 8px;
-      .progress-bar {
-        display: block;
-        max-width: ${(props) => props.width}%;
-        border: 1px solid black;
+      max-width: 175px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .progress {
+        width: 144px;
+        display: flex;
+        border: 1px solid ${(props) => props.theme.disabled};
         height: 1px;
-        background-color: #a04caf;
-        transition: width 0.3s;
+        align-items: inherit;
+        .progress-bar {
+          max-width: ${(props) => props.width}%;
+          border: 1px solid ${(props) => props.theme.textColor};
+          height: 1px;
+          transition: width 0.5s;
+        }
       }
     }
   }
 `
 
-export {BannerItemsWrap, ControllWrap}
+export {ControllWrap}

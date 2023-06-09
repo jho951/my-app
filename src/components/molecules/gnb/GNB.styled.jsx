@@ -1,13 +1,13 @@
 import styled from "styled-components"
 import {WebScreen} from "../../../styles/GlobalStyled"
 
-const GnbWrap = styled.nav`
+const GnbWrap = styled.ul`
   ${WebScreen} {
     display: flex;
     justify-content: space-between;
     align-items: end;
     position: relative;
-    font-size: ${(props) => props.theme.fontSize.gnb};
+    font-size: ${(props) => props.theme.fontSize.m};
     font-weight: 700;
     max-width: 950px;
     min-width: 634px;

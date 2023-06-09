@@ -17,32 +17,36 @@ const theme = {
   subColor: "#FDFDFD",
   textColor: "#474747",
   background: "#ffffff",
-  footer: {text: "#191919", background: "#FDFDFD"},
+  footer: "#191919",
+  disabled: "rgba(19, 100, 193, 0.45)",
   fontSize: {
-    title: "2.4rem",
-    subTitle: "2rem",
-    text: "1.4rem",
-    gnb: "1.8rem",
+    s: "1.4rem",
+    m: "1.6rem",
+    l: "2rem",
+    xl: "2.4rem",
   },
   button: {
     text: "#060606",
     default: "rgba(19, 100, 193, 0.8)",
     active: "rgba(19, 100, 193,1)",
-    disabled: "rgba(19, 100, 193, 0.45)",
     progress: "rgba(19, 100, 193,0.7)",
   },
+  contents: `calc(100% - 64px)`,
 }
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
+
   @font-face {
-  font-family: 'Pretendard';
-  src: url('../fonts/Pretendard-Regular.ttf') format('truetype');
-}
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard-Black.otf') format('opentype') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
 
   * {
     box-sizing: border-box;
-    font-family: Pretendard;
+    font-family: 'Pretendard', sans-serif;
     margin: 0;
     padding: 0;
   }

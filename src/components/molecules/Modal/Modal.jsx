@@ -1,4 +1,4 @@
-import {useEffect, useState, useRef} from "react"
+import {useEffect, useState, useRef, useCallback} from "react"
 import Portal from "../../../utils/Portal/Portal"
 import {ModalOverLay, ModalWrap} from "./Modal.styled"
 
@@ -14,19 +14,18 @@ const Modal = ({isOpen, onClose, children}) => {
     setModalOpen(false)
     onClose()
   }
-
-  const handleOutsideClick = (e) => {
+  const handleOutsideClick = useCallback((e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
       handleCloseModal()
     }
-  }
+  }, [])
 
   useEffect(() => {
     document.addEventListener("mousedown", handleOutsideClick)
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick)
     }
-  }, [])
+  }, [handleOutsideClick])
 
   return (
     <Portal selector='#modal-root'>
