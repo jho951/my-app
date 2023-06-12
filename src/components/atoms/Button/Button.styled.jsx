@@ -15,7 +15,7 @@ const buttonSize = {
   `,
 }
 
-const CommonButtonStyles = css`
+const commonButtonStyles = css`
   white-space: nowrap;
   transition: all 0.3s ease;
   position: relative;
@@ -136,9 +136,10 @@ const buttonStyle = {
     background: transparent;
   `,
 }
-
-export const CustomBtn = styled.button`
-  ${CommonButtonStyles}
+const CustomBtn = styled.button`
+  ${commonButtonStyles}
   ${(props) => buttonStyle[props.type] || buttonStyle["default"]}
   ${(props) => buttonSize[props.size] || buttonSize["medium"]}
 `
+
+export {CustomBtn}

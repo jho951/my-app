@@ -1,23 +1,28 @@
 import styled, {css} from "styled-components"
 
-const InputElement = styled.input`
-  ${(props) =>
-    props.className === "search"
-      ? css`
-          width: 650px;
-          border: none;
-        `
-      : css`
-          width: 688px;
-          border: 1px solid #ccc;
-          &:focus {
-            border: 1px solid red;
-          }
-        `};
-  padding: 10px 0px;
-  text-indent: 10px;
-  font-size: 0.6rem;
+const commonInputStyle = css`
+  font-size: ${(props) => props.theme.fontSize.s};
   outline: none;
+  ${(props) => props.fullWidth && `width: 100%`};
 `
 
-export {InputElement}
+const inputStyle = {
+  password: css`
+    width: 650px;
+    border: none;
+  `,
+  text: css`
+    ${(props) => (props.fullWidth ? `width: 100%` : `width:688px`)};
+    border: 1px solid #ccc;
+    &:focus {
+      border: 1px solid red;
+    }
+  `,
+}
+
+const CustomInputWrap = styled.input`
+  ${commonInputStyle}
+  ${(props) => inputStyle[props.type] || inputStyle["text"]}
+`
+
+export {CustomInputWrap}

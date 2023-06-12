@@ -5,7 +5,6 @@ const GnbWrap = styled.ul`
   ${WebScreen} {
     display: flex;
     justify-content: space-between;
-    align-items: end;
     position: relative;
     font-size: ${(props) => props.theme.fontSize.m};
     font-weight: 700;

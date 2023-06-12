@@ -19,7 +19,7 @@ const IconsInput = ({className, icons, type}) => {
       isFocused={isFocused}
       className={className}
     >
-      <CustomInput className={className} type={type} />
+      <CustomInput className={className} type={type} fullWidth />
       <p className='input-icons'>{icons}</p>
     </IconsInputWrap>
   )

@@ -4,7 +4,7 @@ import {IMG_PATH} from "../../../utils/constants/project"
 export const DefaultHead = () => (
   <Head>
     <meta charSet='UTF-8' />
-    <link rel='icon' href={`${IMG_PATH}/favicon.ico`} />
+    <link rel='icon' href={`${IMG_PATH}/country/southKorea.png`} />
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <meta name='author' content='회사대표' />
     <meta property='og:type' content='website' />
