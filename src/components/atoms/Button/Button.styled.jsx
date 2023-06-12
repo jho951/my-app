@@ -1,21 +1,17 @@
 import styled, {css} from "styled-components"
 
-// 공통 적용 버튼 스타일
-const defaultButtonColor = `${(props) => props.theme.button.default}`
+const shadowButtonEffect = `inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+  7px 7px 20px 0px rgba(41, 41, 41, 0.3),
+  4px 4px 5px 0px rgba(39, 38, 38, 0.3)`
+
 const CommonButtonStyles = css`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: ${(props) => props.paaidng || "1rem"};
-  color: ${(props) => props.color || props.theme.button.text};
-  border-radius: ${(props) => props.borderRadius || "3px"};
-  font-weight: ${(props) => props.fontWeight || "400"};
-  white-space: ${(props) => props.whiteSpace || "nowrap"};
-  font-size: ${(props) => props.fontSize || "1.6rem"};
+  color: ${(props) => props.theme.button.text};
+  white-space: nowrap;
   transition: all 0.3s ease;
   position: relative;
   outline: none;
   border: none;
+  cursor: pointer;
   &:active {
     transform: scale(1);
   }
@@ -23,23 +19,19 @@ const CommonButtonStyles = css`
     cursor: not-allowed;
     transform: ${(props) => (props.loading ? "scale(0.96)" : "scale(1)")};
   }
-  cursor: pointer;
 `
 
-export const CustomBtn = styled.button`
-  ${CommonButtonStyles}
-  // 기본 버튼 
-  &.solid-btn {
-    background: ${defaultButtonColor};
+const buttonStyle = {
+  default: css`
+    background: ${(props) => props.theme.button.default};
+    color: #ffffff;
     &:disabled {
       background: ${(props) =>
         props.loading ? props.theme.button.progress : props.theme.disabled};
     }
     &:not(:disabled) {
       &:hover {
-        box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-          7px 7px 20px 0px rgba(41, 41, 41, 0.3),
-          4px 4px 5px 0px rgba(39, 38, 38, 0.3);
+        box-shadow: ${shadowButtonEffect};
       }
       &:active {
         background: ${(props) => props.theme.button.active};
@@ -47,14 +39,13 @@ export const CustomBtn = styled.button`
     }
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
     }
-  }
-  //외곽선 버튼
-  &.outline-btn {
+  `,
+  outline: css`
     background: transparent;
-    border: 1.5px solid ${defaultButtonColor};
-    color: ${defaultButtonColor};
+    border: 1.5px solid ${(props) => props.theme.button.default};
+    color: ${(props) => props.theme.button.default};
     &:disabled {
       border: 1.5px solid
         ${(props) =>
@@ -62,59 +53,26 @@ export const CustomBtn = styled.button`
       color: ${(props) =>
         props.loading ? props.theme.button.progress : props.theme.sabled};
     }
+
     &:not(:disabled) {
       &:hover {
-        border: 1.8px solid ${defaultButtonColor};
+        border: 1.8px solid ${(props) => props.theme.button.default};
         transition: border 0.3s ease-in-out;
         font-weight: 600;
         &:active {
-          box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.3),
-            7px 7px 20px 0px rgba(41, 41, 41, 0.2),
-            4px 4px 5px 0px rgba(39, 38, 38, 0.2);
+          box-shadow: ${shadowButtonEffect};
         }
       }
     }
+
     &:focus {
       outline: none;
       border: 2px solid ${(props) => props.theme.button.active};
       font-weight: 600;
     }
-  }
-  // text 버튼
-  &.text-btn {
-    display: inline-block;
-    border-radius: 0;
-    color: ${(props) => props.theme.text};
-    background: transparent;
-    padding: 0;
-    &:disabled {
-      color: ${(props) =>
-        props.loading ? props.theme.button.progress : props.theme.disabled};
-    }
-    &:not(:disabled) {
-      &:hover {
-        border-bottom: 1px solid ${(props) => props.theme.text};
-      }
-      &:active {
-        transform: none;
-        font-weight: 600;
-        border-bottom: 1px solid ${(props) => props.theme.text};
-      }
-    }
-    &:focus {
-      border-bottom: 1px solid ${(props) => props.theme.text};
-      font-weight: 600;
-    }
-  }
+  `,
 
-  &.icon-btn {
-    border-radius: 0;
-    background: transparent;
-    padding: 0;
-  }
-
-  // skip navigation 역할 버튼입니다.
-  &.skipLink {
+  skip: css`
     position: absolute;
     width: 100%;
     top: -30px;
@@ -132,5 +90,57 @@ export const CustomBtn = styled.button`
       opacity: 1;
       pointer-events: auto;
     }
-  }
+  `,
+  icon: css`
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+  `,
+  text: css`
+    display: inline-block;
+    border-radius: 0;
+    color: ${(props) => props.theme.text};
+    background: transparent;
+    padding: 0;
+    &:disabled {
+      color: ${(props) =>
+        props.loading ? props.theme.button.progress : props.theme.disabled};
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        border-bottom: 1px solid ${(props) => props.theme.text};
+      }
+      &:active {
+        transform: none;
+        font-weight: 600;
+        border-bottom: 1px solid ${(props) => props.theme.text};
+      }
+    }
+
+    &:focus {
+      border-bottom: 1px solid ${(props) => props.theme.text};
+      font-weight: 600;
+    }
+  `,
+}
+const buttonSize = {
+  small: css`
+    padding: 10px;
+    font-size: ${(props) => props.theme.fontSize.s};
+  `,
+  medium: css`
+    padding: 10px 20px;
+    font-size: ${(props) => props.theme.fontSize.m};
+  `,
+  large: css`
+    padding: 40px 60px;
+    font-size: ${(props) => props.theme.fontSize.l};
+  `,
+}
+
+export const CustomBtn = styled.button`
+  ${CommonButtonStyles}
+  ${(props) => buttonStyle[props.type]}
+  ${(props) => buttonSize[props.size] || buttonSize["medium"]}
 `

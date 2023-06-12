@@ -8,7 +8,7 @@ export const CustomButton = ({
   disable,
   loading,
   className,
-  role,
+  placeholder,
   ...props
 }) => {
   const [isHovered, setIsHovered] = useState(false)
@@ -32,10 +32,10 @@ export const CustomButton = ({
   )
   return (
     <CustomBtn
-      role={role}
-      className={className}
       {...props}
+      className={className}
       loading={loading}
+      placeholder={placeholder}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onKeyDown={handleKeyDown}

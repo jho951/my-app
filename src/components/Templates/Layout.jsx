@@ -22,10 +22,7 @@ export const Layout = ({children}) => {
       <GlobalStyle />
       {/* 메인 페이지에서만 skip-navigation 버튼 존재 */}
       {router.pathname === "/" && (
-        <CustomButton
-          className='skipLink'
-          onClick={() => skipNavigation("main")}
-        >
+        <CustomButton type='skip' onClick={() => skipNavigation("main")}>
           <p>병원</p>
         </CustomButton>
       )}

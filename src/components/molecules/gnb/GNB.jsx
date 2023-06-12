@@ -31,7 +31,7 @@ const GNB = () => {
           </li>
         </Link>
       ))}
-      <LnbWrap showLnb={showLnb}>{showLnb && <LNB />}</LnbWrap>
+     {showLnb && <LNB  showLnb={showLnb}/>}
     </GnbWrap>
   )
 }

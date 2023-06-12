@@ -18,8 +18,8 @@ const Header = ({accountLink}) => {
         </Link>
         <GNB />
         <span className='header-account'>
-          <LinkText className='text-btn' link={accountLink} />
-          <I18Btn />
+          <LinkText style='text' link={accountLink} />
+          {/* <I18Btn /> */}
         </span>
       </nav>
     </HeaderContainer>

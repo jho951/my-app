@@ -86,7 +86,6 @@ const GlobalStyle = createGlobalStyle`
 
 `
 
-//loading spin jsx 파일입니다.
 const spin = keyframes`
   0% {
     transform: rotate(0deg);
@@ -99,8 +98,8 @@ const Spinner = styled.div`
   border: 3px solid #f3f3f3;
   border-top: 3px solid ${(props) => props.theme.button.progress};
   border-radius: 50%;
-  width: ${(props) => props.width || "20px"};
-  height: ${(props) => props.height || "20px"};
+  width: 20px;
+  height: 20px;
   position: relative;
   transform: translateX(-50%);
   animation: ${spin} 1s linear infinite;
