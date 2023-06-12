@@ -1,10 +1,9 @@
 import {useState} from "react"
+import {useRouter} from "next/router"
 import {GNB_MENU} from "../../../utils/constants/project"
 import {GnbWrap} from "./GNB.styled"
-import {LnbWrap} from "../../atoms/lnb/LNB.styled"
 import LNB from "../../atoms/lnb/LNB"
 import Link from "next/link"
-import {useRouter} from "next/router"
 
 const GNB = () => {
   const router = useRouter()
