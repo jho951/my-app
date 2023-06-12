@@ -26,7 +26,7 @@ const theme = {
     xl: "2.4rem",
   },
   button: {
-    text: "#060606",
+    text: "#ffffff",
     default: "rgba(19, 100, 193, 0.8)",
     active: "rgba(19, 100, 193,1)",
     progress: "rgba(19, 100, 193,0.7)",

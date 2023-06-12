@@ -1,11 +1,21 @@
 import styled, {css} from "styled-components"
 
-const shadowButtonEffect = `inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-  7px 7px 20px 0px rgba(41, 41, 41, 0.3),
-  4px 4px 5px 0px rgba(39, 38, 38, 0.3)`
+const buttonSize = {
+  small: css`
+    padding: 10px;
+    font-size: ${(props) => props.theme.fontSize.s};
+  `,
+  medium: css`
+    padding: 10px 20px;
+    font-size: ${(props) => props.theme.fontSize.m};
+  `,
+  large: css`
+    padding: 40px 60px;
+    font-size: ${(props) => props.theme.fontSize.l};
+  `,
+}
 
 const CommonButtonStyles = css`
-  color: ${(props) => props.theme.button.text};
   white-space: nowrap;
   transition: all 0.3s ease;
   position: relative;
@@ -23,6 +33,7 @@ const CommonButtonStyles = css`
 
 const buttonStyle = {
   default: css`
+    color: ${(props) => props.theme.button.text};
     background: ${(props) => props.theme.button.default};
     color: #ffffff;
     &:disabled {
@@ -31,7 +42,9 @@ const buttonStyle = {
     }
     &:not(:disabled) {
       &:hover {
-        box-shadow: ${shadowButtonEffect};
+        box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+          7px 7px 20px 0px rgba(41, 41, 41, 0.3),
+          4px 4px 5px 0px rgba(39, 38, 38, 0.3);
       }
       &:active {
         background: ${(props) => props.theme.button.active};
@@ -60,7 +73,9 @@ const buttonStyle = {
         transition: border 0.3s ease-in-out;
         font-weight: 600;
         &:active {
-          box-shadow: ${shadowButtonEffect};
+          box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+            7px 7px 20px 0px rgba(41, 41, 41, 0.3),
+            4px 4px 5px 0px rgba(39, 38, 38, 0.3);
         }
       }
     }
@@ -83,25 +98,18 @@ const buttonStyle = {
     z-index: 120;
     opacity: 0;
     pointer-events: none;
-    &:focus,
-    &:focus p {
+    &:focus {
       font-size: ${(props) => props.theme.fontSize.m};
       top: 0;
       opacity: 1;
       pointer-events: auto;
     }
   `,
-  icon: css`
-    border-radius: 0;
-    background: transparent;
-    padding: 0;
-  `,
+
   text: css`
     display: inline-block;
-    border-radius: 0;
     color: ${(props) => props.theme.text};
     background: transparent;
-    padding: 0;
     &:disabled {
       color: ${(props) =>
         props.loading ? props.theme.button.progress : props.theme.disabled};
@@ -123,24 +131,14 @@ const buttonStyle = {
       font-weight: 600;
     }
   `,
-}
-const buttonSize = {
-  small: css`
-    padding: 10px;
-    font-size: ${(props) => props.theme.fontSize.s};
-  `,
-  medium: css`
-    padding: 10px 20px;
-    font-size: ${(props) => props.theme.fontSize.m};
-  `,
-  large: css`
-    padding: 40px 60px;
-    font-size: ${(props) => props.theme.fontSize.l};
+
+  icon: css`
+    background: transparent;
   `,
 }
 
 export const CustomBtn = styled.button`
   ${CommonButtonStyles}
-  ${(props) => buttonStyle[props.type]}
+  ${(props) => buttonStyle[props.type] || buttonStyle["default"]}
   ${(props) => buttonSize[props.size] || buttonSize["medium"]}
 `

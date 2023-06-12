@@ -12,8 +12,8 @@ const Index = () => {
         type='password'
       />
       <CustomInput type='text' />
-      <CustomButton type='default' size='medium'>
-        텍스트 버튼
+      <CustomButton type='icon' size='medium' onClick={() => alert("테스트")}>
+        <AiOutlineSearch />
       </CustomButton>
     </div>
   )
