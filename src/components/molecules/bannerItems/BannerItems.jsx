@@ -3,6 +3,7 @@ import {useEffect, useRef, useState} from "react"
 import {ControllWrap} from "./BannerItems.styled"
 
 import {FiPause, FiPlay} from "react-icons/fi"
+
 import {GrFormPrevious, GrFormNext} from "react-icons/gr"
 
 export const BannerItems = ({image, currentImage, setCurrentImage}) => {
@@ -56,13 +57,15 @@ export const BannerItems = ({image, currentImage, setCurrentImage}) => {
           </li>
         </ul>
         <div className='progress-elem'>
-          <span>
-            <b>{currentImage + 1}</b>
+          <span className='progress-current-num'>
+            <p>
+              <b>{currentImage + 1}</b>
+            </p>
           </span>
           <div className='progress'>
             <span className='progress-bar' ref={progressRef} />
           </div>
-          <span>{image.length}</span>
+          <p className='progress-total-num'>{image.length}</p>
         </div>
       </div>
     </ControllWrap>

@@ -17,6 +17,8 @@ const CommonBannerStyles = css`
     aspect-ratio: 16 / 7;
     overflow: hidden;
   }
+  .banner-control {
+  }
 `
 const BannerWrap = styled.div`
   ${CommonBannerStyles}
@@ -25,6 +27,7 @@ const BannerWrap = styled.div`
     ${WebScreen} {
       max-width: 1920px;
     }
+
     ${TabletScreen} {
     }
   }

@@ -14,13 +14,7 @@ const GNB = () => {
   return (
     <GnbWrap>
       {GNB_MENU?.map((menu) => (
-        <Link
-          className='gnb-menu'
-          role='tab'
-          href={menu.href}
-          key={menu.id}
-          passHref
-        >
+        <Link role='tab' href={menu.href} key={menu.id} passHref>
           <li
             className={router.pathname === menu.href ? "active" : ""}
             onMouseEnter={handleMouseEnter}
@@ -30,6 +24,7 @@ const GNB = () => {
           </li>
         </Link>
       ))}
+
       {showLnb && <LNB showLnb={showLnb} />}
     </GnbWrap>
   )

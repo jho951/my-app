@@ -2,7 +2,7 @@ import {atom} from "jotai"
 import {useAtom} from "jotai"
 import {IMG_PATH} from "../../../utils/constants/project"
 import {CustomImage} from "../../atoms/Image/Image"
-import {BannerItems} from "../../molecules/bannerImage/BannerItems"
+import {BannerItems} from "../../molecules/bannerItems/BannerItems"
 import {BannerWrap} from "./Banner.styled"
 
 const imageAtom = atom(0)
@@ -24,11 +24,13 @@ const Banner = () => {
           alt='banner-image'
         />
       </figure>
-      <BannerItems
-        image={image}
-        currentImage={currentImage}
-        setCurrentImage={setCurrentImage}
-      />
+      <div className='banner-control'>
+        <BannerItems
+          image={image}
+          currentImage={currentImage}
+          setCurrentImage={setCurrentImage}
+        />
+      </div>
     </BannerWrap>
   )
 }

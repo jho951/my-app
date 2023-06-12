@@ -3,13 +3,17 @@ import {WebScreen} from "../../../styles/GlobalStyled"
 
 const GnbWrap = styled.ul`
   ${WebScreen} {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    gap: 84px;
     position: relative;
     font-size: ${(props) => props.theme.fontSize.m};
     font-weight: 700;
-    max-width: 950px;
-    min-width: 634px;
+
+    .gnb-menu {
+    }
     .active {
       color: ${(props) => props.theme.primary};
     }
