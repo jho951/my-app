@@ -1,31 +1,28 @@
 import {useState} from "react"
-import {useRouter} from "next/router"
+import LNB from "../../atoms/lnb/LNB"
 import {GNB_MENU} from "../../../utils/constants/project"
 import {GnbWrap} from "./GNB.styled"
-import LNB from "../../atoms/lnb/LNB"
-import Link from "next/link"
+import {CustomList} from "../../atoms/list/list"
 
 const GNB = () => {
-  const router = useRouter()
-  const [showLnb, setShowLnb] = useState(false)
-  const handleMouseEnter = () => setShowLnb(true)
-  const handleMouseLeave = () => setShowLnb(false)
+  const [isHovered, setIsHovered] = useState([])
+
+  const handleMouseEnter = () => {
+    setIsHovered(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+  }
 
   return (
     <GnbWrap>
-      {GNB_MENU?.map((menu) => (
-        <Link role='tab' href={menu.href} key={menu.id} passHref>
-          <li
-            className={router.pathname === menu.href ? "active" : ""}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            {menu.label}
-          </li>
-        </Link>
-      ))}
-
-      {showLnb && <LNB showLnb={showLnb} />}
+      <CustomList
+        menus={GNB_MENU}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      />
+      {isHovered && <LNB />}
     </GnbWrap>
   )
 }

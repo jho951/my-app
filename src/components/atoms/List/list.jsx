@@ -1,15 +1,38 @@
+import {useRouter} from "next/router"
+import Link from "next/link"
 import React from "react"
-import {ListWrap, ListContainer} from "./list.styled"
 
-export function List({menus, children}) {
+export function CustomList({menus, children, onMouseEnter, onMouseLeave}) {
+  const router = useRouter()
+
   return (
-    <ListWrap>
-      <ListContainer>
-        {menus?.map((menu) => (
-          <li key={menu?.id}>{menu}</li>
-        ))}
-        {children}
-      </ListContainer>
-    </ListWrap>
+    <>
+      {menus?.map((menu) => {
+        const listItem = (
+          <li
+            key={menu?.id}
+            className={router.pathname === menu?.href ? "active" : ""}
+          >
+            {menu.label}
+          </li>
+        )
+
+        return menu.href ? (
+          <Link
+            role='tab'
+            href={menu.href}
+            key={menu.id}
+            passHref
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+          >
+            {listItem}
+          </Link>
+        ) : (
+          listItem
+        )
+      })}
+      {children}
+    </>
   )
 }

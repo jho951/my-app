@@ -11,12 +11,27 @@ const PUBLIC_IMG_URL = `https://s3.ap-northeast-2.amazonaws.com/${S3_BUCKET}/`
 
 // gnb 메누 리스트
 const GNB_MENU = [
-  {id: "info", label: "회사소개", href: "/info"},
-  {id: "category", label: "병원", href: "/hospital"},
-  {id: "service", label: "의료서비스", href: "/service"},
-  {id: "mypage", label: "공지사항", href: "/notice"},
-  {id: "news", label: "자주묻는질문", href: "/faq"},
+  {
+    id: "info",
+    label: "회사소개",
+    href: "/info",
+    api: false,
+    children: [
+      {label: "대표 인사말", href: "/info/greetings"},
+      {title: "오시는 길", href: "/info/map"},
+    ],
+  },
+  {id: "category", label: "병원", href: "/hospital", api: true},
+  {id: "service", label: "의료서비스", href: "/service", api: true},
+  {
+    id: "cummunity",
+    label: "커뮤니티",
+    href: "/community/notice",
+    api: false,
+    children: [{label: "자주 묻는 질문", path: "/community/faq"}],
+  },
 ]
+
 // 다국어 국가 이미지
 const LanguageCountryImage = [
   {id: "ko", src: `${IMG_PATH}/country/southKorea.png`},

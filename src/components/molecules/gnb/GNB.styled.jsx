@@ -8,14 +8,16 @@ const GnbWrap = styled.ul`
     justify-content: center;
     align-items: center;
     gap: 84px;
-    position: relative;
     font-size: ${(props) => props.theme.fontSize.m};
     font-weight: 700;
-
-    .gnb-menu {
-    }
     .active {
       color: ${(props) => props.theme.primary};
+    }
+    .gnb-list {
+      border: 1px solid black;
+    }
+    li {
+      position: relative;
     }
   }
 `

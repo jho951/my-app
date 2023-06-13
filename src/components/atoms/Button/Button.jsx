@@ -1,4 +1,4 @@
-import {useState, useCallback} from "react"
+import React, {useState} from "react"
 import {CustomBtn} from "./Button.styled"
 import {Spinner} from "../../../styles/GlobalStyled"
 
@@ -7,33 +7,27 @@ export const CustomButton = ({
   onClick,
   disable,
   loading,
-  className,
   placeholder,
   ...props
 }) => {
   const [isHovered, setIsHovered] = useState(false)
 
-  const handleMouseEnter = useCallback(() => {
+  const handleMouseEnter = () => {
     setIsHovered(true)
-  }, [])
-  const handleMouseLeave = useCallback(() => {
+  }
+  const handleMouseLeave = () => {
     setIsHovered(false)
-  }, [])
+  }
 
-  const handleKeyDown = useCallback(
-    (event) => {
-      if (!disable && !loading && event.key === "Enter") {
-        event.preventDefault()
-        event.stopPropagation()
-        onClick()
-      }
-    },
-    [disable, loading, onClick]
-  )
+  const handleKeyDown = (event) => {
+    if (!disable && !loading && event.key === "Enter") {
+      onClick()
+    }
+  }
+
   return (
     <CustomBtn
       {...props}
-      className={className}
       loading={loading}
       placeholder={placeholder}
       onMouseEnter={handleMouseEnter}
@@ -43,7 +37,7 @@ export const CustomButton = ({
       onClick={!disable ? onClick : undefined}
       disabled={disable || loading}
       aria-label={disable || loading ? "Button disabled" : "Button"}
-      aria-disabled={disable || loading ? true : undefined}
+      aria-disabled={disable || loading ? true : false}
     >
       {loading && <Spinner aria-hidden='true' />}
       {!loading && children}

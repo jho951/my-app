@@ -1,8 +1,8 @@
 import {LnbWrap} from "./LNB.styled"
 
-const LNB = ({showLnb}) => {
+const LNB = () => {
   return (
-    <LnbWrap showLnb={showLnb}>
+    <LnbWrap>
       <ul>
         <li className='lnb-item'>
           <a href='/sub1'>서브메뉴1</a>
