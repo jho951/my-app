@@ -138,8 +138,12 @@ const buttonStyle = {
 }
 const CustomBtn = styled.button`
   ${commonButtonStyles}
-  ${(props) => buttonStyle[props.type] || buttonStyle["default"]}
+  ${(props) => buttonStyle[props.design] || buttonStyle["default"]}
   ${(props) => buttonSize[props.size] || buttonSize["medium"]}
+  .spin-wrap {
+    display: flex;
+    justify-content: center;
+  }
 `
 
 export {CustomBtn}

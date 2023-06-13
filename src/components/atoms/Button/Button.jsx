@@ -39,7 +39,11 @@ export const CustomButton = ({
       aria-label={disable || loading ? "Button disabled" : "Button"}
       aria-disabled={disable || loading ? true : false}
     >
-      {loading && <Spinner aria-hidden='true' />}
+      {loading && (
+        <span className='spin-wrap'>
+          <Spinner aria-hidden='true' />
+        </span>
+      )}
       {!loading && children}
     </CustomBtn>
   )

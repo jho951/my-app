@@ -1,13 +1,6 @@
-import {CustomInputWrap} from "./Input.styled"
+import { CustomInputWrap } from "./Input.styled";
 
-export const CustomInput = ({
-  value,
-  onChange,
-  placeholder,
-  className,
-  type,
-  fullWidth,
-}) => {
+export const CustomInput = ({ value, onChange, placeholder, className, type, fullWidth, name, inpRef }) => {
   return (
     <CustomInputWrap
       type={type}
@@ -16,6 +9,8 @@ export const CustomInput = ({
       className={className}
       placeholder={placeholder}
       fullWidth={fullWidth}
+      name={name}
+      ref={inpRef}
     />
-  )
-}
+  );
+};

@@ -8,8 +8,12 @@ const Index = () => {
     <div style={{position: "absolute", top: "50%"}}>
       <IconsInput
         className='search'
-        icons={<AiOutlineSearch />}
-        type='password'
+        icons={
+          <CustomButton design='icon' onClick={() => alert("rrr")}>
+            <AiOutlineSearch />
+          </CustomButton>
+        }
+        type='text'
       />
       <CustomInput type='text' />
       <CustomButton type='icon' size='medium' onClick={() => alert("테스트")}>

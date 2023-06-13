@@ -12,10 +12,25 @@ const IconsInputWrap = styled.div`
     css`
       border: 1px solid red;
     `}
+
+  input {
+    border: none;
+
+    :focus {
+      border: none;
+      outline: none;
+    }
+  }
+
+  .side-icon-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
   .input-icons {
     display: flex;
     align-items: center;
-    margin: 5px;
     cursor: pointer;
   }
 `
