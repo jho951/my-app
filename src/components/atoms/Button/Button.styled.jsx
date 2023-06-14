@@ -95,7 +95,7 @@ const buttonStyle = {
     padding: 0;
     background-color: ${(props) => props.theme.subColor};
     color: ${(props) => props.theme.textColor};
-    z-index: 120;
+    z-index: 100;
     opacity: 0;
     pointer-events: none;
     &:focus {

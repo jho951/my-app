@@ -13,6 +13,7 @@ const WebScreen = `@media (min-width: 1024px)`
 
 // 프로젝트에서 사용되는 color 입니다.
 const theme = {
+  contents: `calc(100% - 64px)`,
   primary: "#6bc7f1",
   subColor: "#FDFDFD",
   textColor: "#474747",
@@ -22,8 +23,9 @@ const theme = {
   fontSize: {
     s: "1.4rem",
     m: "1.6rem",
-    l: "2rem",
-    xl: "2.4rem",
+    l: "1.8rem",
+    xl: "2rem",
+    title: "2.4rem",
   },
   button: {
     text: "#ffffff",
@@ -31,7 +33,6 @@ const theme = {
     active: "rgba(19, 100, 193,1)",
     progress: "rgba(19, 100, 193,0.7)",
   },
-  contents: `calc(100% - 64px)`,
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -114,9 +115,3 @@ export {
   theme,
   Spinner,
 }
-
-// .cards {
-//   display: grid;
-//   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-//   grid-gap: 1em;
-// }

@@ -10,7 +10,7 @@ export const LocaleContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 200;
+    z-index: 10;
     white-space: nowrap;
     &:hover {
       opacity: 0.7;

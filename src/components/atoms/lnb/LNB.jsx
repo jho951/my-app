@@ -1,19 +1,14 @@
+import {CustomList} from "../list/list"
 import {LnbWrap} from "./LNB.styled"
 
-const LNB = () => {
+const LNB = ({menus}) => {
+  const activeMenuId = "info"
+  const activeMenuItem = menus.find((item) => item.id === activeMenuId)
   return (
     <LnbWrap>
-      <ul>
-        <li className='lnb-item'>
-          <a href='/sub1'>서브메뉴1</a>
-        </li>
-        <li className='lnb-item'>
-          <a href='/sub2'>서브메뉴2</a>
-        </li>
-        <li className='lnb-item'>
-          <a href='/sub3'>서브메뉴3</a>
-        </li>
-      </ul>
+      {activeMenuItem && activeMenuItem.children && (
+        <CustomList menus={activeMenuItem.children} />
+      )}
     </LnbWrap>
   )
 }

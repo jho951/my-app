@@ -21,9 +21,12 @@ export const Layout = ({children}) => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       {router.pathname === "/" && (
-        <CustomButton type='skip' onClick={() => skipNavigation("main")}>
-          <p>병원</p>
-        </CustomButton>
+        <>
+          <h1 className='visuallyhidden'>happy-medion</h1>
+          <CustomButton design='skip' onClick={() => skipNavigation("main")}>
+            <p>병원</p>
+          </CustomButton>
+        </>
       )}
       {!matchese ? <Header accountLink={accountLink} /> : <div>모바일</div>}
       <Main>{children}</Main>

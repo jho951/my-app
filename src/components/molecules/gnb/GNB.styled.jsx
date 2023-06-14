@@ -16,7 +16,7 @@ const GnbWrap = styled.ul`
     .gnb-list {
       border: 1px solid black;
     }
-    li {
+    .li {
       position: relative;
     }
   }

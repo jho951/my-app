@@ -6,7 +6,6 @@ import SideBar from "../components/organism/sideBar/SideBar"
 export default function MyComponent() {
   return (
     <>
-      <h1 className='visuallyhidden'>happy-medion</h1>
       <PageHead
         title='해피매디온'
         desrciption='메인페이지'

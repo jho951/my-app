@@ -1,12 +1,12 @@
+import React from "react"
 import {useRouter} from "next/router"
 import Link from "next/link"
-import React from "react"
 
 export function CustomList({menus, children, onMouseEnter, onMouseLeave}) {
   const router = useRouter()
 
   return (
-    <>
+    <React.Fragment>
       {menus?.map((menu) => {
         const listItem = (
           <li
@@ -23,8 +23,10 @@ export function CustomList({menus, children, onMouseEnter, onMouseLeave}) {
             href={menu.href}
             key={menu.id}
             passHref
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
+            onMouseEnter={
+              onMouseEnter ? () => onMouseEnter(menu.id) : undefined
+            }
+            onMouseLeave={onMouseLeave ? onMouseLeave : undefined}
           >
             {listItem}
           </Link>
@@ -33,6 +35,6 @@ export function CustomList({menus, children, onMouseEnter, onMouseLeave}) {
         )
       })}
       {children}
-    </>
+    </React.Fragment>
   )
 }

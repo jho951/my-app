@@ -26,7 +26,7 @@ const ModalOverLay = styled.div`
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.2);
-  z-index: 100;
+  z-index: 11;
 `
 const ModalWrap = styled.div`
   width: 500px;

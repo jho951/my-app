@@ -10,7 +10,7 @@ const CommonHeaderStyles = css`
   height: 120px;
   background-color: rgba(25, 25, 25, 0.1);
   color: #fdfdfd;
-  z-index: 100;
+  z-index: 10;
   .heder-wrap {
     display: flex;
     justify-content: space-between;
@@ -20,15 +20,9 @@ const CommonHeaderStyles = css`
     .header-account {
       display: flex;
       justify-content: space-between;
-      max-width: 225px;
-      button {
-        color: ${(props) => props.theme.subColor};
-      }
+      max-width: 300px;
+      font-size: 1.6rem;
     }
-  }
-  .header-account {
-    color: #fdfdfd;
-    font-size: 1.6rem;
   }
 `
 

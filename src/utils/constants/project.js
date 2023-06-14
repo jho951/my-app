@@ -18,18 +18,25 @@ const GNB_MENU = [
     api: false,
     children: [
       {label: "대표 인사말", href: "/info/greetings"},
-      {title: "오시는 길", href: "/info/map"},
+      {label: "오시는 길", href: "/info/map"},
     ],
   },
-  {id: "category", label: "병원", href: "/hospital", api: true},
-  {id: "service", label: "의료서비스", href: "/service", api: true},
   {
-    id: "cummunity",
-    label: "커뮤니티",
-    href: "/community/notice",
-    api: false,
-    children: [{label: "자주 묻는 질문", path: "/community/faq"}],
+    id: "hospital",
+    label: "병원",
+    href: "/hospital",
+    api: true,
+    children: [
+      {label: "대학병원", href: "/hospital/university"},
+      {label: "성형외과", href: "/hospital/plastic surgery"},
+      {label: "피부과", href: "/hospital/Dermatology"},
+      {label: "한방병원", href: "/hospital/Koreanmedicinehospital"},
+      {label: "산부인과", href: "/hospital/Obstetricsandgynecology"},
+    ],
   },
+  {id: "service", label: "의료서비스", href: "/service", api: true},
+  {id: "notice", label: "공지사항", href: "/notice", api: false},
+  {id: "faq", label: "자주 묻는 질문", href: "/faq", api: false},
 ]
 
 // 다국어 국가 이미지

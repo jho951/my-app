@@ -2,9 +2,6 @@ import styled, {css} from "styled-components"
 import {TabletScreen, WebScreen} from "../../../styles/GlobalStyled"
 
 const CommonBannerStyles = css`
-  max-width: 1920px;
-  margin: 0 auto;
-
   .banner-images {
     width: 100%;
     display: flex;
