@@ -2,12 +2,12 @@ import styled, {css} from "styled-components"
 import {TabletScreen, WebScreen} from "../../../styles/GlobalStyled"
 
 const CommonHeaderStyles = css`
+  width: 100%;
+  height: 120px;
   display: flex;
   align-items: center;
   position: fixed;
   top: 0%;
-  width: 100%;
-  height: 120px;
   background-color: rgba(25, 25, 25, 0.1);
   color: #fdfdfd;
   z-index: 10;
@@ -20,8 +20,10 @@ const CommonHeaderStyles = css`
     .header-account {
       display: flex;
       justify-content: space-between;
-      max-width: 300px;
-      font-size: 1.6rem;
+      align-items: center;
+      width: 100%;
+      max-width: 173px;
+      font-size: ${(props) => props.theme.fontSize.m};
     }
   }
 `

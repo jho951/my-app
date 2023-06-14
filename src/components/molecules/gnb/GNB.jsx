@@ -6,18 +6,20 @@ import {CustomList} from "../../atoms/list/list"
 
 const GNB = () => {
   //LNB 드롭다운//
-  const [isHovered, setIsHovered] = useState(false)
-  const handleMouseToggle = (isHovering) => setIsHovered(isHovering)
-
-  const lnbMatchHandler = (e) => {
-    console.log(e)
+  const [isHovered, setIsHovered] = useState(true)
+  const openLnbToggle = (e) => {
+    setIsHovered(true)
   }
+  const closeLnbToggle = () => {
+    setIsHovered(true)
+  }
+
   return (
     <GnbWrap
-      onMouseEnter={() => handleMouseToggle(true)}
-      onMouseLeave={() => handleMouseToggle(false)}
+      onMouseEnter={(e) => openLnbToggle(e)}
+      onMouseLeave={closeLnbToggle}
     >
-      <CustomList menus={GNB_MENU} onMouseEnter={lnbMatchHandler} />
+      <CustomList menus={GNB_MENU} />
       {isHovered && <LNB menus={GNB_MENU} />}
     </GnbWrap>
   )

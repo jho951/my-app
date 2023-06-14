@@ -20,11 +20,11 @@ export const PageHead = ({title, description, keyword, data}) => (
     <meta property='og:title' content={data?.category || title} />
     <meta property='og:description' content={description || ""} />
     <meta property='og:url' content='페이지 URL' />
-    <meta property='og:image' content={data?.images[0] || "/favicon.ico"} />
+    <meta property='og:image' content={data?.images[0] || ""} />
 
     <meta name='twitter:title' content={data?.category || title} />
     <meta name='twitter:description' content='공유 설명' />
-    <meta name='twitter:image' content={data?.images[0] || "/favicon.ico"} />
+    <meta name='twitter:image' content={data?.images[0] || ""} />
   </Head>
 )
 

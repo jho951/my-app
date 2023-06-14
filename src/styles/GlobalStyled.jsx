@@ -4,14 +4,12 @@ import {normalize} from "styled-normalize"
 // 모바일 스크린 입니다.
 const MOBILE_SIZE = "768px"
 const MobileScreen = `@media (max-width: ${MOBILE_SIZE})`
-
 // 태블릿 스크린 입니다.
 const TabletScreen = `@media (max-width: 1024px) and (min-width: 768px)`
-
 // pc 스크린 입니다.
 const WebScreen = `@media (min-width: 1024px)`
 
-// 프로젝트에서 사용되는 color 입니다.
+// 프로젝트에서 사용되는 theme입니다.
 const theme = {
   contents: `calc(100% - 64px)`,
   primary: "#6bc7f1",
@@ -35,23 +33,15 @@ const theme = {
   },
 }
 
+// 프로젝트에서 사용되는 GlobalStyle 입니다.
 const GlobalStyle = createGlobalStyle`
   ${normalize}
 
-  @font-face {
-    font-family: 'Pretendard';
-    src: url('/fonts/pretendard-Black.otf') format('opentype') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
   * {
     box-sizing: border-box;
-    font-family: 'Pretendard', sans-serif;
     margin: 0;
     padding: 0;
   }
-
   :root {
     font-size: 62.5%;
     -moz-osx-font-smoothing: grayscale;
@@ -60,31 +50,26 @@ const GlobalStyle = createGlobalStyle`
   }
   html,
   body {
-    overflow: hidden;
-    overflow: overlay;
     color: #000000;
+    ol,ul {
+      list-style-type: none;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }  
+    .visuallyhidden {
+      position: absolute;
+      clip: rect(1px, 1px, 1px, 1px);
+      -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+      clip-path: inset(0px 0px 99.9% 99.9%);
+      overflow: hidden;
+      height: 1px;
+      width: 1px;
+      padding: 0;
+      border: 0;
+    } 
   }
-  ol,
-  ul {
-    list-style-type: none;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }  
-  .visuallyhidden {
-    position: absolute;
-    clip: rect(1px, 1px, 1px, 1px);
-    -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
-    clip-path: inset(0px 0px 99.9% 99.9%);
-    overflow: hidden;
-    height: 1px;
-    width: 1px;
-    padding: 0;
-    border: 0;
-  }
-
 `
 
 const spin = keyframes`

@@ -93,13 +93,13 @@ const buttonStyle = {
     top: -30px;
     left: 0;
     padding: 0;
-    background-color: ${(props) => props.theme.subColor};
-    color: ${(props) => props.theme.textColor};
+    background-color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.subColor};
     z-index: 100;
     opacity: 0;
     pointer-events: none;
     &:focus {
-      font-size: ${(props) => props.theme.fontSize.m};
+      font-size: ${(props) => props.theme.fontSize.l};
       top: 0;
       opacity: 1;
       pointer-events: auto;

@@ -9,13 +9,17 @@ import {CustomList} from "../../atoms/list/list"
 const Header = ({accountLink}) => {
   return (
     <HeaderContainer>
-      <Link href='/'>
-        <CustomImage image={`${IMG_PATH}/headerLogo.png`} alt='project-logo' />
-      </Link>
       <nav className='heder-wrap'>
+        <Link href='/'>
+          <CustomImage
+            image={`${IMG_PATH}/headerLogo.png`}
+            alt='project-logo'
+          />
+        </Link>
         <GNB />
         <ul className='header-account'>
           <CustomList menus={accountLink} />
+          <li>영역</li>
           {/* <I18Btn /> */}
         </ul>
       </nav>

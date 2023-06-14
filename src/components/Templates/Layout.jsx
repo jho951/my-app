@@ -24,7 +24,7 @@ export const Layout = ({children}) => {
         <>
           <h1 className='visuallyhidden'>happy-medion</h1>
           <CustomButton design='skip' onClick={() => skipNavigation("main")}>
-            <p>병원</p>
+            병원메뉴
           </CustomButton>
         </>
       )}

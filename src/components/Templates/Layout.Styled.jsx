@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo} from "react"
+import React, {useState, useEffect, useCallback} from "react"
 import {MOBILE_SIZE} from "../../styles/GlobalStyled"
 
 export const LayoutContext = React.createContext({
@@ -11,31 +11,25 @@ export const LayoutContext = React.createContext({
 const LayoutContextProvider = ({children}) => {
   const [matchese, setMatches] = useState(false)
 
+  const resizePage = useCallback(() => {
+    if (typeof window !== "undefined") {
+      setMatches(window.matchMedia(`(max-width:${MOBILE_SIZE})`).matches)
+    }
+  }, [])
+
   useEffect(() => {
     resizePage()
-  }, [])
+  }, [resizePage])
 
   useEffect(() => {
     window.addEventListener("resize", resizePage)
-
-    return () => window.addEventListener("resize", resizePage)
-  }, [])
-
-  const resizePage = () => {
-    if (typeof window !== undefined) {
-      setMatches(window.matchMedia(`(max-width:${MOBILE_SIZE})`).matches)
-    }
-  }
-
-  const match = useMemo(
-    () => ({
-      matchese,
-    }),
-    [matchese]
-  )
+    return () => window.removeEventListener("resize", resizePage)
+  }, [resizePage])
 
   return (
-    <LayoutContext.Provider value={match}>{children}</LayoutContext.Provider>
+    <LayoutContext.Provider value={{matchese}}>
+      {children}
+    </LayoutContext.Provider>
   )
 }
 

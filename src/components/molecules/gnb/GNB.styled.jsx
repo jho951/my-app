@@ -13,12 +13,6 @@ const GnbWrap = styled.ul`
     .active {
       color: ${(props) => props.theme.primary};
     }
-    .gnb-list {
-      border: 1px solid black;
-    }
-    .li {
-      position: relative;
-    }
   }
 `
 
