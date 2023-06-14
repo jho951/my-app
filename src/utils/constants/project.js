@@ -17,8 +17,8 @@ const GNB_MENU = [
     href: "/info",
     api: false,
     children: [
-      {label: "대표 인사말", href: "/info/greetings"},
-      {label: "오시는 길", href: "/info/map"},
+      {id: "info", label: "대표 인사말", href: "/info/greetings"},
+      {id: "info", label: "오시는 길", href: "/info/map"},
     ],
   },
   {
@@ -27,11 +27,23 @@ const GNB_MENU = [
     href: "/hospital",
     api: true,
     children: [
-      {label: "대학병원", href: "/hospital/university"},
-      {label: "성형외과", href: "/hospital/plastic surgery"},
-      {label: "피부과", href: "/hospital/Dermatology"},
-      {label: "한방병원", href: "/hospital/Koreanmedicinehospital"},
-      {label: "산부인과", href: "/hospital/Obstetricsandgynecology"},
+      {id: "hospital", label: "대학병원", href: "/hospital/university"},
+      {
+        id: "hospital",
+        label: "성형외과",
+        href: "/hospital/plasticsurgery",
+      },
+      {id: "hospital", label: "피부과", href: "/hospital/Dermatology"},
+      {
+        id: "hospital",
+        label: "한방병원",
+        href: "/hospital/koreanmedicinehospital",
+      },
+      {
+        id: "hospital",
+        label: "산부인과",
+        href: "/hospital/obstetricsandgynecology",
+      },
     ],
   },
   {id: "service", label: "의료서비스", href: "/service", api: true},

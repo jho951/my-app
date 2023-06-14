@@ -12,6 +12,7 @@ const WebScreen = `@media (min-width: 1024px)`
 // 프로젝트에서 사용되는 theme입니다.
 const theme = {
   contents: `calc(100% - 64px)`,
+  padding: "200px",
   primary: "#6bc7f1",
   subColor: "#FDFDFD",
   textColor: "#474747",

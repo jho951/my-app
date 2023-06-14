@@ -6,6 +6,7 @@ const FnbWrap = styled.ul`
     display: flex;
     justify-content: space-between;
     position: relative;
+    width: 100%;
   }
 `
 

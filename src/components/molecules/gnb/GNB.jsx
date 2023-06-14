@@ -5,22 +5,22 @@ import {GnbWrap} from "./GNB.styled"
 import {CustomList} from "../../atoms/list/list"
 
 const GNB = () => {
-  //LNB 드롭다운//
-  const [isHovered, setIsHovered] = useState(true)
-  const openLnbToggle = (e) => {
+  const [isHovered, setIsHovered] = useState(false)
+  const [activeChildren, setActiveChildren] = useState([])
+
+  const openLnbToggle = (menuId) => {
+    const selectedMenu = GNB_MENU.find((menu) => menu.id === menuId)
+    setActiveChildren(selectedMenu?.children || [])
     setIsHovered(true)
   }
   const closeLnbToggle = () => {
-    setIsHovered(true)
+    setIsHovered(false)
   }
 
   return (
-    <GnbWrap
-      onMouseEnter={(e) => openLnbToggle(e)}
-      onMouseLeave={closeLnbToggle}
-    >
-      <CustomList menus={GNB_MENU} />
-      {isHovered && <LNB menus={GNB_MENU} />}
+    <GnbWrap onMouseEnter={openLnbToggle} onMouseLeave={closeLnbToggle}>
+      <CustomList menus={GNB_MENU} onMouseEnter={openLnbToggle} />
+      {isHovered && <LNB menus={activeChildren} />}
     </GnbWrap>
   )
 }

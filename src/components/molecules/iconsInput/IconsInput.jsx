@@ -38,7 +38,7 @@ const IconsInput = ({
     >
       <CustomInput
         className={className}
-        type={"password" && isPasswordHide ? "text" : "password"}
+        type={"password" && isPasswordHide ? "password" : "text"}
         onChange={onChange}
         value={value}
         name={name}

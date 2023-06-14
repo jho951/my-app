@@ -2,10 +2,11 @@ import {CustomButton} from "../../components/atoms/button/Button"
 import {CustomInput} from "../../components/atoms/input/Input"
 import IconsInput from "../../components/molecules/iconsInput/IconsInput"
 import {AiOutlineSearch} from "react-icons/ai"
+import {Container} from "../../styles/page/Layout/Container.styled"
 
 const Index = () => {
   return (
-    <div style={{position: "absolute", top: "50%"}}>
+    <Container maxWidth='688px'>
       <IconsInput
         className='search'
         icons={
@@ -15,11 +16,13 @@ const Index = () => {
         }
         type='text'
       />
-      <CustomInput type='text' />
-      <CustomButton type='icon' size='medium' onClick={() => alert("테스트")}>
-        <AiOutlineSearch />
-      </CustomButton>
-    </div>
+      <div style={{display: "flex"}}>
+        <CustomInput type='text' />
+        <CustomButton size='medium' onClick={() => alert("테스트")}>
+          <AiOutlineSearch />
+        </CustomButton>
+      </div>
+    </Container>
   )
 }
 
