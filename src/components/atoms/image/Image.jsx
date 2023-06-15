@@ -1,12 +1,13 @@
 import Image from "next/image"
 import {useImageSize} from "../../../utils/utils"
+import {ImageLoading} from "./Image.styled"
 
 export const CustomImage = ({image, currentImage, alt, priority}) => {
   const imageSrc = currentImage >= 0 ? image[currentImage]?.src : image
   const {width, height, isLoaded} = useImageSize(imageSrc)
 
   return !isLoaded ? (
-    <div style={{width: "100%", height: "100%", backgroundColor: "#d9d9d9"}} />
+    <ImageLoading />
   ) : (
     <Image
       src={imageSrc}
