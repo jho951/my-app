@@ -54,7 +54,7 @@ const GNB_MENU = [
 // 다국어 국가 이미지
 const LanguageCountryImage = [
   {id: "ko", src: `${IMG_PATH}/country/southKorea.png`},
-  {id: "en", src: `${IMG_PATH}/country/unitedStates.png`},
+  {id: "en-US", src: `${IMG_PATH}/country/unitedStates.png`},
   {id: "zh-CN", src: `${IMG_PATH}/country/china.png`},
   {id: "ar", src: `${IMG_PATH}/country/unitedArabEmirates.png`},
 ]

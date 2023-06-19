@@ -2,7 +2,6 @@ import Document, {Html, Head, Main, NextScript} from "next/document"
 import {ServerStyleSheet} from "styled-components"
 import {GlobalStyle} from "../styles/GlobalStyled"
 import HeadComponents from "../components/atoms/htmlHead/HtmlHead"
-import i18n from "../utils/i18n"
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -18,7 +17,7 @@ export default class MyDocument extends Document {
                 <GlobalStyle />
                 <HeadComponents.DefaultHead />
                 <HeadComponents.PageHead />
-                {sheet.collectStyles(<App {...props} />)}
+                <App {...props} />
               </>
             ),
         })
@@ -46,9 +45,12 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang={i18n.language}>
+      <Html lang='ko'>
         <Head />
         <body>
+          <GlobalStyle />
+          <HeadComponents.DefaultHead />
+          <HeadComponents.PageHead />
           <Main />
           <NextScript />
         </body>

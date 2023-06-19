@@ -2,7 +2,7 @@ import {useRef, useState} from "react"
 import {atom} from "jotai"
 import {useAtom} from "jotai"
 import {IMG_PATH} from "../../../utils/constants/project"
-import {CustomImage} from "../../atoms/Image/Image"
+import {CustomImage} from "../../atoms/image/Image"
 import {BannerItems} from "../../molecules/bannerItems/BannerItems"
 import {BannerWrap} from "./Banner.styled"
 
@@ -52,6 +52,7 @@ const Banner = () => {
           image={image}
           currentImage={currentImage}
           alt='banner-image'
+          priority
         />
       </div>
       <div className='banner-control'>

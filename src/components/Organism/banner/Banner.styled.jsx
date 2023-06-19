@@ -1,5 +1,9 @@
 import styled, {css} from "styled-components"
-import {TabletScreen, WebScreen} from "../../../styles/GlobalStyled"
+import {
+  MobileScreen,
+  TabletScreen,
+  WebScreen,
+} from "../../../styles/GlobalStyled"
 
 const CommonBannerStyles = css`
   .banner-images {
@@ -11,6 +15,8 @@ const CommonBannerStyles = css`
     cursor: pointer;
 
     img {
+      width: 100%;
+      height: auto;
       -webkit-user-select: none;
       -khtml-user-select: none;
       -moz-user-select: none;
@@ -20,9 +26,6 @@ const CommonBannerStyles = css`
       -khtml-user-drag: none;
       -moz-user-drag: none;
       -o-user-drag: none;
-
-      width: 100%;
-      height: auto;
       cursor: pointer;
     }
   }
@@ -45,6 +48,14 @@ const BannerWrap = styled.figure`
   }
   ${TabletScreen} {
     .banner-control {
+      width: 100%;
+      bottom: 0px;
+      display: block;
+    }
+  }
+  ${MobileScreen} {
+    .banner-control {
+      width: 100%;
       bottom: 0px;
       display: block;
     }

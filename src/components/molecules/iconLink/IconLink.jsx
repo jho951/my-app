@@ -1,7 +1,7 @@
 import React from "react"
 import Link from "next/link"
 import {IconLinkContainer} from "./IconLink.styled"
-import {CustomImage} from "../../atoms/Image/Image"
+import {CustomImage} from "../../atoms/image/Image"
 
 const IconLink = ({label, href, src, size, bgColor, isBoxShadow}) => {
   return (
@@ -10,7 +10,6 @@ const IconLink = ({label, href, src, size, bgColor, isBoxShadow}) => {
         <div className='icon-container'>
           <CustomImage image={src} alt='side-bar-icons' />
         </div>
-
         <p className='label-txt'>{label}</p>
       </Link>
     </IconLinkContainer>

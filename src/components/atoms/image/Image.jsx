@@ -1,13 +1,17 @@
 import Image from "next/image"
 import {useImageSize} from "../../../utils/utils"
-import {ImageLoading} from "./Image.styled"
+import {ImageLoading, BannerImageLoading} from "./Image.styled"
 
-export const CustomImage = ({image, currentImage, alt, priority}) => {
+export const CustomImage = ({image, currentImage, alt, priority = false}) => {
   const imageSrc = currentImage >= 0 ? image[currentImage]?.src : image
   const {width, height, isLoaded} = useImageSize(imageSrc)
 
   return !isLoaded ? (
-    <ImageLoading />
+    imageSrc === image[currentImage]?.src ? (
+      <BannerImageLoading />
+    ) : (
+      <ImageLoading width={width} height={height} />
+    )
   ) : (
     <Image
       src={imageSrc}

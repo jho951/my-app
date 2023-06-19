@@ -4,8 +4,7 @@ import {useTranslation} from "react-i18next"
 import {useRouter} from "next/router"
 import {LocaleContainer} from "./I18Btn.styled"
 import {LanguageCountryImage} from "../../../utils/constants/project"
-import {CustomImage} from "../../atoms/Image/Image"
-import {CustomButton} from "../../atoms/button/Button"
+import {CustomImage} from "../../atoms/image/Image"
 
 const I18Btn = () => {
   const {t} = useTranslation("common")
@@ -21,7 +20,6 @@ const I18Btn = () => {
   }
   const getCurrentLanguageImage = () => {
     const currentLanguageId = router.locale
-    console.log(currentLanguageId)
     const selectedImage = LanguageCountryImage.find(
       (item) => item.id === currentLanguageId
     )
@@ -30,13 +28,13 @@ const I18Btn = () => {
 
   return (
     <LocaleContainer>
-      <CustomButton
+      <figure
         className={`locale-btn ${open ? "active" : ""} icon-btn`}
         onClick={onOpen}
       >
         <CustomImage image={getCurrentLanguageImage()} alt='current-country' />
         <p className='arrow' />
-      </CustomButton>
+      </figure>
       <div
         className={`locale-bg ${open ? "open" : "close"}`}
         onMouseOver={onClose}
@@ -48,7 +46,7 @@ const I18Btn = () => {
           <Link
             href={router?.asPath || ""}
             locale={locale?.id}
-            key={`locale-${locale?.text}`}
+            key={`locale-${locale?.id}`}
           >
             <CustomImage
               className={t("id") === locale?.id ? "active-btn" : ""}

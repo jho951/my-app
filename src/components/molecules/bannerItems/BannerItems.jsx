@@ -1,9 +1,6 @@
 import {useEffect, useRef, useState} from "react"
-
 import {ControllWrap} from "./BannerItems.styled"
-
 import {FiPause, FiPlay} from "react-icons/fi"
-
 import {GrFormPrevious, GrFormNext} from "react-icons/gr"
 
 export const BannerItems = ({image, currentImage, setCurrentImage}) => {
@@ -16,6 +13,7 @@ export const BannerItems = ({image, currentImage, setCurrentImage}) => {
         setCurrentImage((prevSlide) => (prevSlide + 1) % image.length)
       }
     }, 5000)
+
     return () => {
       clearInterval(timer)
     }
@@ -43,7 +41,7 @@ export const BannerItems = ({image, currentImage, setCurrentImage}) => {
   }
 
   return (
-    <ControllWrap>
+    <ControllWrap width={((currentImage + 1) / image.length) * 100}>
       <div className='control-elem'>
         <ul className='change-banner-elem'>
           <li onClick={handleTogglePlay}>

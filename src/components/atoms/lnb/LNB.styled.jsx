@@ -1,17 +1,21 @@
 import styled from "styled-components"
+import {GnbWrap} from "../../molecules/gnb/GNB.styled"
 
 const LnbWrap = styled.ul`
-  width: 100%;
+  width: 200px;
   transition: 0.2s;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 120px;
+  background-color: ${(props) => props.theme.disabled};
   position: absolute;
   top: 120px;
   left: 0;
   z-index: -1;
-  background-color: ${(props) => props.theme.disabled};
+
+  ${GnbWrap}:hover & {
+    z-index: 1;
+  }
 
   li {
     width: 100%;
@@ -22,5 +26,4 @@ const LnbWrap = styled.ul`
     text-decoration: none;
   }
 `
-
 export {LnbWrap}

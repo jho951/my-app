@@ -1,9 +1,8 @@
+const {i18n} = require("./next-i18next.config")
+
 const nextConfig = {
   //다국어 설정
-  i18n: {
-    locales: ["ko", "en", "zh-CN", "ar"],
-    defaultLocale: "ko",
-  },
+  i18n,
   reactStrictMode: true,
 
   images: {

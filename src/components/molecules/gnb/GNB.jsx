@@ -18,8 +18,12 @@ const GNB = () => {
   }
 
   return (
-    <GnbWrap onMouseEnter={openLnbToggle} onMouseLeave={closeLnbToggle}>
-      <CustomList menus={GNB_MENU} onMouseEnter={openLnbToggle} />
+    <GnbWrap>
+      <CustomList
+        menus={GNB_MENU}
+        onMouseEnter={openLnbToggle}
+        onMouseLeave={closeLnbToggle}
+      />
       {isHovered && <LNB menus={activeChildren} />}
     </GnbWrap>
   )

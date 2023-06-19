@@ -1,7 +1,7 @@
 import React from "react"
 import FNB from "../../molecules/fnb/FNB"
 import {FooterWrap} from "./Footer.styled"
-import {CustomImage} from "../../atoms/Image/Image"
+import {CustomImage} from "../../atoms/image/Image"
 import {IMG_PATH} from "../../../utils/constants/project"
 
 const Footer = () => {

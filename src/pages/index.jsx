@@ -1,16 +1,16 @@
 import {useEffect} from "react"
-import Banner from "../components/Organism/banner/Banner"
+import Banner from "../components/organism/banner/Banner"
 
 import {PageHead} from "../components/atoms/htmlHead/HtmlHead"
 import SideBar from "../components/organism/sideBar/SideBar"
-import {sendWeChatAPIRequest} from "../components/atoms/a/a"
+import {useQuery} from "react-query"
+import axios from "axios"
+import {serverSideTranslations} from "next-i18next/serverSideTranslations"
+import {useTranslation} from "next-i18next"
 
 export default function MyComponent() {
-  useEffect(() => {
-    // 예시 사용법
-    sendWeChatAPIRequest("user/profile", {access_token: "Y"})
-  }, [])
-  console.log(sendWeChatAPIRequest)
+  const {t} = useTranslation("common")
+
   return (
     <>
       <PageHead
@@ -22,4 +22,11 @@ export default function MyComponent() {
       <SideBar />
     </>
   )
+}
+export async function getStaticProps({locale}) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  }
 }
