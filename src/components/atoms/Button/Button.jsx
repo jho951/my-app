@@ -1,29 +1,22 @@
-import React, {useState} from "react"
-import {CustomBtn} from "./Button.styled"
-import {Spinner} from "../../../styles/GlobalStyled"
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { CustomBtn } from './Button.styled';
 
-export const CustomButton = ({
-  children,
-  onClick,
-  disable,
-  loading,
-  placeholder,
-  ...props
-}) => {
-  const [isHovered, setIsHovered] = useState(false)
+export const CustomButton = ({ children, onClick, disable, loading, placeholder, ...props }) => {
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
-    setIsHovered(true)
-  }
+    setIsHovered(true);
+  };
   const handleMouseLeave = () => {
-    setIsHovered(false)
-  }
+    setIsHovered(false);
+  };
 
   const handleKeyDown = (event) => {
-    if (!disable && !loading && event.key === "Enter") {
-      onClick()
+    if (!disable && !loading && event.key === 'Enter') {
+      onClick();
     }
-  }
+  };
 
   return (
     <CustomBtn
@@ -36,15 +29,27 @@ export const CustomButton = ({
       isHovered={isHovered}
       onClick={!disable ? onClick : undefined}
       disabled={disable || loading}
-      aria-label={disable || loading ? "Button disabled" : "Button"}
+      aria-label={disable || loading ? 'Button disabled' : 'Button'}
       aria-disabled={disable || loading ? true : false}
     >
       {loading && (
-        <span className='spin-wrap'>
-          <Spinner aria-hidden='true' />
-        </span>
+        <p className="spin-wrap">
+          <span className="spinner" aria-hidden="true" />
+        </p>
       )}
       {!loading && children}
     </CustomBtn>
-  )
-}
+  );
+};
+
+///////////////////////////
+//// props 자료 타입입니다.///
+/////////////////////////
+
+CustomButton.propTypes = {
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func.isRequired,
+  disable: PropTypes.bool,
+  loading: PropTypes.bool,
+  placeholder: PropTypes.string,
+};

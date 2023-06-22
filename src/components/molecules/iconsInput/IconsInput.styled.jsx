@@ -1,4 +1,4 @@
-import styled, {css} from "styled-components"
+import styled, { css } from 'styled-components';
 
 const IconsInputWrap = styled.div`
   display: flex;
@@ -7,7 +7,13 @@ const IconsInputWrap = styled.div`
   justify-content: space-between;
   border: 1px solid #d9d9d9;
 
-  ${({isFocused}) =>
+  input[type='search']::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+  }
+
+  ${({ isFocused }) =>
     isFocused &&
     css`
       border: 1px solid red;
@@ -33,6 +39,6 @@ const IconsInputWrap = styled.div`
     align-items: center;
     cursor: pointer;
   }
-`
+`;
 
-export {IconsInputWrap}
+export { IconsInputWrap };

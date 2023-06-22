@@ -1,15 +1,7 @@
-import {CustomInputWrap} from "./Input.styled"
+import { forwardRef } from 'react';
+import { CustomInputWrap } from './Input.styled';
 
-export const CustomInput = ({
-  value,
-  onChange,
-  placeholder,
-  className,
-  type,
-  fullWidth,
-  name,
-  inpRef,
-}) => {
+export const CustomInput = forwardRef(({ value, onChange, placeholder, className, type, fullWidth, name }, ref) => {
   return (
     <CustomInputWrap
       type={type}
@@ -19,7 +11,7 @@ export const CustomInput = ({
       placeholder={placeholder}
       fullWidth={fullWidth}
       name={name}
-      ref={inpRef}
+      ref={ref}
     />
-  )
-}
+  );
+});

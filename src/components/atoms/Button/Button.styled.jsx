@@ -1,6 +1,16 @@
 import styled, { css } from 'styled-components';
 
-// 버튼 크기 설정 입니다//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////   1. buttonSize : 버튼 크기 조정                                 ////////////////////////////////////////////////////////////////////////////
+////////////////////////    EX) <CustomButton size='large'> 사용방법 </CustomButton>
+
+////////////////////////   2. buttonStyle : 버튼 스타일 변경                              ///////////////////////////////////////////////////////////////////////////
+////////////////////////       버튼 종류 (5개): 1.default(기본), 2.outline(외곽선), 3.text(글자 버튼), 4.icon(아이콘),5.skip(웹 접근성을 위한 skip-navigation 버튼)
+////////////////////////    EX) <CustomButton design='outline'> 사용방법 </CustomButton>
+
+////////////////////////   3. commonButtonStyles : 공통으로 적용되는 css 입니다.            ///////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const buttonSize = {
   small: css`
     padding: 10px;
@@ -16,32 +26,8 @@ const buttonSize = {
   `,
 };
 
-const commonButtonStyles = css`
-  white-space: nowrap;
-  transition: all 0.3s ease;
-  position: relative;
-  outline: none;
-  border: none;
-  cursor: pointer;
-
-  &:active {
-    transform: scale(1);
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    transform: ${(props) => (props.loading ? 'scale(0.96)' : 'scale(1)')};
-  }
-`;
-
-//////////////////////////////////////////////////////////
-////////////////////// 버튼 스타일입니다./////////////////////
-////////////////////////////////////////////////////////
-
 const buttonStyle = {
-  //////////////////////////////////////////////////////////
   ////////////////////// 기본 버튼입니다.//////////////////////
-  ////////////////////////////////////////////////////////
 
   default: css`
     color: ${(props) => props.theme.button.text};
@@ -69,9 +55,7 @@ const buttonStyle = {
     }
   `,
 
-  //////////////////////////////////////////////////////////
   //////////////////////아웃라인 버튼입니다.////////////////////
-  ////////////////////////////////////////////////////////
 
   outline: css`
     background: transparent;
@@ -80,7 +64,7 @@ const buttonStyle = {
 
     &:disabled {
       border: 1.5px solid ${(props) => (props.loading ? props.theme.button.progress : props.theme.disabled)};
-      color: ${(props) => (props.loading ? props.theme.button.progress : props.theme.sabled)};
+      color: ${(props) => (props.loading ? props.theme.button.progress : props.theme.disabled)};
     }
 
     &:not(:disabled) {
@@ -103,33 +87,7 @@ const buttonStyle = {
     }
   `,
 
-  ///////////////////////////////////////////////////////////////////
-  //////////////////////skip navigation을 위한 버튼입니다.//////////////
-  ////////////////////////////////////////////////////////////////
-
-  skip: css`
-    position: absolute;
-    width: 100%;
-    top: -30px;
-    left: 0;
-    padding: 0;
-    background-color: ${(props) => props.theme.primary};
-    color: ${(props) => props.theme.subColor};
-    z-index: 100;
-    opacity: 0;
-    pointer-events: none;
-
-    &:focus {
-      font-size: ${(props) => props.theme.fontSize.l};
-      top: 0;
-      opacity: 1;
-      pointer-events: auto;
-    }
-  `,
-
-  //////////////////////////////////////////////////////////////////
   /////////////////////////////글자 버튼입니다.////////////////////////
-  ////////////////////////////////////////////////////////////////
 
   text: css`
     display: inline-block;
@@ -158,14 +116,52 @@ const buttonStyle = {
     }
   `,
 
-  //////////////////////////////////////////////////////////////////
   /////////////////////////////아이콘 버튼입니다.///////////////////////
-  ////////////////////////////////////////////////////////////////
 
   icon: css`
     background: transparent;
   `,
+
+  //////////////////////skip navigation을 위한 버튼입니다.//////////////
+
+  skip: css`
+    position: absolute;
+    width: 100%;
+    top: -30px;
+    left: 0;
+    padding: 0;
+    background-color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.subColor};
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+
+    &:focus {
+      font-size: ${(props) => props.theme.fontSize.l};
+      top: 0;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  `,
 };
+
+const commonButtonStyles = css`
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  position: relative;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(1);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    transform: ${(props) => (props.loading ? 'scale(0.96)' : 'scale(1)')};
+  }
+`;
 
 ///////////////////////////////////////////////////////////////////////////
 ////////////////////// 위 css 가 적용된 버튼 컴퍼넌트 입니다//////////////////////
@@ -173,10 +169,11 @@ const buttonStyle = {
 
 export const CustomBtn = styled.button`
   ${commonButtonStyles}
+
   ${(props) => buttonStyle[props.design] || buttonStyle.default}
   ${(props) => buttonSize[props.size] || buttonSize.medium}
 
-.spin-wrap {
+  .spin-wrap {
     display: flex;
     justify-content: center;
   }
