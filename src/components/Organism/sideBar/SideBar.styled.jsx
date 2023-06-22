@@ -1,12 +1,8 @@
 import styled from "styled-components"
-import {
-  MobileScreen,
-  TabletScreen,
-  WebScreen,
-} from "../../../styles/GlobalStyled"
+import {MOBILE, TABLET, DESKTOP} from "../../../styles/GlobalStyled"
 
 export const SideBarContainer = styled.aside`
-  ${WebScreen} {
+  ${DESKTOP} {
     width: 72px;
     top: 120px;
     display: flex;
@@ -17,10 +13,10 @@ export const SideBarContainer = styled.aside`
     z-index: 10;
   }
 
-  ${TabletScreen} {
+  ${TABLET} {
     display: none;
   }
-  ${MobileScreen} {
+  ${MOBILE} {
     display: none;
   }
 `

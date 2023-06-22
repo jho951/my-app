@@ -3,15 +3,18 @@ import {normalize} from "styled-normalize"
 
 // 모바일 스크린 입니다.
 const MOBILE_SIZE = "768px"
-const MobileScreen = `@media (max-width: ${MOBILE_SIZE})`
-// 태블릿 스크린 입니다.
-const TabletScreen = `@media (max-width: 1024px) and (min-width: 768px)`
-// pc 스크린 입니다.
-const WebScreen = `@media (min-width: 1024px)`
+const MOBILE = `@media (max-width: ${MOBILE_SIZE})`
 
+// 태블릿 스크린 입니다.
+const TABLET = `@media (max-width: 1024px) and (min-width: 768px)`
+
+// pc 스크린 입니다.
+const DESKTOP = `@media (min-width: 1024px)`
+
+// contents 영역입니다.
+const CONTENTS_WIDTH = `calc(100% - 64px)`
 // 프로젝트에서 사용되는 theme입니다.
 const theme = {
-  contents: `calc(100% - 64px)`,
   padding: "200px",
   primary: "#6bc7f1",
   subColor: "#FDFDFD",
@@ -39,9 +42,12 @@ const GlobalStyle = createGlobalStyle`
   ${normalize}
 
   * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    text-decoration: none;
   }
   :root {
     font-size: 62.5%;
@@ -49,8 +55,16 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
   }
-  html,
+
+
+  html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  } 
   body {
+ 
+    overflow: overlay;
     color: #000000;
     ol,ul {
       list-style-type: none;
@@ -95,9 +109,10 @@ const Spinner = styled.div`
 export {
   GlobalStyle,
   MOBILE_SIZE,
-  MobileScreen,
-  TabletScreen,
-  WebScreen,
+  MOBILE,
+  TABLET,
+  DESKTOP,
+  CONTENTS_WIDTH,
   theme,
   Spinner,
 }

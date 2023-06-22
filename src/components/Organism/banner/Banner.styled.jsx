@@ -1,8 +1,9 @@
 import styled, {css} from "styled-components"
 import {
-  MobileScreen,
-  TabletScreen,
-  WebScreen,
+  CONTENTS_WIDTH,
+  DESKTOP,
+  MOBILE,
+  TABLET,
 } from "../../../styles/GlobalStyled"
 
 const CommonBannerStyles = css`
@@ -33,7 +34,7 @@ const CommonBannerStyles = css`
     position: relative;
     margin: 0 auto;
     bottom: 0;
-    width: ${(props) => props.theme.contents};
+    width: ${CONTENTS_WIDTH};
     max-width: 1408px;
     display: flex;
     justify-content: end;
@@ -42,18 +43,18 @@ const CommonBannerStyles = css`
 const BannerWrap = styled.figure`
   ${CommonBannerStyles}
   .banner-images {
-    ${WebScreen} {
+    ${DESKTOP} {
       max-width: 1920px;
     }
   }
-  ${TabletScreen} {
+  ${TABLET} {
     .banner-control {
       width: 100%;
       bottom: 0px;
       display: block;
     }
   }
-  ${MobileScreen} {
+  ${MOBILE} {
     .banner-control {
       width: 100%;
       bottom: 0px;

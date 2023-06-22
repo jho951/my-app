@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import {WebScreen} from "../../../styles/GlobalStyled"
+import {DESKTOP} from "../../../styles/GlobalStyled"
 
 const GnbWrap = styled.ul`
-  ${WebScreen} {
+  ${DESKTOP} {
     width: 100%;
     display: flex;
     justify-content: center;

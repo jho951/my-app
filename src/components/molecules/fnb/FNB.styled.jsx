@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import {WebScreen} from "../../../styles/GlobalStyled"
+import {DESKTOP} from "../../../styles/GlobalStyled"
 
 const FnbWrap = styled.ul`
-  ${WebScreen} {
+  ${DESKTOP} {
     display: flex;
     justify-content: space-between;
     position: relative;

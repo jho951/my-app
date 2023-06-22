@@ -1,9 +1,5 @@
 import styled, {css} from "styled-components"
-import {
-  MobileScreen,
-  TabletScreen,
-  WebScreen,
-} from "../../../styles/GlobalStyled"
+import {DESKTOP, MOBILE, TABLET} from "../../../styles/GlobalStyled"
 
 const CommonControlStyles = css`
   width: 100%;
@@ -19,7 +15,7 @@ const CommonControlStyles = css`
 const ControllWrap = styled.section`
   ${CommonControlStyles}
 
-  ${WebScreen} {
+  ${DESKTOP} {
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
 
     .control-elem {
@@ -64,7 +60,7 @@ const ControllWrap = styled.section`
       }
     }
   }
-  ${TabletScreen} {
+  ${TABLET} {
     background-color: rgba(23, 31, 31, 0);
     transition: background-color 1s;
     height: 10px;
@@ -96,7 +92,7 @@ const ControllWrap = styled.section`
     }
   }
 
-  ${MobileScreen} {
+  ${MOBILE} {
     background-color: rgba(23, 31, 31, 0);
     transition: background-color 1s;
     height: 10px;

@@ -1,26 +1,16 @@
-import React, {useEffect, useState} from "react"
-import {QueryClient, QueryClientProvider, Hydrate} from "react-query"
-import {Provider} from "jotai"
-import LayoutContextProvider from "../components/templates/Layout.Styled"
-import {Layout} from "../components/templates/Layout"
-import {appWithTranslation} from "next-i18next"
+import React from 'react';
+import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
+import '/src/styles/scss/style.scss';
+import { Provider } from 'jotai';
+import LayoutContextProvider from '../components/templates/Layout.Styled';
+import { Layout } from '../components/templates/Layout';
 
-function MyApp({Component, pageProps}) {
-  const [translations, setTranslations] = useState({})
-  const queryClientRef = React.useRef()
+function MyApp({ Component, pageProps }) {
+  const queryClientRef = React.useRef();
+
   if (!queryClientRef.current) {
-    queryClientRef.current = new QueryClient()
+    queryClientRef.current = new QueryClient();
   }
-
-  // useEffect(() => {
-  //   const fetchTranslationsData = async () => {
-  //     const locale = "en"
-  //     const translationData = await fetchTranslation(locale)
-  //     setTranslations(translationData)
-  //   }
-
-  //   fetchTranslationsData()
-  // }, [])
 
   return (
     <QueryClientProvider client={queryClientRef.current}>
@@ -34,7 +24,7 @@ function MyApp({Component, pageProps}) {
         </LayoutContextProvider>
       </Provider>
     </QueryClientProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

@@ -1,29 +1,33 @@
-import {useContext} from "react"
-import {useRouter} from "next/router"
-import {LayoutContext} from "./Layout.Styled"
-import {ThemeProvider} from "styled-components"
-import {GlobalStyle, theme} from "../../styles/GlobalStyled"
-import Footer from "../Organism/footer/Footer"
-import Main from "../Organism/main/Main"
-import {CustomButton} from "../atoms/button/Button"
-import {skipNavigation} from "../../utils/utils"
-import Header from "../organism/header/Header"
+import React, { useContext } from 'react';
+import { useRouter } from 'next/router';
 
-export const Layout = ({children}) => {
-  const {matchese} = useContext(LayoutContext)
-  const router = useRouter()
+import { ThemeProvider } from 'styled-components';
+import { LayoutContext } from './Layout.Styled';
+import { GlobalStyle, theme } from '../../styles/GlobalStyled';
+
+import { CustomButton } from '../atoms/button/Button';
+import Header from '../Organism/header/Header';
+import Footer from '../Organism/footer/Footer';
+import Main from '../Organism/main/Main';
+
+import { skipNavigation } from '../../utils/utils';
+import { PROJECT_ID } from '../../utils/constants/accont';
+
+export const Layout = ({ children }) => {
+  const { matchese } = useContext(LayoutContext);
+  const router = useRouter();
 
   const accountLink = [
-    {id: "login", label: "로그인", href: "/login"},
-    {id: "join", label: "회원가입", href: "/join"},
-  ]
+    { id: 'login', label: '로그인', href: '/login' },
+    { id: 'join', label: '회원가입', href: '/join' },
+  ];
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      {router.pathname === "/" && (
+      {router.pathname === '/' && (
         <>
-          <h1 className='visuallyhidden'>happy-medion</h1>
-          <CustomButton design='skip' onClick={() => skipNavigation("main")}>
+          <h1 className="visuallyhidden">{PROJECT_ID}</h1>
+          <CustomButton design="skip" onClick={() => skipNavigation('main')}>
             병원메뉴
           </CustomButton>
         </>
@@ -32,5 +36,5 @@ export const Layout = ({children}) => {
       <Main>{children}</Main>
       <Footer />
     </ThemeProvider>
-  )
-}
+  );
+};

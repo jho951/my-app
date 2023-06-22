@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import {WebScreen} from "../../../styles/GlobalStyled"
+import {DESKTOP} from "../../../styles/GlobalStyled"
 
 export const LocaleContainer = styled.div`
   position: relative;
@@ -15,7 +15,7 @@ export const LocaleContainer = styled.div`
     &:hover {
       opacity: 0.7;
     }
-    ${WebScreen} {
+    ${DESKTOP} {
       .arrow {
         width: 6px;
         height: 6px;

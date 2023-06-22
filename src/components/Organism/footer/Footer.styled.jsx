@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components"
-import {WebScreen} from "../../../styles/GlobalStyled"
+import {DESKTOP} from "../../../styles/GlobalStyled"
 
 const CommonFooterStyles = css`
   display: flex;
@@ -11,7 +11,7 @@ const CommonFooterStyles = css`
 `
 const FooterWrap = styled.footer`
   ${CommonFooterStyles}
-  ${WebScreen} {
+  ${DESKTOP} {
     .footer-wrap {
       display: flex;
       justify-content: space-between;

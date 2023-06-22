@@ -1,20 +1,13 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 *.trace
-# Ignore editor specific files
 .vscode/
 .idea/
 
-
-# Ignore compiled binaries or executables
 /bin/
 /build/
 
-# Ignore logs and generated documentation
 /logs/
 /doc/
 
-# dependencies
 /node_modules
 /.pnp
 .pnp.js
@@ -23,45 +16,34 @@
 /.cache-loader
 /.yarn
 
-# testing
 /coverage
 
-# next.js
 .next
 /.next/
 /out/
 
-# production
 /build
 
-# misc
 .DS_Store
 *.pem
 
-# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# local env files
 .env
 .env*.local
 
-# eslint cache
 .eslintcache
 
-# vercel
 .vercel
 
-# Ignore generated or compiled files
 /dist/
 /out/
-# Ignore cache or temporary files
 .cache/
 .tmp/
 
-# typescript
 *.tsbuildinfo
 next-env.d.ts
 

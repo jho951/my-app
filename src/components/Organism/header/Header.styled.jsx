@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components"
-import {TabletScreen, WebScreen} from "../../../styles/GlobalStyled"
+import {CONTENTS_WIDTH, DESKTOP, TABLET} from "../../../styles/GlobalStyled"
 
 const CommonHeaderStyles = css`
   width: 100%;
@@ -14,7 +14,7 @@ const CommonHeaderStyles = css`
   .heder-wrap {
     display: flex;
     justify-content: space-between;
-    width: ${(props) => props.theme.contents};
+    width: ${CONTENTS_WIDTH};
     max-width: 1408px;
     margin: 0 auto;
     .header-account {
@@ -30,9 +30,9 @@ const CommonHeaderStyles = css`
 
 const HeaderContainer = styled.header`
   ${CommonHeaderStyles}
-  ${WebScreen} {
+  ${DESKTOP} {
   }
-  ${TabletScreen} {
+  ${TABLET} {
   }
 `
 

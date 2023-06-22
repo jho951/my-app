@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import {GnbWrap} from "../../molecules/gnb/GNB.styled"
+import {CONTENTS_WIDTH} from "../../../styles/GlobalStyled"
 
 const LnbWrap = styled.ul`
   width: 200px;
@@ -21,7 +22,7 @@ const LnbWrap = styled.ul`
     width: 100%;
     max-width: 508px;
     margin: 0 auto;
-    width: ${(props) => props.theme.contents};
+    width: ${CONTENTS_WIDTH};
     color: ${(props) => props.theme.background};
     text-decoration: none;
   }
