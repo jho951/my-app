@@ -1,7 +1,7 @@
-import { MainWrap } from './Main.styled';
+import { ContentsWrap } from './Main.styled';
 
-const Main = ({ children }) => {
-  return <MainWrap tabIndex={0}>{children}</MainWrap>;
+const Contents = ({ children }) => {
+  return <ContentsWrap>{children}</ContentsWrap>;
 };
 
-export default Main;
+export default Contents;

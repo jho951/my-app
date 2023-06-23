@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LabelWrap } from './Label.styled';
+import * as S from './Label.styled';
 
 export const CustomLabel = ({ labelText, htmlFor, required }) => {
   return (
-    <LabelWrap htmlFor={htmlFor}>
+    <S.LabelWrap htmlFor={htmlFor}>
       {labelText}
       {required && (
-        <span className="mark-req">
+        <small className="mark-req">
           필수 입력 <sup>*</sup>
-        </span>
+        </small>
       )}
-    </LabelWrap>
+    </S.LabelWrap>
   );
 };
 

@@ -2,11 +2,11 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { MOBILE_SIZE } from '../../styles/GlobalStyled';
 
 export const LayoutContext = React.createContext({
-  matchese: typeof window === 'object' ? window.matchMedia(`(max-width:${MOBILE_SIZE})`).matches : null,
+  matches: typeof window === 'object' ? window.matchMedia(`(max-width:${MOBILE_SIZE})`).matches : null,
 });
 
 const LayoutContextProvider = ({ children }) => {
-  const [matchese, setMatches] = useState(false);
+  const [matches, setMatches] = useState(false);
 
   const resizePage = useCallback(() => {
     if (typeof window !== 'undefined') {
@@ -23,7 +23,7 @@ const LayoutContextProvider = ({ children }) => {
     return () => window.removeEventListener('resize', resizePage);
   }, [resizePage]);
 
-  const contextValue = useMemo(() => ({ matchese }), [matchese]);
+  const contextValue = useMemo(() => ({ matches }), [matches]);
 
   return <LayoutContext.Provider value={contextValue}>{children}</LayoutContext.Provider>;
 };

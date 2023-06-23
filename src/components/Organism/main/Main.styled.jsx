@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DESKTOP } from '../../../styles/GlobalStyled';
 
-const MainWrap = styled.main`
+const ContentsWrap = styled.main`
   ${DESKTOP} {
     max-width: 1920px;
     margin: 0 auto;
@@ -11,4 +11,4 @@ const MainWrap = styled.main`
   }
 `;
 
-export { MainWrap };
+export { ContentsWrap };

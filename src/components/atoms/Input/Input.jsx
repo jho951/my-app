@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { CustomInputWrap } from './Input.styled';
+
+import * as S from './Input.styled';
 
 export const CustomInput = forwardRef(({ value, onChange, placeholder, className, type, fullWidth }, ref) => {
   const handleChange = (event) => {
@@ -10,7 +11,7 @@ export const CustomInput = forwardRef(({ value, onChange, placeholder, className
   };
 
   return (
-    <CustomInputWrap
+    <S.CustomInputWrap
       type={type}
       value={value}
       onChange={handleChange}

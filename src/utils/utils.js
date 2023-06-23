@@ -104,11 +104,11 @@ const bodyHiddenToggle = (toggle) => {
 // 이미지의 natural width, height를 리턴하는 custom hook입니다.
 
 const useImageSize = (imagePath) => {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [dimensions, setDimensions] = useState({
     width: 0,
     height: 0,
     aspectRatio: 0,
-    isLoaded: false,
   });
 
   useEffect(() => {
@@ -118,7 +118,8 @@ const useImageSize = (imagePath) => {
       const { width, height } = img;
       const aspectRatio = `${width}:${height}`;
 
-      setDimensions({ width, height, aspectRatio, isLoaded: true });
+      setIsLoaded(true);
+      setDimensions({ width, height, aspectRatio });
     };
 
     return () => {
@@ -126,7 +127,7 @@ const useImageSize = (imagePath) => {
     };
   }, [imagePath]);
 
-  return dimensions;
+  return { ...dimensions, isLoaded };
 };
 
 export { addComma, textSlice, diffToText, timeFormat, setCreatedAt, removeDuplicates, skipNavigation, useImageSize, bodyHiddenToggle };

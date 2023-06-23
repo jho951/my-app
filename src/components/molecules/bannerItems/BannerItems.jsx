@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { ControllWrap } from './BannerItems.styled';
+
+import * as S from './BannerItems.styled';
+
 import { FiPause, FiPlay } from 'react-icons/fi';
 import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
 
@@ -39,7 +41,7 @@ export const BannerItems = ({ image, currentImage, setCurrentImage }) => {
   };
 
   return (
-    <ControllWrap width={((currentImage + 1) / image.length) * 100}>
+    <S.ControllWrap width={((currentImage + 1) / image.length) * 100}>
       <div className="control-elem">
         <ul className="change-banner-elem">
           <li onClick={handleTogglePlay}>{isPlaying ? <FiPause /> : <FiPlay />}</li>
@@ -62,6 +64,6 @@ export const BannerItems = ({ image, currentImage, setCurrentImage }) => {
           <p className="progress-total-num">{image.length}</p>
         </div>
       </div>
-    </ControllWrap>
+    </S.ControllWrap>
   );
 };

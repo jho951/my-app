@@ -32,11 +32,11 @@ export const IconLinkContainer = styled.div`
     flex-direction: column;
   }
 
-  .icon-container {
+  .icon-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
+    border-radius: ${(props) => props.borderRadius || '50%'};
     overflow: hidden;
 
     ${({ bgColor }) => bgColor && `background-color: ${bgColor};`}

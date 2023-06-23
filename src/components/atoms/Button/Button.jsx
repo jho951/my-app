@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { CustomButtonWrap } from './Button.styled';
+import * as S from './Button.styled';
 
 export const CustomButton = ({ children, onClick, disable, loading, placeholder, ...props }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -8,6 +8,7 @@ export const CustomButton = ({ children, onClick, disable, loading, placeholder,
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
+
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
@@ -19,9 +20,9 @@ export const CustomButton = ({ children, onClick, disable, loading, placeholder,
   };
 
   return (
-    <CustomButtonWrap
+    <S.CustomButtonWrap
       {...props}
-      loading={loading}
+      loading={loading ? 'true' : 'false'}
       placeholder={placeholder}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -30,7 +31,7 @@ export const CustomButton = ({ children, onClick, disable, loading, placeholder,
       onClick={!disable ? onClick : undefined}
       disabled={disable || loading}
       aria-label={disable || loading ? 'Button disabled' : 'Button'}
-      aria-disabled={disable || loading}
+      aria-disabled={disable || loading ? 'true' : undefined}
     >
       {loading && (
         <p className="spin-wrap">
@@ -38,7 +39,7 @@ export const CustomButton = ({ children, onClick, disable, loading, placeholder,
         </p>
       )}
       {!loading && children}
-    </CustomButtonWrap>
+    </S.CustomButtonWrap>
   );
 };
 

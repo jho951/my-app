@@ -1,15 +1,13 @@
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 
+import { IMG_PATH } from '../../../utils/constants/project';
 import { useImageSize } from '../../../utils/utils';
 
-export const CustomImage = ({ image, currentImage, alt, priority = false, quality }) => {
-  // 다수의 이미지의 경우 currentImage(jotai) 를 사용합니다.
-  const imageSrc = currentImage >= 0 ? image[currentImage]?.src : image;
+export const CustomImage = ({ image, currentImage, alt, priority, quality }) => {
+  const imageSrc = image[currentImage]?.src || image;
+
   const { width, height, isLoaded } = useImageSize(imageSrc);
-  const loader = () => {
-    return `${imageSrc}?w=${width}&q=${quality}`;
-  };
 
   return (
     isLoaded && (
@@ -17,11 +15,10 @@ export const CustomImage = ({ image, currentImage, alt, priority = false, qualit
         src={imageSrc}
         alt={alt}
         width={width}
-        loader={loader}
         height={height}
         priority={priority}
-        placeholder="blur"
-        blurDataURL="/blurImg.png"
+        placeholder={width >= 40 && height >= 40 ? 'blur' : 'empty'}
+        blurDataURL={`${IMG_PATH}/blurImg.png`}
         quality={quality}
         style={{
           WebkitUserDrag: 'none',
@@ -40,8 +37,9 @@ CustomImage.propTypes = {
   priority: PropTypes.bool,
   quality: PropTypes.number,
 };
+
 CustomImage.defaultProps = {
-  image: '',
+  image: [],
   currentImage: 0,
   alt: '',
   priority: false,
