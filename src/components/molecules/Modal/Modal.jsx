@@ -1,42 +1,42 @@
-import {useEffect, useState, useRef, useCallback} from "react"
-import Portal from "../../../utils/Portal/Portal"
-import {ModalOverLay, ModalWrap} from "./Modal.styled"
+import { useEffect, useState, useRef, useCallback } from 'react';
+import Portal from '../../../utils/Portal/Portal';
+import { ModalOverLay, ModalWrap } from './Modal.styled';
 
-const Modal = ({isOpen, onClose, children}) => {
-  const [modalOpen, setModalOpen] = useState(false)
-  const modalRef = useRef(null)
+const Modal = ({ isOpen, onClose, children }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const modalRef = useRef(null);
 
   useEffect(() => {
-    setModalOpen(isOpen)
-  }, [isOpen])
+    setModalOpen(isOpen);
+  }, [isOpen]);
 
   const handleCloseModal = () => {
-    setModalOpen(false)
-    onClose()
-  }
+    setModalOpen(false);
+    onClose();
+  };
   const handleOutsideClick = useCallback((e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
-      handleCloseModal()
+      handleCloseModal();
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleOutsideClick)
+    document.addEventListener('mousedown', handleOutsideClick);
     return () => {
-      document.removeEventListener("mousedown", handleOutsideClick)
-    }
-  }, [handleOutsideClick])
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [handleOutsideClick]);
 
   return (
-    <Portal selector='#modal-root'>
+    <Portal selector="#modal-root">
       {modalOpen && (
         <ModalWrap ref={modalRef}>
-          <ModalOverLay className='modal-overlay' onClick={handleCloseModal} />
+          <ModalOverLay className="modal-overlay" onClick={handleCloseModal} />
           {children}
         </ModalWrap>
       )}
     </Portal>
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;

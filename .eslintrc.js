@@ -6,8 +6,8 @@ module.exports = {
   },
   extends: [
     'next',
-    'airbnb',
     'eslint:recommended',
+    'airbnb',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended', // 해당 플러그인의 권장 규칙을 사용합니다.
   ],

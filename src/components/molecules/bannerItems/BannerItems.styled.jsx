@@ -1,5 +1,5 @@
-import styled, {css} from "styled-components"
-import {DESKTOP, MOBILE, TABLET} from "../../../styles/GlobalStyled"
+import styled, { css } from 'styled-components';
+import { DESKTOP, MOBILE, TABLET } from '../../../styles/GlobalStyled';
 
 const CommonControlStyles = css`
   width: 100%;
@@ -10,7 +10,7 @@ const CommonControlStyles = css`
   justify-content: center;
   align-items: center;
   background-color: rgb(255, 255, 255);
-`
+`;
 
 const ControllWrap = styled.section`
   ${CommonControlStyles}
@@ -123,6 +123,6 @@ const ControllWrap = styled.section`
       }
     }
   }
-`
+`;
 
-export {ControllWrap}
+export { ControllWrap };

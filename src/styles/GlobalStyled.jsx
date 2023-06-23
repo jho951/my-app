@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, keyframes } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
 // 모바일 스크린 입니다.
@@ -6,13 +6,14 @@ const MOBILE_SIZE = '768px';
 const MOBILE = `@media (max-width: ${MOBILE_SIZE})`;
 
 // 태블릿 스크린 입니다.
-const TABLET = `@media (max-width: 1024px) and (min-width: 768px)`;
+const TABLET_SIZE = '1024px';
+const TABLET = `@media (max-width: ${TABLET_SIZE}) and (min-width:${MOBILE_SIZE})`;
 
 // pc 스크린 입니다.
-const DESKTOP = `@media (min-width: 1024px)`;
+const DESKTOP = `@media (min-width: ${TABLET_SIZE})`;
 
 // contents 영역입니다.
-const CONTENTS_WIDTH = `calc(100% - 64px)`;
+const CONTENTS_WIDTH = 'calc(100% - 64px)';
 
 // 프로젝트에서 사용되는 theme입니다.
 
@@ -23,6 +24,7 @@ const theme = {
   textColor: '#474747',
   background: '#ffffff',
   footer: '#191919',
+  warning: '#ff0000',
   disabled: 'rgba(19, 100, 193, 0.45)',
   fontSize: {
     s: '1.4rem',
@@ -74,17 +76,20 @@ const GlobalStyle = createGlobalStyle`
     a {
       text-decoration: none;
       color: inherit;
-    }  
-    input::-ms-clear,
-     input::-ms-reveal{
-	    display:none;width:0;height:0;
     }
-      input::-webkit-search-decoration,
-      input::-webkit-search-cancel-button,
-      input::-webkit-search-results-button,
-      input::-webkit-search-results-decoration{
-	    display:none;
-  }
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  display: none;
+}
+
     .visuallyhidden {
       position: absolute;
       clip: rect(1px, 1px, 1px, 1px);

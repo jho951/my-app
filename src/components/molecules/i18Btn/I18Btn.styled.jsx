@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import {DESKTOP} from "../../../styles/GlobalStyled"
+import styled from 'styled-components';
+import { DESKTOP } from '../../../styles/GlobalStyled';
 
 export const LocaleContainer = styled.div`
   position: relative;
@@ -84,4 +84,4 @@ export const LocaleContainer = styled.div`
       }
     }
   }
-`
+`;

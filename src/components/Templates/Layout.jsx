@@ -11,7 +11,7 @@ import Footer from '../Organism/footer/Footer';
 import Main from '../Organism/main/Main';
 
 import { skipNavigation } from '../../utils/utils';
-import { PROJECT_ID } from '../../utils/constants/accont';
+import { PROJECT_NAME } from '../../utils/constants/project';
 
 export const Layout = ({ children }) => {
   const { matchese } = useContext(LayoutContext);
@@ -26,7 +26,7 @@ export const Layout = ({ children }) => {
       <GlobalStyle />
       {router.pathname === '/' && (
         <>
-          <h1 className="visuallyhidden">{PROJECT_ID}</h1>
+          <h1 className="visuallyhidden">{PROJECT_NAME}</h1>
           <CustomButton design="skip" onClick={() => skipNavigation('main')}>
             병원메뉴
           </CustomButton>

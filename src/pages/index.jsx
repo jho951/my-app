@@ -12,7 +12,7 @@ export default function MyComponent() {
   return (
     <>
       <PageHead title="해피매디온" desrciption="메인페이지" keyword="homepage" />
-      <Banner />
+      <Banner t={t} />
       <SideBar />
     </>
   );

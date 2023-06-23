@@ -1,4 +1,5 @@
 import { getCookie, setCookie, removeCookie } from '../Cookies/cookies';
+import { PROJECT_NAME } from './project';
 
 // 쿠키 도메인 IP
 export const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN_IP ? process.env.NEXT_PUBLIC_DOMAIN_IP : '.127.0.0.1';
@@ -8,9 +9,9 @@ export const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN_IP ? process.env.NEXT_PUBLI
  * 약자 ID_JTW = 토큰 값
  * 약자 ID_SES = 로그인 아이디
  */
-export const PROJECT_ID = 'HAPPYMEDIAN';
-const TOKEN = `ID_${PROJECT_ID}_JWT`;
-const USER_SESSION = `ID_${PROJECT_ID}_SES`;
+
+const TOKEN = `ID_${PROJECT_NAME}_JWT`;
+const USER_SESSION = `ID_${PROJECT_NAME}_SES`;
 
 /**
  *

@@ -1,5 +1,5 @@
-import styled, {css} from "styled-components"
-import {CONTENTS_WIDTH, DESKTOP, TABLET} from "../../../styles/GlobalStyled"
+import styled, { css } from 'styled-components';
+import { CONTENTS_WIDTH, DESKTOP, TABLET } from '../../../styles/GlobalStyled';
 
 const CommonHeaderStyles = css`
   width: 100%;
@@ -26,7 +26,7 @@ const CommonHeaderStyles = css`
       font-size: ${(props) => props.theme.fontSize.m};
     }
   }
-`
+`;
 
 const HeaderContainer = styled.header`
   ${CommonHeaderStyles}
@@ -34,6 +34,6 @@ const HeaderContainer = styled.header`
   }
   ${TABLET} {
   }
-`
+`;
 
-export {HeaderContainer}
+export { HeaderContainer };

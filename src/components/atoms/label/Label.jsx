@@ -1,25 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LabelContainer } from './Label.styled';
+import { LabelWrap } from './Label.styled';
 
-export const Label = ({ labelText, htmlFor, required }) => {
+export const CustomLabel = ({ labelText, htmlFor, required }) => {
   return (
-    <LabelContainer htmlFor={htmlFor}>
+    <LabelWrap htmlFor={htmlFor}>
       {labelText}
       {required && (
         <span className="mark-req">
           필수 입력 <sup>*</sup>
         </span>
       )}
-    </LabelContainer>
+    </LabelWrap>
   );
 };
 
-///////////////////////////
-//// props 자료 타입입니다.///
-/////////////////////////
-Label.propTypes = {
+// props 자료 타입입니다.
+
+CustomLabel.propTypes = {
   labelText: PropTypes.string.isRequired,
   htmlFor: PropTypes.string.isRequired,
   required: PropTypes.bool,
+};
+CustomLabel.defaultProps = {
+  required: false,
 };

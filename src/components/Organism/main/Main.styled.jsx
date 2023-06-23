@@ -1,5 +1,6 @@
-import styled from "styled-components"
-import {DESKTOP} from "../../../styles/GlobalStyled"
+import styled from 'styled-components';
+import { DESKTOP } from '../../../styles/GlobalStyled';
+
 const MainWrap = styled.main`
   ${DESKTOP} {
     max-width: 1920px;
@@ -8,6 +9,6 @@ const MainWrap = styled.main`
     background-color: ${(props) => props.theme.background};
     color: ${(props) => props.theme.textColor};
   }
-`
+`;
 
-export {MainWrap}
+export { MainWrap };

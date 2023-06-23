@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { useImageSize } from '../../../utils/utils';
 
-export const CustomImage = ({ image, currentImage, alt, priority = false, quality = 70 }) => {
+export const CustomImage = ({ image, currentImage, alt, priority = false, quality }) => {
   // 다수의 이미지의 경우 currentImage(jotai) 를 사용합니다.
   const imageSrc = currentImage >= 0 ? image[currentImage]?.src : image;
   const { width, height, isLoaded } = useImageSize(imageSrc);
@@ -31,14 +31,19 @@ export const CustomImage = ({ image, currentImage, alt, priority = false, qualit
   );
 };
 
-///////////////////////////
-//// props 자료 타입입니다.///
-/////////////////////////
+// props 자료 타입입니다.
 
 CustomImage.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.array, PropTypes.string]), // 이미지 배열
-  currentImage: PropTypes.number, // 현재 이미지 인덱스
-  alt: PropTypes.string, // 대체 텍스트
-  priority: PropTypes.bool, // 우선 순위
-  quality: PropTypes.number, // 이미지 품질
+  image: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  currentImage: PropTypes.number,
+  alt: PropTypes.string,
+  priority: PropTypes.bool,
+  quality: PropTypes.number,
+};
+CustomImage.defaultProps = {
+  image: '',
+  currentImage: 0,
+  alt: '',
+  priority: false,
+  quality: 70,
 };

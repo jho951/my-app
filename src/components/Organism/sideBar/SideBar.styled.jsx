@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import {MOBILE, TABLET, DESKTOP} from "../../../styles/GlobalStyled"
+import styled from 'styled-components';
+import { MOBILE, TABLET, DESKTOP } from '../../../styles/GlobalStyled';
 
 export const SideBarContainer = styled.aside`
   ${DESKTOP} {
@@ -19,4 +19,4 @@ export const SideBarContainer = styled.aside`
   ${MOBILE} {
     display: none;
   }
-`
+`;

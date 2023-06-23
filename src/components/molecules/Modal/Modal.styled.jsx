@@ -1,4 +1,5 @@
-import styled, {keyframes} from "styled-components"
+import styled, { keyframes } from 'styled-components';
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -6,7 +7,7 @@ const fadeIn = keyframes`
   to {
     opacity: 1;
   }
-`
+`;
 
 const fadeOut = keyframes`
   from {
@@ -15,7 +16,7 @@ const fadeOut = keyframes`
   to {
     opacity: 0;
   }
-`
+`;
 
 const ModalOverLay = styled.div`
   position: fixed;
@@ -27,7 +28,7 @@ const ModalOverLay = styled.div`
   right: 0;
   background: rgba(0, 0, 0, 0.2);
   z-index: 11;
-`
+`;
 const ModalWrap = styled.div`
   width: 500px;
   height: 500px;
@@ -48,6 +49,6 @@ const ModalWrap = styled.div`
       }
     }
   }
-`
+`;
 
-export {ModalOverLay, ModalWrap}
+export { ModalOverLay, ModalWrap };

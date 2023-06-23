@@ -1,38 +1,34 @@
-import {useRouter} from "next/router"
-import Link from "next/link"
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
-export function CustomList({menus, children, onMouseEnter, onMouseLeave}) {
-  const router = useRouter()
+export function CustomList({ menus, children, onMouseEnter, onMouseLeave }) {
+  const router = useRouter();
 
   const handleMouseEnter = (menuId) => {
     if (onMouseEnter) {
-      onMouseEnter(menuId)
+      onMouseEnter(menuId);
     }
-  }
+  };
 
   const handleMouseLeave = () => {
     if (onMouseLeave) {
-      onMouseLeave()
+      onMouseLeave();
     }
-  }
+  };
 
   return (
     <>
       {menus?.map((menu) => {
         const listItem = (
-          <li
-            key={menu?.label}
-            data-menu-id={menu?.id}
-            className={router.pathname === menu?.href ? "active" : ""}
-          >
+          <li key={menu?.label} data-menu-id={menu?.id} className={router.pathname === menu?.href ? 'active' : ''}>
             {menu?.label}
           </li>
-        )
+        );
 
         if (menu?.href) {
           return (
             <Link
-              role='tab'
+              role="tab"
               href={menu.href}
               key={menu.label}
               passHref
@@ -41,12 +37,12 @@ export function CustomList({menus, children, onMouseEnter, onMouseLeave}) {
             >
               {listItem}
             </Link>
-          )
+          );
         } else {
-          return listItem
+          return listItem;
         }
       })}
       {children}
     </>
-  )
+  );
 }

@@ -1,10 +1,5 @@
-import styled, {css} from "styled-components"
-import {
-  CONTENTS_WIDTH,
-  DESKTOP,
-  MOBILE,
-  TABLET,
-} from "../../../styles/GlobalStyled"
+import styled, { css } from 'styled-components';
+import { CONTENTS_WIDTH, DESKTOP, MOBILE, TABLET } from '../../../styles/GlobalStyled';
 
 const CommonBannerStyles = css`
   .banner-images {
@@ -39,7 +34,7 @@ const CommonBannerStyles = css`
     display: flex;
     justify-content: end;
   }
-`
+`;
 const BannerWrap = styled.figure`
   ${CommonBannerStyles}
   .banner-images {
@@ -61,5 +56,5 @@ const BannerWrap = styled.figure`
       display: block;
     }
   }
-`
-export {BannerWrap}
+`;
+export { BannerWrap };

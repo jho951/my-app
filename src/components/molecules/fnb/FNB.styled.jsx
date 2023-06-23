@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import {DESKTOP} from "../../../styles/GlobalStyled"
+import styled from 'styled-components';
+import { DESKTOP } from '../../../styles/GlobalStyled';
 
 const FnbWrap = styled.ul`
   ${DESKTOP} {
@@ -8,6 +8,6 @@ const FnbWrap = styled.ul`
     position: relative;
     width: 100%;
   }
-`
+`;
 
-export {FnbWrap}
+export { FnbWrap };

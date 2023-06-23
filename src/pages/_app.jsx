@@ -1,6 +1,6 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
-import '/src/styles/scss/style.scss';
+import '../styles/scss/style.scss';
 import { Provider } from 'jotai';
 import LayoutContextProvider from '../components/templates/Layout.Styled';
 import { Layout } from '../components/templates/Layout';

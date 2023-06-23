@@ -1,14 +1,11 @@
-import axios from "axios"
+import axios from 'axios';
 
 export async function fetchTranslation(locale) {
   try {
-    const response = await axios.get(
-      `http://localhost:3001/translations?lang=${locale}`
-    )
-    return response.data
+    const response = await axios.get(`http://localhost:3001/translations?lang=${locale}`);
+    return response.data;
   } catch (error) {
-    console.error("Error fetching translations:", error)
-    return {}
+    return {};
   }
 }
 // const ret = i18next.t("look.deeper")

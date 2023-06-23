@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export const JoinFormContainer = styled.form`
   display: flex;
@@ -6,4 +6,4 @@ export const JoinFormContainer = styled.form`
   flex-direction: column;
   input {
   }
-`
+`;

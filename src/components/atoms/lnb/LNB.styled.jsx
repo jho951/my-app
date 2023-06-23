@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import {GnbWrap} from "../../molecules/gnb/GNB.styled"
-import {CONTENTS_WIDTH} from "../../../styles/GlobalStyled"
+import styled from 'styled-components';
+import { GnbWrap } from '../../molecules/gnb/GNB.styled';
+import { CONTENTS_WIDTH } from '../../../styles/GlobalStyled';
 
 const LnbWrap = styled.ul`
   width: 200px;
@@ -26,5 +26,5 @@ const LnbWrap = styled.ul`
     color: ${(props) => props.theme.background};
     text-decoration: none;
   }
-`
-export {LnbWrap}
+`;
+export { LnbWrap };

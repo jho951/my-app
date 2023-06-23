@@ -1,15 +1,13 @@
 import styled, { css } from 'styled-components';
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////   1. buttonSize : 버튼 크기 조정                                 ////////////////////////////////////////////////////////////////////////////
-////////////////////////    EX) <CustomButton size='large'> 사용방법 </CustomButton>
+//  1. buttonSize : 버튼 크기 조정
+//    EX) <CustomButton size='large'> 사용방법 </CustomButton>
 
-////////////////////////   2. buttonStyle : 버튼 스타일 변경                              ///////////////////////////////////////////////////////////////////////////
-////////////////////////       버튼 종류 (5개): 1.default(기본), 2.outline(외곽선), 3.text(글자 버튼), 4.icon(아이콘),5.skip(웹 접근성을 위한 skip-navigation 버튼)
-////////////////////////    EX) <CustomButton design='outline'> 사용방법 </CustomButton>
+//  2. buttonStyle : 버튼 스타일 변경
+//      버튼 종류 (5개): 1.default(기본), 2.outline(외곽선), 3.text(글자 버튼), 4.icon(아이콘),5.skip(웹 접근성을 위한 skip-navigation 버튼)
+//   EX) <CustomButton design='outline'> 사용방법 </CustomButton>
 
-////////////////////////   3. commonButtonStyles : 공통으로 적용되는 css 입니다.            ///////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  3. commonButtonStyles : 공통으로 적용되는 css 입니다.
 
 const buttonSize = {
   small: css`
@@ -27,7 +25,7 @@ const buttonSize = {
 };
 
 const buttonStyle = {
-  ////////////////////// 기본 버튼입니다.//////////////////////
+  // 기본 버튼입니다.
 
   default: css`
     color: ${(props) => props.theme.button.text};
@@ -55,7 +53,7 @@ const buttonStyle = {
     }
   `,
 
-  //////////////////////아웃라인 버튼입니다.////////////////////
+  // 아웃라인 버튼입니다.
 
   outline: css`
     background: transparent;
@@ -87,7 +85,7 @@ const buttonStyle = {
     }
   `,
 
-  /////////////////////////////글자 버튼입니다.////////////////////////
+  // 글자 버튼입니다.
 
   text: css`
     display: inline-block;
@@ -116,13 +114,13 @@ const buttonStyle = {
     }
   `,
 
-  /////////////////////////////아이콘 버튼입니다.///////////////////////
+  // 아이콘 버튼입니다.
 
   icon: css`
     background: transparent;
   `,
 
-  //////////////////////skip navigation을 위한 버튼입니다.//////////////
+  // skip navigation을 위한 버튼입니다.
 
   skip: css`
     position: absolute;
@@ -163,11 +161,9 @@ const commonButtonStyles = css`
   }
 `;
 
-///////////////////////////////////////////////////////////////////////////
-////////////////////// 위 css 가 적용된 버튼 컴퍼넌트 입니다//////////////////////
-/////////////////////////////////////////////////////////////////////////
+// 위 css 가 적용된 버튼 컴퍼넌트 입니다.
 
-export const CustomBtn = styled.button`
+export const CustomButtonWrap = styled.button`
   ${commonButtonStyles}
 
   ${(props) => buttonStyle[props.design] || buttonStyle.default}

@@ -1,5 +1,5 @@
-import styled, {css} from "styled-components"
-import {DESKTOP} from "../../../styles/GlobalStyled"
+import styled, { css } from 'styled-components';
+import { DESKTOP } from '../../../styles/GlobalStyled';
 
 const CommonFooterStyles = css`
   display: flex;
@@ -8,7 +8,7 @@ const CommonFooterStyles = css`
   background-color: ${(props) => props.theme.footer};
   color: ${(props) => props.theme.subColor};
   align-items: center;
-`
+`;
 const FooterWrap = styled.footer`
   ${CommonFooterStyles}
   ${DESKTOP} {
@@ -37,6 +37,6 @@ const FooterWrap = styled.footer`
       }
     }
   }
-`
+`;
 
-export {FooterWrap}
+export { FooterWrap };

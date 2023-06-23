@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import {DESKTOP} from "../../../styles/GlobalStyled"
+import styled from 'styled-components';
+import { DESKTOP } from '../../../styles/GlobalStyled';
 
 const GnbWrap = styled.ul`
   ${DESKTOP} {
@@ -14,6 +14,6 @@ const GnbWrap = styled.ul`
       color: ${(props) => props.theme.primary};
     }
   }
-`
+`;
 
-export {GnbWrap}
+export { GnbWrap };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { CustomBtn } from './Button.styled';
+import { CustomButtonWrap } from './Button.styled';
 
 export const CustomButton = ({ children, onClick, disable, loading, placeholder, ...props }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -19,7 +19,7 @@ export const CustomButton = ({ children, onClick, disable, loading, placeholder,
   };
 
   return (
-    <CustomBtn
+    <CustomButtonWrap
       {...props}
       loading={loading}
       placeholder={placeholder}
@@ -30,7 +30,7 @@ export const CustomButton = ({ children, onClick, disable, loading, placeholder,
       onClick={!disable ? onClick : undefined}
       disabled={disable || loading}
       aria-label={disable || loading ? 'Button disabled' : 'Button'}
-      aria-disabled={disable || loading ? true : false}
+      aria-disabled={disable || loading}
     >
       {loading && (
         <p className="spin-wrap">
@@ -38,13 +38,11 @@ export const CustomButton = ({ children, onClick, disable, loading, placeholder,
         </p>
       )}
       {!loading && children}
-    </CustomBtn>
+    </CustomButtonWrap>
   );
 };
 
-///////////////////////////
-//// props 자료 타입입니다.///
-/////////////////////////
+// props 자료 타입입니다.
 
 CustomButton.propTypes = {
   children: PropTypes.node.isRequired,
@@ -52,4 +50,10 @@ CustomButton.propTypes = {
   disable: PropTypes.bool,
   loading: PropTypes.bool,
   placeholder: PropTypes.string,
+};
+
+CustomButton.defaultProps = {
+  disable: false,
+  loading: false,
+  placeholder: '',
 };

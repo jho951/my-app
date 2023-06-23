@@ -1,12 +1,12 @@
-import Document, {Html, Head, Main, NextScript} from "next/document"
-import {ServerStyleSheet} from "styled-components"
-import {GlobalStyle} from "../styles/GlobalStyled"
-import HeadComponents from "../components/atoms/htmlHead/HtmlHead"
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
+import { GlobalStyle } from '../styles/GlobalStyled';
+import HeadComponents from '../components/atoms/htmlHead/HtmlHead';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
 
     try {
       ctx.renderPage = () =>
@@ -18,15 +18,15 @@ export default class MyDocument extends Document {
                 <HeadComponents.DefaultHead />
                 <HeadComponents.PageHead />
                 <App {...props} />
-              </>
+              </>,
             ),
-        })
+        });
 
-      const initialProps = await Document.getInitialProps(ctx)
-      const {res} = ctx
+      const initialProps = await Document.getInitialProps(ctx);
+      const { res } = ctx;
 
       if (res && res.locals) {
-        res.locals.styles = sheet.getStyleElement()
+        res.locals.styles = sheet.getStyleElement();
       }
 
       return {
@@ -37,15 +37,15 @@ export default class MyDocument extends Document {
             {sheet.getStyleElement()}
           </>
         ),
-      }
+      };
     } finally {
-      sheet.seal()
+      sheet.seal();
     }
   }
 
   render() {
     return (
-      <Html lang='ko'>
+      <Html lang="ko">
         <Head />
         <body>
           <GlobalStyle />
@@ -55,6 +55,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }

@@ -1,11 +1,11 @@
-import {CustomList} from "../list/list"
-import {LnbWrap} from "./LNB.styled"
+import { CustomList } from '../list/list';
+import { LnbWrap } from './LNB.styled';
 
-const LNB = ({menus}) => {
+const LNB = ({ menus }) => {
   return (
     <LnbWrap>
       <CustomList menus={menus} />
     </LnbWrap>
-  )
-}
-export default LNB
+  );
+};
+export default LNB;

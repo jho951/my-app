@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
-export const LabelContainer = styled.label`
+export const LabelWrap = styled.label`
   font-size: ${(props) => props.fontSize || props.theme.fontSize.m};
+  .mark-req {
+    color: ${(props) => props.theme.warning};
+  }
 `;
