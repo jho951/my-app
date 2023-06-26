@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import LNB from '../../atoms/lnb/LNB';
+
 import { GNB_MENU } from '../../../utils/constants/project';
 import { GnbWrap } from './GNB.styled';
 import { CustomList } from '../../atoms/list/list';
@@ -20,7 +20,7 @@ const GNB = () => {
   return (
     <GnbWrap>
       <CustomList menus={GNB_MENU} onMouseEnter={openLnbToggle} onMouseLeave={closeLnbToggle} />
-      {isHovered && <LNB menus={activeChildren} />}
+      {/* {isHovered && <LNB menus={activeChildren} />} */}
     </GnbWrap>
   );
 };

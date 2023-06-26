@@ -11,18 +11,18 @@ export const DefaultHead = () => (
     <meta name="twitter:card" content="summary" />
   </Head>
 );
-export const PageHead = ({ title, description, keyword, data }) => (
+export const PageHead = ({ headInfo, data }) => (
   <Head>
-    <title>{data?.category || title}</title>
-    <meta name="description" content={description || ''} />
-    <meta name="Keywords" content={keyword || ''} />
+    <title>{data?.category || headInfo?.title}</title>
+    <meta name="description" content={headInfo?.description || ''} />
+    <meta name="Keywords" content={headInfo?.keyword || ''} />
 
-    <meta property="og:title" content={data?.category || title} />
-    <meta property="og:description" content={description || ''} />
+    <meta property="og:title" content={data?.category || headInfo?.title} />
+    <meta property="og:description" content={headInfo?.description || ''} />
     <meta property="og:url" content="페이지 URL" />
     <meta property="og:image" content={data?.images[0] || ''} />
 
-    <meta name="twitter:title" content={data?.category || title} />
+    <meta name="twitter:title" content={data?.category || headInfo?.title} />
     <meta name="twitter:description" content="공유 설명" />
     <meta name="twitter:image" content={data?.images[0] || ''} />
   </Head>

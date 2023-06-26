@@ -9,6 +9,7 @@ const CommonFooterStyles = css`
   color: ${(props) => props.theme.subColor};
   align-items: center;
 `;
+
 const FooterWrap = styled.footer`
   ${CommonFooterStyles}
   ${DESKTOP} {

@@ -7,7 +7,7 @@ import { BannerItems } from '../../molecules/bannerItems/BannerItems';
 import { BannerWrap } from './Banner.styled';
 
 const image = [
-  { src: `${IMG_PATH}/happyMedion.png`, id: 1 },
+  { src: `${IMG_PATH}/test.png`, id: 1 },
   { src: `${IMG_PATH}/blurImg.png`, id: 2 },
   { src: `${IMG_PATH}/happyMedion.png`, id: 3 },
   { src: `${IMG_PATH}/fnbLogo.png`, id: 4 },

@@ -1,20 +1,26 @@
-import { CustomButton } from '../../components/atoms/button/Button';
-import IconsInput from '../../components/molecules/iconsInput/IconsInput';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { Container } from '../../styles/page/Layout/Container.styled';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'react-i18next';
+import { Layout } from '../../components/templates/layout/Layout';
+import { PageHead } from '../../components/atoms/htmlHead/HtmlHead';
 
-const Index = () => {
+import Login from '../../components/templates/layout/login/Login';
+
+const headInfo = { id: 'loginPage', title: '로그인 페이지', description: '로그인페이지', keyword: 'login' };
+
+export default function Index() {
+  const { t } = useTranslation('common');
   return (
-    <Container maxWidth="688px">
-      <IconsInput type="password" />
-      <div style={{ display: 'flex' }}>
-        <IconsInput type="search" />
-        <CustomButton size="medium" onClick={() => alert('테스트')}>
-          <AiOutlineSearch />
-        </CustomButton>
-      </div>
-    </Container>
+    <Layout t={t}>
+      <PageHead headInfo={headInfo} />
+      <Login />
+    </Layout>
   );
-};
+}
 
-export default Index;
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
+}

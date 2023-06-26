@@ -46,12 +46,14 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="ko">
-        <Head />
-        <body>
-          <GlobalStyle />
+        <Head>
           <HeadComponents.DefaultHead />
           <HeadComponents.PageHead />
+        </Head>
+        <body>
+          <GlobalStyle />
           <Main />
+          <div id="lnb-portal" />
           <NextScript />
         </body>
       </Html>

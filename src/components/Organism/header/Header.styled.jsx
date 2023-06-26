@@ -16,7 +16,7 @@ const CommonHeaderStyles = css`
     justify-content: space-between;
     width: ${CONTENTS_WIDTH};
     max-width: 1408px;
-    margin: 0 auto;
+    margin: auto;
     .header-account {
       display: flex;
       justify-content: space-between;

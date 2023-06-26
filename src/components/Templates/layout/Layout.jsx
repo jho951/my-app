@@ -18,7 +18,6 @@ export const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-
       {!matches ? <Header accountLink={accountLink} /> : <div>모바일</div>}
       <Contents>{children}</Contents>
       <Footer />

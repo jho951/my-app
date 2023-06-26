@@ -19,11 +19,7 @@ export function CustomList({ menus, children, onMouseEnter, onMouseLeave }) {
   return (
     <>
       {menus?.map((menu) => {
-        const listItem = (
-          <li key={menu?.label} data-menu-id={menu?.id} className={router.pathname === menu?.href ? 'active' : ''}>
-            {menu?.label}
-          </li>
-        );
+        const isActive = router.pathname === menu?.href;
 
         if (menu?.href) {
           return (
@@ -35,11 +31,17 @@ export function CustomList({ menus, children, onMouseEnter, onMouseLeave }) {
               onMouseEnter={() => handleMouseEnter(menu.id)}
               onMouseLeave={handleMouseLeave}
             >
-              {listItem}
+              <li key={menu?.label} data-menu-id={menu?.id} className={isActive ? 'active' : ''}>
+                {menu?.label}
+              </li>
             </Link>
           );
         } else {
-          return listItem;
+          return (
+            <li key={menu?.label} data-menu-id={menu?.id} className={isActive ? 'active' : ''}>
+              {menu?.label}
+            </li>
+          );
         }
       })}
       {children}

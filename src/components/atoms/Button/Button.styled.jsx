@@ -150,6 +150,7 @@ const commonButtonStyles = css`
   outline: none;
   border: none;
   cursor: pointer;
+  width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
 
   &:active {
     transform: scale(1);

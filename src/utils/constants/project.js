@@ -46,9 +46,43 @@ const GNB_MENU = [
       },
     ],
   },
-  { id: 'service', label: '의료서비스', href: '/service', api: true },
-  { id: 'notice', label: '공지사항', href: '/notice', api: false },
-  { id: 'faq', label: '자주 묻는 질문', href: '/faq', api: false },
+  {
+    id: 'service',
+    label: '의료서비스',
+    href: '/service',
+    api: true,
+    children: [
+      {
+        id: 'service',
+        label: '대표 인사말',
+        href: '/info/greetings',
+        children: [
+          { id: 'service', label: '대표 인사말', href: '/info/greetings' },
+          { id: 'service', label: '오시는 길', href: '/info/map' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'notice',
+    label: '공지사항',
+    href: '/notice',
+    api: false,
+    children: [
+      { id: 'notice', label: '대표 인사말', href: '/info/greetings' },
+      { id: 'notice', label: '오시는 길', href: '/info/map' },
+    ],
+  },
+  {
+    id: 'faq',
+    label: '자주 묻는 질문',
+    href: '/faq',
+    api: false,
+    children: [
+      { id: 'faq', label: '대표 인사말', href: '/info/greetings' },
+      { id: 'faq', label: '오시는 길', href: '/info/map' },
+    ],
+  },
 ];
 
 // 다국어 국가 이미지
@@ -107,5 +141,10 @@ const SIDEBAR = [
     src: `${IMG_PATH}/sideBar/Instagram.png`,
   },
 ];
+const SELECT1 = [
+  { id: 1, label: 'SKT' },
+  { id: 2, label: 'KT' },
+  { id: 3, label: 'LG' },
+];
 
-export { PROJECT_NAME, IMG_PATH, LanguageCountryImage, PUBLIC_IMG_URL, GNB_MENU, FNB_MENU, SIDEBAR };
+export { PROJECT_NAME, IMG_PATH, LanguageCountryImage, PUBLIC_IMG_URL, GNB_MENU, FNB_MENU, SIDEBAR, SELECT1 };
