@@ -13,7 +13,7 @@ const commonInputStyle = css`
   font-size: ${(props) => props.theme.fontSize.s};
   outline: none;
   text-indent: 10px;
-  width: ${(props) => props.width || '500px'};
+  width: ${(props) => props.width || '100%'};
   ${(props) => props.fullWidth && 'max-width: 100%'};
 `;
 

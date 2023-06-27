@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-export function CustomList({ menus, children, onMouseEnter, onMouseLeave }) {
+export function CustomList({ menus, children, onMouseEnter, onMouseLeave, onClick }) {
   const router = useRouter();
 
   const handleMouseEnter = (menuId) => {
@@ -38,7 +38,12 @@ export function CustomList({ menus, children, onMouseEnter, onMouseLeave }) {
           );
         } else {
           return (
-            <li key={menu?.label} data-menu-id={menu?.id} className={isActive ? 'active' : ''}>
+            <li
+              key={menu?.label}
+              data-menu-id={menu?.id}
+              className={isActive ? 'active' : ''}
+              onClick={onClick ? () => onClick(menu) : undefined}
+            >
               {menu?.label}
             </li>
           );

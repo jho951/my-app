@@ -22,12 +22,6 @@ const IconsInput = ({ className, icons, type, onChange, value, name, isValid, fu
     setIsFocused(false);
   };
 
-  // const handleSearchClear = () => {
-  //   if (inputRef.current) {
-  //     inputRef.current.value = '';
-  //   }
-  // };
-
   const renderInput = () => {
     switch (type) {
       case 'password':
