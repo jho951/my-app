@@ -145,6 +145,7 @@ const SELECT1 = [
   { id: 1, label: 'SKT' },
   { id: 2, label: 'KT' },
   { id: 3, label: 'LG' },
+  { id: 4, label: '알뜰폰' },
 ];
 
 export { PROJECT_NAME, IMG_PATH, LanguageCountryImage, PUBLIC_IMG_URL, GNB_MENU, FNB_MENU, SIDEBAR, SELECT1 };

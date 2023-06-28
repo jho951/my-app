@@ -27,11 +27,11 @@ const theme = {
   warning: '#ff0000',
   disabled: 'rgba(19, 100, 193, 0.45)',
   fontSize: {
-    s: '1.4rem',
-    m: '1.6rem',
-    l: '1.8rem',
-    xl: '2rem',
-    title: '2.4rem',
+    s: '1rem',
+    m: '1.2rem',
+    l: '1.4rem',
+    xl: '1.6rem',
+    title: '2rem',
   },
   button: {
     text: '#ffffff',
@@ -44,7 +44,6 @@ const theme = {
 // 프로젝트에서 사용되는 GlobalStyle 입니다.
 const GlobalStyle = createGlobalStyle`
   ${normalize}
-
   * {
     margin: 0;
     padding: 0;
@@ -54,20 +53,13 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
   :root {
-    font-size: 62.5%;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
   }
 
-
-  html {
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: none;
-  } 
   body {
-
     overflow: overlay;
     color: #000000;
     ol,ul {
@@ -77,18 +69,18 @@ const GlobalStyle = createGlobalStyle`
       text-decoration: none;
       color: inherit;
     }
-input::-ms-clear,
-input::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0;
-}
-input::-webkit-search-decoration,
-input::-webkit-search-cancel-button,
-input::-webkit-search-results-button,
-input::-webkit-search-results-decoration {
-  display: none;
-}
+    input::-ms-clear,
+    input::-ms-reveal {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+    input::-webkit-search-decoration,
+    input::-webkit-search-cancel-button,
+    input::-webkit-search-results-button,
+    input::-webkit-search-results-decoration {
+      display: none;
+    }
 
     .visuallyhidden {
       position: absolute;

@@ -25,12 +25,8 @@ const buttonSize = {
 };
 
 const buttonStyle = {
-  // 기본 버튼입니다.
-
   default: css`
-    color: ${(props) => props.theme.button.text};
     background: ${(props) => props.theme.button.default};
-    color: #ffffff;
 
     &:disabled {
       background: ${(props) => (props.loading ? props.theme.button.progress : props.theme.disabled)};
@@ -89,7 +85,6 @@ const buttonStyle = {
 
   text: css`
     display: inline-block;
-    color: ${(props) => props.theme.text};
     background: transparent;
 
     &:disabled {
@@ -98,13 +93,11 @@ const buttonStyle = {
 
     &:not(:disabled) {
       &:hover {
-        border-bottom: 1px solid ${(props) => props.theme.text};
       }
 
       &:active {
         transform: none;
         font-weight: 600;
-        border-bottom: 1px solid ${(props) => props.theme.text};
       }
     }
 
@@ -149,6 +142,7 @@ const commonButtonStyles = css`
   position: relative;
   outline: none;
   border: none;
+  color: ${(props) => props.theme.button.text};
   cursor: pointer;
   width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
 

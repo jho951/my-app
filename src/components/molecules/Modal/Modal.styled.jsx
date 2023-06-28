@@ -18,26 +18,32 @@ const fadeOut = keyframes`
   }
 `;
 
-const ModalOverLay = styled.div`
+const ModalContainer = styled.div`
   position: fixed;
-  width: 100%;
-  height: 100%;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 11;
+  text-align: center;
+  font-size: 0;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 101;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s;
 `;
+
 const ModalWrap = styled.div`
-  width: 500px;
-  height: 500px;
-  height: fit-content;
-  background-color: #ffffff;
-  position: absolute;
+  width: ${(props) => props.width || '291px'};
+  height: ${(props) => props.height || '100px'};
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 105;
+  background-color: ${(props) => props.theme.background};
+
   .modal-overlay {
     display: flex;
     justify-content: right;
@@ -51,4 +57,18 @@ const ModalWrap = styled.div`
   }
 `;
 
-export { ModalOverLay, ModalWrap };
+export { ModalWrap, ModalContainer };
+
+// height: fit-content;
+
+// const ModalOverLay = styled.div`
+//   position: fixed;
+//   width: 500px;
+//   height: 500px;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   background: rgba(0, 0, 0, 0.5); /* 변경된 배경색 */
+//   z-index: 100;
+// `;

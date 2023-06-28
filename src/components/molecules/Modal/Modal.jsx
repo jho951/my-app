@@ -1,19 +1,20 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
-import Portal from '../../../utils/Portal/Portal';
-import { ModalOverLay, ModalWrap } from './Modal.styled';
+import * as S from './Modal.styled';
+import Portal from '../../../utils/Portal';
 
 const Modal = ({ isOpen, onClose, children }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const modalRef = useRef(null);
 
   useEffect(() => {
-    setModalOpen(isOpen);
+    setModalOpen(typeof isOpen);
   }, [isOpen]);
 
   const handleCloseModal = () => {
     setModalOpen(false);
     onClose();
   };
+
   const handleOutsideClick = useCallback((e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
       handleCloseModal();
@@ -21,19 +22,20 @@ const Modal = ({ isOpen, onClose, children }) => {
   }, []);
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleOutsideClick);
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
+    if (onClose) {
+      document.addEventListener('mousedown', handleOutsideClick);
+      return () => {
+        document.removeEventListener('mousedown', handleOutsideClick);
+      };
+    }
   }, [handleOutsideClick]);
 
   return (
     <Portal selector="#modal-root">
       {modalOpen && (
-        <ModalWrap ref={modalRef}>
-          <ModalOverLay className="modal-overlay" onClick={handleCloseModal} />
-          {children}
-        </ModalWrap>
+        <S.ModalContainer>
+          <S.ModalWrap ref={modalRef}>{children}</S.ModalWrap>
+        </S.ModalContainer>
       )}
     </Portal>
   );

@@ -53,7 +53,7 @@ export default class MyDocument extends Document {
         <body>
           <GlobalStyle />
           <Main />
-          <div id="lnb-portal" />
+          <div id="modal-root" />
           <NextScript />
         </body>
       </Html>
