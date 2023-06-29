@@ -8,42 +8,26 @@ const AlertWrap = styled.section`
     justify-content: center;
     flex-direction: column;
     color: black;
+    height: 6.25rem;
+    width: 18.1875rem;
 
     p {
       margin: 0;
       white-space: pre-line;
       text-align: center;
-      font-size: 15px;
-
+      font-size: 0.8125rem;
       margin-bottom: 7px;
-    }
-    b {
-      color: red;
-      font-weight: 900;
     }
   }
 
   .alert-footer {
-    align-self: flex-end;
-    width: 100%;
-    height: 50px;
-    border-top: 1px solid black;
-    display: flex;
-    justify-content: center;
-  }
+    background-color: #ffffff;
+    border-top: 1px solid #000;
 
-  #customBtnClose {
     p {
-      font-weight: 600;
-      border-right: 1px solid black;
-      color: red;
-    }
-  }
-
-  #customBtnSelect {
-    p {
-      font-weight: 700;
-      color: red;
+      font-weight: 400;
+      color: black;
+      font-size: 0.8125rem;
     }
   }
 `;

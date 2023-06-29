@@ -10,7 +10,7 @@ const Alert = ({ text, confirmButtonText, showModal, closeModal }) => {
           <p>{text}</p>
         </div>
         <div className="alert-footer">
-          <CustomButton id="customBtnSelect" onClick={closeModal}>
+          <CustomButton id="customBtnSelect" design="text" fullWidth onClick={closeModal}>
             <p>{confirmButtonText}</p>
           </CustomButton>
         </div>
@@ -20,21 +20,3 @@ const Alert = ({ text, confirmButtonText, showModal, closeModal }) => {
 };
 
 export default Alert;
-
-//   const handleConfirmClick = () => {
-//     selectAlert(true);
-//     setIsAlertVisible(false);
-//   };
-
-//   const handleCancelClick = () => {
-//     selectAlert(false);
-//     setIsAlertVisible(false);
-//   };          {cancelButtonText && (
-//     <CustomButton id="customBtnClose" onClick={handleCancelClick}>
-//       <p>{cancelButtonText}</p>
-//     </CustomButton>
-//   )}
-
-//   const selectAlert = (res) => {
-//     if (select) select(res);
-//   };
