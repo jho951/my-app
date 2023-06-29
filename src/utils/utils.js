@@ -89,18 +89,6 @@ const skipNavigation = (id) => {
   }
 };
 
-// 스코롤을 못하게 막는 utils 함수입니다.
-
-const bodyHiddenToggle = (toggle) => {
-  const body = document.querySelector('body');
-
-  if (toggle) {
-    body.classList.add('hidden');
-  } else {
-    body.classList.remove('hidden');
-  }
-};
-
 // 이미지의 natural width, height를 리턴하는 custom hook입니다.
 
 const useImageSize = (imagePath) => {
@@ -130,4 +118,4 @@ const useImageSize = (imagePath) => {
   return { ...dimensions, isLoaded };
 };
 
-export { addComma, textSlice, diffToText, timeFormat, setCreatedAt, removeDuplicates, skipNavigation, useImageSize, bodyHiddenToggle };
+export { addComma, textSlice, diffToText, timeFormat, setCreatedAt, removeDuplicates, skipNavigation, useImageSize };

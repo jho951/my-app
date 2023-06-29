@@ -2,16 +2,16 @@ import Modal from '../../molecules/modal/Modal';
 import * as S from './Alert.styled';
 import { CustomButton } from '../../atoms/button/Button';
 
-const Alert = ({ text, confirmButtonText, showModal, closeModal }) => {
+const Alert = ({ text, showModal, closeModal }) => {
   return (
-    <Modal isOpen={showModal}>
-      <S.AlertWrap>
-        <div className="alert-text-wrap">
-          <p>{text}</p>
+    <Modal isOpen={showModal} role="alertdialog" aria-modal="true" aria-hidden={!showModal}>
+      <S.AlertWrap role="document">
+        <div className="alert-text-wrap" aria-labelledby="dialog1Title">
+          <span id="dialog1Title">{text}</span>
         </div>
-        <div className="alert-footer">
+        <div className="alert-btn-wrap">
           <CustomButton id="customBtnSelect" design="text" fullWidth onClick={closeModal}>
-            <p>{confirmButtonText}</p>
+            <span>확인</span>
           </CustomButton>
         </div>
       </S.AlertWrap>

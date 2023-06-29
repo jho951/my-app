@@ -11,8 +11,8 @@ import CustomTitle from '../../../molecules/title/Title';
 import { CustomImage } from '../../../atoms/image/Image';
 import TextArea from '../../../molecules/textarea/TextArea';
 
-import Alert from '../../../organism/alert/Alert';
 import { ModalUtils } from '../../../../utils/ModalUtils';
+import Confirm from '../../../organism/confirm/Confirm';
 
 const longText = `긴 텍스트를 스크롤로 확인하는 예시입니다.
 ...
@@ -36,8 +36,17 @@ const longText = `긴 텍스트를 스크롤로 확인하는 예시입니다.
 const Login = () => {
   const [body, setBody] = useState('');
   const { modalOpen, handleOpenModal, handleCloseModal } = ModalUtils();
+  const handlePrompt = () => {
+    const userInput = prompt('prompt 테스트:', '여기에 입력해주세요');
+    if (userInput) {
+      setBody(userInput);
+    }
+  };
 
-  // const { data } = useQuery('countries', () => axios.get('https://restcountries.com/v3.1/all').then((res) => setBody(res)));
+  const handleConfirmClick = () => {
+    alert('안녕');
+    handleCloseModal();
+  };
 
   return (
     <Container maxWidth="688px">
@@ -47,8 +56,7 @@ const Login = () => {
       <IconsInput type="password" />
       <div style={{ display: 'flex' }}>
         <IconsInput type="search" />
-
-        <CustomButton size="medium" onClick={() => alert('테스트')}>
+        <CustomButton size="medium" onClick={handlePrompt}>
           <AiOutlineSearch />
         </CustomButton>
       </div>
@@ -56,8 +64,10 @@ const Login = () => {
       <CustomButton size="large" onClick={handleOpenModal}>
         모달 창 테스트
       </CustomButton>
-      {modalOpen && <Alert text="모달 내용" confirmButtonText="확인" showModal={handleOpenModal} closeModal={handleCloseModal} />}
+      {modalOpen && <Confirm text="테스트" open={modalOpen} close={handleCloseModal} onClick={handleConfirmClick} />}
+
       <CustomSelect menus={SELECT1} setBody={setBody} body={body} />
+      <h1>{body}</h1>
     </Container>
   );
 };

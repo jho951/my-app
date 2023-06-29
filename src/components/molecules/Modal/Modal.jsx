@@ -2,41 +2,48 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import * as S from './Modal.styled';
 import Portal from '../../../utils/Portal';
 
-const Modal = ({ isOpen, onClose, children }) => {
-  const [modalOpen, setModalOpen] = useState(false);
+const Modal = ({ open, close, children }) => {
   const modalRef = useRef(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    setModalOpen(typeof isOpen);
-  }, [isOpen]);
+    setModalOpen(open);
+  }, [open]);
 
-  const handleCloseModal = () => {
-    setModalOpen(false);
-    onClose();
-  };
-
-  const handleOutsideClick = useCallback((e) => {
-    if (modalRef.current && !modalRef.current.contains(e.target)) {
-      handleCloseModal();
-    }
-  }, []);
+  const handleOutsideClick = useCallback(
+    (e) => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        close();
+      }
+    },
+    [close],
+  );
 
   useEffect(() => {
-    if (onClose) {
+    if (close) {
       document.addEventListener('mousedown', handleOutsideClick);
       return () => {
         document.removeEventListener('mousedown', handleOutsideClick);
       };
     }
-  }, [handleOutsideClick]);
+  }, [close, handleOutsideClick]);
+
+  useEffect(() => {
+    if (modalOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [modalOpen]);
 
   return (
     <Portal selector="#modal-root">
-      {modalOpen && (
-        <S.ModalContainer>
-          <S.ModalWrap ref={modalRef}>{children}</S.ModalWrap>
-        </S.ModalContainer>
-      )}
+      <S.ModalContainer>
+        <S.ModalWrap ref={modalRef}>{children}</S.ModalWrap>
+      </S.ModalContainer>
     </Portal>
   );
 };

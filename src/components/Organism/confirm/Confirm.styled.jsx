@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const AlertWrap = styled.section`
-  .alert-text-wrap {
+const ConfirmWrap = styled.section`
+  .confirm-text-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,10 +15,12 @@ const AlertWrap = styled.section`
     }
   }
 
-  .alert-btn-wrap {
+  .confirm-btn-wrap {
+    display: flex;
     background-color: #ffffff;
     border-top: 1px solid #000;
     font-weight: 400;
+
     span {
       color: #000;
       font-size: 0.8125rem;
@@ -26,4 +28,4 @@ const AlertWrap = styled.section`
   }
 `;
 
-export { AlertWrap };
+export { ConfirmWrap };
