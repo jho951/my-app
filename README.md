@@ -7,9 +7,9 @@ Next.Js 템플릿입니다.
 <h1> <b>2. 헤더 적용</n> 템플릿 화 </b></h1>
 <h4>next head 를 통해 seo를 위한 동적인 meta 태그 적용</h4>
 
-<h1> <b>3. Poratal를 이용한 tooltip과 modal</n> 템플릿 화 </b></h1>
+<h1> <b>3. Portal를 이용한 tooltip과 modal</n> 템플릿 화 </b></h1>
 
-<h1> <b>4. className을 통해 UI/UX에 필요한 solid-button, outline-button, text-button</n> 템플릿 화 </b></h1>
+<h1> <b>4.디자인이 크게 나뉘어 져있는 button 이나 Input 은 기준점을 정해놓고 </n> 템플릿 화 </b></h1>
 
 참고 https://web.dev/learn/design/internationalization/
 https://beta.nextjs.org/docs/rendering/server-and-client-components
